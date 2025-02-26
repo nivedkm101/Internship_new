@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div id="root" class="container container-fluid my-4 py-2">
+    <div id="main_lbl" class="text-center">
+      <strong class="h1">Exam Schedule</strong>
+    </div>
+    <br>
+    {% for item in exams %}
+    <div class="text-justify">
+      <hr>
+      <a href="{{ item.url }}">{{ item.title }}</a>
+    </div>
+    {% endfor %}
+  </div>
+
+
+  {% endblock %}

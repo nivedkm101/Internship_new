@@ -1,0 +1,133 @@
+{% load static %}
+<header class="text-white container-fluid">
+  <div class="row justify-content-between align-items-center" id="subHeader">
+    <div class="col-auto">
+      <ul class="list-unstyled list-inline mb-0">
+        <li class="list-inline-item"><a href="{% url 'home' %}"><img id="homeIcon" src="{% static 'icons/home_icon.png' %}"></a></li>
+        <li class="list-inline-item">&#124;</li>
+        <li class="list-inline-item"><a href="{% url 'about' %}" class="text-decoration-none text-reset">About NITPY</a></li>
+        <li class="list-inline-item">&#124;</li>
+        <li class="list-inline-item"><a href="https://www.nitpy.ac.in/Rsults/" class="text-decoration-none text-reset">Results&nbsp;<span class="badge badge-danger">NEW</span></a></li>
+        <li class="list-inline-item">&#124;</li>
+        <li class="list-inline-item"><a href="{% url 'reach_us' %}" class="text-decoration-none text-reset">Reach Us</a></li>
+        <li class="list-inline-item">&#124;</li>
+        <li class="list-inline-item"><a href="{% url 'contact' %}" class="text-decoration-none text-reset">Contacts</a></li>
+        <li class="list-inline-item">&#124;</li>
+        <li class="list-inline-item"><a href="https://mail.nitpy.ac.in" class="text-decoration-none text-reset">Webmail</a></li>
+        <li class="list-inline-item">&#124;</li>
+        <li class="list-inline-item"><a href="https://nitpy.samarth.ac.in/" class="text-decoration-none text-reset">Employee login (Samarth-eGov)</a></li>
+        <li class="list-inline-item">&#124;</li>
+        <li class="list-inline-item"><a href="https://nitpy.samarth.edu.in/index.php/site/login" class="text-decoration-none text-reset">Students Login (Samarth-eGov)</a></li>
+      </ul>
+    </div>
+  
+    <div class="col-auto text-right">
+      <ul class="list-unstyled list-inline mb-0">
+        <li class="list-inline-item">
+          <div class="xc-fs-manage">
+            <a class="xc-fs-decrement" id="dec" onclick="changeFontSize('-')">A-</a>
+            <a class="xc-fs-increment" id="inc" onclick="changeFontSize('+')">A+</a>
+          </div>
+        </li>
+        <li class="list-inline-item">&#124;</li>
+        <li class="list-inline-item">
+          <div id="google_translate_element"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+    
+  
+    <div class="row" id="mainHeader">
+      <div class="col">
+        <a href="{% url 'home' %}" class="text-decoration-none text-reset d-flex align-items-center">
+          <img src="{% static 'images/logo.png' %}" alt="NITPY Logo" id="logo" class="m-3">
+          <div class="ml-4">
+            <strong id="name">
+              தேசிய தொழில்நுட்பக்‌ கழகம்‌ புதுச்சேரி, காரைக்கால்<br>
+              राष्ट्रीय प्रौद्योगिकी संस्थान पुदुच्चेरी, कारैक्काल<br>
+              National Institute of Technology Puducherry, Karaikal<br>
+              An Institution of National Importance, Ministry of Education
+            </strong>
+          </div>
+        </a>
+      </div>
+  
+      <div class="col-5 d-none d-lg-block d-xl-block">
+        <div class="row h-100">
+          <div class="col d-flex align-items-center">
+            <div><img class="headerIcon" src="{% static 'icons/call.svg' %}" alt="Call Icon"></div>
+            <div class="ml-2">
+              <strong>Call Us</strong><br>
+              Academics: 04368-265235 <br>
+              Admin: 04368-265230
+            </div>
+          </div>
+          <div class="col d-flex align-items-center">
+            <div><img class="headerIcon" src="{% static 'icons/email.svg' %}" alt="Email Icon"></div>
+            <div class="ml-2"><strong>Email</strong><br> registrar[at]nitpy[dot]ac[dot]in</div>
+          </div>
+          <div class="col d-flex align-items-center">
+            <div><img class="headerIcon" src="{% static 'icons/location.svg' %}" alt="Location Icon"></div>
+            <div class="ml-2">
+              <strong><a href="https://goo.gl/maps/XmDJYYAxMFpb2D2J7">Location</a></strong><br>
+              Karaikal, Puducherry
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navBar" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);" >
+        <nav class="navbar navbar-expand-lg "  >
+            <div class="container-fluid">
+                <!-- Toggle Button for Small Screens -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarNav" style="background-color: var(--navbar-bg);" >
+                    <ul class="navbar-nav" >
+                        {% for item in nav_items %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="{{ item.title|slugify }}Dropdown" role="button" data-bs-toggle="dropdown" style="color: white;">
+                                {{ item.title }}
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% for subitem in item.submenu %}
+                                <li > <a class="dropdown-item" href="{{ subitem.url }}">{{ subitem.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        {% endfor %}
+                        <li>
+                            <div class="search-bar">
+                                <input type="text" placeholder="search..." class="form-control">
+                                <button class="btn btn-primary ms-2">Search</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+  </div>    
+</header>
+<script>
+  function changeFontSize(operation) {
+      let currentFontSize = parseFloat(getComputedStyle(document.body).fontSize) || 16;
+      let newFontSize = operation === '+' ? currentFontSize + 2 : currentFontSize - 2;
+
+      document.body.style.fontSize = `${newFontSize}px`;
+
+      // Store the font size in localStorage so it persists after page reload
+      localStorage.setItem("fontSize", newFontSize);
+  }
+
+  // On page load, set the saved font size
+  document.addEventListener("DOMContentLoaded", function () {
+      let savedFontSize = localStorage.getItem("fontSize");
+      if (savedFontSize) {
+          document.body.style.fontSize = `${savedFontSize}px`;
+      }
+  });
+</script>
