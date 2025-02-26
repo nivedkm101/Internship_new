@@ -1,0 +1,268 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/convocation.css' %}">
+<script src="{% static 'js/convocation.js' %}"></script>
+
+<h1 style="text-align: center; padding-top: 15px;"><strong>CONVOCATION</strong></h1>
+<div id="rootWrapper">
+  <div id="root" class="container"><br>
+    <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+      <div class="card">
+        <div class="card-header" role="tab" id="heading">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapse5"
+            aria-expanded="false" aria-controls="collapse5">
+            <h5 class="mb-0" style="text-align: center; color: aliceblue;">
+              ELEVENTH CONVOCATION – 23rd SEPTEMBER 2024
+            </h5>
+          </a>
+        </div>
+
+        <div id="collapse5" class="collapse show" role="tabpanel" aria-labelledby="heading"
+          data-parent="#accordionEx" style="border-style: solid;"><br>
+          <div class="text-center">
+            <b style="color: red;">Graduands of B.Tech. (2020-24 Batch), M.Tech. (2022-24 Batch), M.Sc. (2022-24 Batch), M.Tech. (By Research), and Doctor of Philosophy who have expressed their willingness to receive the degree in person in the 11<sup>th</sup> convocation are required to register at the registration desk from 11:00 A.M. to 12:30 P.M. on 23<sup>rd</sup> September 2024
+            </b>
+
+            <div id="table" class="p-3">
+              <b>Seating arrangement for Parents / Family members of degree recipients - Eleventh convocation on 23.09.2024</b><br>
+              <table id="table-style" class="table table-bordered table-condensed">
+                <thead class="thead-dark">
+                  <tr class="text-center">
+                    <th class="text-center" >Sl.no</th>
+                    <th class="text-center">Place</th>
+                    <th class="text-center">Particulars</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for item in table11 %}
+                    <tr>
+                      <td class="text-left">{{ item.Sl }}</td>
+                      <td class="text-center">{{ item.Name }}</td>
+                      <td class="text-center">{{ item.Quantity }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <br>
+
+            {% for item in ELEVENTH %}
+              <div class="card-body">
+                <a id="item" href="{{ item.url }}" style="text-decoration: none">
+                  {{ item.title }}
+                  {% if item.new %}<span class="badge badge-danger">NEW</span>{% endif %}
+                </a>
+              </div>
+            {% endfor %}
+
+            <div class="text-center">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/3omiuBiIpac"
+                title="11th CONVOCATION, NIT PUDUCHERRY" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="card">
+        <div class="card-header" role="tab" id="heading">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapse10"
+                aria-expanded="false" aria-controls="collapse4">
+                <h5 class="mb-0" style="text-align: center; color: aliceblue;">
+                    TENTH CONVOCATION - 07th October 2023
+                </h5>
+            </a>
+        </div>
+    
+        <div id="collapse10" class="collapse" role="tabpanel" aria-labelledby="heading"
+            data-parent="#accordionEx" style="border-style: solid;"><br><br>
+            <div class="text-center">
+                <p class="blink" style="color: red;">
+                    <b class="text-center">
+                        "Graduands of B.Tech. (2019-23 Batch), M.Tech. (2021-23 Batch) and Doctor of
+                        Philosophy who have expressed their willingness to receive the degree in person in
+                        10<sup>th</sup> convocation are required to register at the registration desk from 07:00 A.M. to
+                        08:30 A.M. on 07<sup>th</sup> October 2023."
+                    </b>
+                </p>
+                <br>
+    
+                <div id="table" class="p-3">
+                    <b>Seating arrangement for Parents / Family members of degree recipients - Tenth convocation on 07.10.2023</b><br>
+                    <table id="table-style" class="table table-bordered table-condensed">
+                        <thead class="thead-dark">
+                            <tr class="text-center">
+                                <th class="text-center ">Sl.no</th>
+                                <th class="text-center">Place</th>
+                                <th class="text-center">Particulars</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in table1 %}
+                            <tr>
+                                <td class="text-left">{{ item.Sl }}</td>
+                                <td class="text-center">{{ item.Name }}</td>
+                                <td class="text-center">{{ item.Quantity }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div id="table" class="p-3">
+                    <b>Transport arrangement for Graduands, Parents and Family members - Tenth convocation on 07.10.2023</b><br>
+                    <b class="text-center" style="color: red;">SHUTTLE TO NITPY</b>
+                    <table id="table-style" class="table table-bordered table-condensed">
+                        <tbody>
+                            {% for item in table2 %}
+                            <tr>
+                                <td class="text-center">{{ item.Name }}</td>
+                                <td class="text-center">{{ item.Quantity }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div id="table" class="p-3">
+                    <b class="text-center" style="color: red;">SHUTTLE FROM NITPY</b>
+                    <table id="table-style" class="table table-bordered table-condensed">
+                        <tbody>
+                            {% for item in table3 %}
+                            <tr>
+                                <td class="text-center">{{ item.Name }}</td>
+                                <td class="text-center">{{ item.Quantity }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+    
+                {% for item in TENTH %}
+                <div class="card-body">
+                    <a id="item" href="{{ item.url }}" style="text-decoration: none">
+                        {{ item.title }} 
+                        {% if item.new %}
+                            <span class="badge badge-danger">NEW</span>
+                        {% endif %}
+                    </a>
+                </div>
+                {% endfor %}
+    
+                <div class="text-center">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/rDZ5YCvC7nU?si=hZy3X89Z7m1SFGUp" 
+                        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <div class="card">
+        <div class="card-header" role="tab" id="heading">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapse9"
+            aria-expanded="false" aria-controls="collapse9">
+            <h5 class="mb-0" style="text-align: center; color: aliceblue;">
+              NINTH CONVOCATION - 21st FEBRUARY 2023
+            </h5>
+          </a>
+        </div>
+        <div id="collapse9" class="collapse" role="tabpanel" aria-labelledby="heading"
+          data-parent="#accordionEx" style="border-style: solid;"><br>
+          <p style="text-align: center; color: rgb(255, 0, 0);">Graduands of B.Tech. (2018-22 Batch), M.Tech. (2020-22 Batch) and Ph.D. who have expressed their willingness to receive the degree in person during the 9th convocation on 21st Feb 2023 are required to register [at] registration desk from 9.00 A.M. to 10.00 A.M. on the same day.
+          </p>
+          <div class="card-body">
+            {% for item in NINENTH %}
+              <li><a id="item" href="{{ item.url }}" style="text-decoration: none">{{ item.title }} <span class="badge badge-danger">{% if item.new %}NEW{% endif %}</span></a></li><br>
+            {% endfor %}
+          </div>
+          <div class="text-center">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Hl3tumYEgAc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div><br>
+      
+      <div class="card">
+        <div class="card-header" role="tab" id="heading">
+          <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse3" aria-expanded="true"
+            aria-controls="collapse3">
+            <h5 class="mb-0" style="text-align: center; color: aliceblue;">
+              EIGHTH CONVOCATION - 19th MAY 2022&nbsp;
+            </h5>
+          </a>
+        </div>
+        <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading"
+          data-parent="#accordionEx" style="border-style: solid;">
+          <div class="card-body">
+            {% for item in EIGHTH %}
+              <li><a id="item" href="{{ item.url }}" style="text-decoration: none">{{ item.title }}</a></li><br>
+            {% endfor %}
+          </div>
+          <p style="text-align: center; color: rgb(255, 0, 0);">
+            Graduands of B.Tech. (2017-21 Batch), M.Tech. (2019-21 Batch) and Ph.D. who would like to receive the degree in-person / in-absentia during the 8th convocation on 19th May 2022 are required to confirm their participation by online registration through the following link on or before 10.05.2022,<br>04.00 p.m.
+            <br><a href="https://forms.gle/2nYZU1tiR3ejpLmr7" style="color: blue; text-align: center;"><b>Registration link</b></a><br>
+            <marquee style="color: green; font-size: x-large;" direction="left" width="80%"><b>Registration link to attend the 8th Convocation in In-person is closed</b></marquee>
+          </p>
+          <div class="text-center">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Ibt93iN9XVM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div><br>
+      <div class="card">
+        <div class="card-header" role="tab" id="heading">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapse2"
+            aria-expanded="false" aria-controls="collapse2">
+            <h5 class="mb-0"  style="text-align: center; color: aliceblue;">
+              SEVENTH CONVOCATION - 19th FEBRUARY 2021-FRIDAY 5 PM
+            </h5>
+          </a>
+        </div>
+        <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading"
+          data-parent="#accordionEx" style="border-style: solid;">
+          <div class="card-body">
+            <ol>
+            {% for index in SEVENTH %}
+              <li><a id="item" href="{{ index.url }}" style="text-decoration: none">{{ index.title }}</a></li><br>
+            {% endfor %}
+        </ol>
+          </div>
+        </div>
+        
+      </div><br>
+       
+      <div class="card">
+        <div class="card-header" role="tab" id="heading">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapse1"
+            aria-expanded="false" aria-controls="collapse1">
+            <h5 class="mb-0"  style="text-align: center; color: aliceblue;">
+              SIXTH CONVOCATION - 28th FEBRUARY 2020
+            </h5>
+          </a>
+        </div>
+        <div id="collapse1" class="collapse" role="tabpanel" aria-labelledby="heading"
+          data-parent="#accordionEx" style="border-style: solid;">
+          <div class="card-body">
+            <ol>
+            {% for index in SIXTH %}
+              <li><a id="item" href="{{ index.url }}" style="text-decoration: none">{{ index.title }}</a></li><br>
+            {% endfor %}
+        </ol>
+          </div>
+        </div>
+      </div>
+     
+      </div><br><br>
+
+    
+  </div>
+  
+</div>
+
+
+
+{% endblock %}
