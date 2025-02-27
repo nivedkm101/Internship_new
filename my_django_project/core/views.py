@@ -77,13 +77,13 @@ def home(request):
         },
         {
             "title": "Hostel",
-            "link": "/HostelDetails",
+            "link": "/hostel",
             "content": [
                 {"title": "Hostel Administration", "link": "/hostelAdministration"},
                 {"title": "Hostel Facilities", "link": "/hostel_facilities"},
                 {"title": "Rules and Regulations", "link": "/static/docs/hostel/Hostel Rules.pdf"},
                 {"title": "Code of Conduct", "link": "/static/docs/hostel/Updated code of conduct - Hostel.pdf"},
-                {"title": "Circular", "link": "/circular_hostel"},
+                {"title": "Circular", "link": "hostel/circular_hostel"},
                 {"title": "Contact Us", "link": "/students/hostels"},
                 {"title": "Forms to Download", "link": "/forms/students"},
             ],

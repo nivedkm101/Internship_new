@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'academics',
-    "training_and_placement"
+    "training_and_placement",
+    "hostel"
 ]
 
 MIDDLEWARE = [

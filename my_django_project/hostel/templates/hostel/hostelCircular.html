@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}
+
+
+<link rel="stylesheet" href="{% static 'css/convocation.css' %}">
+<script src="{% static 'js/convocation.js' %}"></script>
+
+<h1 style="text-align: center; padding-top: 15px;"><strong>Hostel Circular</strong></h1>
+<div id="rootWrapper">
+  <div id="root" class="container"><br>
+    <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+      <div class="card">
+        <div class="card-header" role="tab" id="heading">
+          <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse6" aria-expanded="true"
+            aria-controls="collapse6">
+            <h5 class="mb-0" style="text-align: center; color: aliceblue;">
+              Announcements 2024 - 2025
+            </h5>
+          </a>
+        </div>
+        <div id="collapse6" class="collapse show" role="tabpanel" aria-labelledby="heading"
+          data-parent="#accordionEx" style="border-style: solid;">
+          {% for index in announcement24_25 %}
+            <div class="card-body">
+              <a id="item" href="{{ index.url }}" style="text-decoration: none">
+                {{ index.title }} 
+                {% if index.new %}
+                  <span class="badge badge-danger">NEW</span>
+                {% endif %}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div><br>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock%}

@@ -2,8 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('calendar/', views.calendar_view, name='calendar_view'),  # Add this line
-    
+    path('calendar/', views.calendar_view, name='calendar_view'),  
     path('emailContacts/', views.email_queries, name='email_queries'),
     path('convocation/', views.convocation, name='convocation'),
     path('exam/', views.exam, name='exam'),
