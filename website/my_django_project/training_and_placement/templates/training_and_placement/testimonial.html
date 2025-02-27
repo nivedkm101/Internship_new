@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/convocation.css' %}">
+<script src="{% static 'js/convocation.js' %}"></script>
+
+<div id="root" class="container container-fluid my-4 py-2"><div id="mainLabel" class="text-center">
+    <strong class="h1">Placement Testimonial</strong>
+  </div><br><br>
+      <p>It is our passion to play the facilitator role in shaping our students' careers before they pass out of our institution. We are extremely happy to share what a few of our students had to say about their experience with the Employability Enhancement and Placement Opportunities at NIT Puducherry.</p>
+      <br><br>
+      <div  class="gallery-container">
+        <!-- Swiper Carousel -->
+        <div class="swiper mySwiper" id="gallerybox" >
+            <div class="swiper-wrapper">
+                {% for image in placement23 %}
+                    <div class="gallery-slide swiper-slide">
+                        <img  src="{{ image.pic }}" class="gallery-image" data-index="{{ forloop.counter0 }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

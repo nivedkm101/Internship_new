@@ -1,8 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
-from django.shortcuts import render
-
 def calendar_view(request):
     calendar = [
     {
@@ -96,7 +93,6 @@ def email_queries(request):
         ]
     }
     return render(request, 'academics/emailContacts.html', {"tableData": table_data})
-from django.shortcuts import render
 
 def convocation(request):
     table1 = [
