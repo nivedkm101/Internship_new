@@ -96,9 +96,6 @@ college-website/
    ```
 5. Open a pull request.
 
-## License
-This project is licensed under the MIT License.
-
 ## Contact
-For any queries, reach out to **Nived K M** at **nivedkm@example.com**.
+For any queries, reach out to **Nived K M** at **nivedkm101@gmail.com**.
 
