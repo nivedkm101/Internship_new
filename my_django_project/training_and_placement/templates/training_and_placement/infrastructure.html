@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block content %}
+
+<link rel="stylesheet" href="{% static 'css/convocation.css' %}">
+<script src="{% static 'js/convocation.js' %}"></script>
 <div id="root" class="container container-fluid my-4 py-2">
     <div id="mainLabel" class="text-center"> 
         <h2><strong >Infrastructure Facilities</strong></h2>
@@ -28,20 +31,4 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Initialize Swiper
-        const swiper = new Swiper("#gallerybox", {
-            loop: true,
-            spaceBetween: 10,
-            mousewheel: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            slidesPerView: 2,
-            direction: 'horizontal',
-        });
-    });
-</script>
 {% endblock %}

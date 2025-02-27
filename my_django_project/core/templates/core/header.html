@@ -89,12 +89,12 @@
                     <ul class="navbar-nav" >
                         {% for item in nav_items %}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="{{ item.title|slugify }}Dropdown" role="button" data-bs-toggle="dropdown" style="color: white;">
+                            <a class="nav-link dropdown-toggle" href="{{ item.link }}" id="{{ item.title|slugify }}Dropdown" role="button"  style="color: white;">
                                 {{ item.title }}
                             </a>
                             <ul class="dropdown-menu">
-                                {% for subitem in item.submenu %}
-                                <li > <a class="dropdown-item" href="{{ subitem.url }}">{{ subitem.title }}</a></li>
+                                {% for subitem in item.content %}
+                                <li > <a class="dropdown-item" href="{{ subitem.link }}">{{ subitem.title }}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
