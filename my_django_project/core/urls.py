@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, about,reach_us,contact,announcement_banner,gallery_view,announcement,newsletter,tendernews
+from .views import home, about,reach_us,contact,announcement_banner,gallery_view,newsletter,tendernews
 from .views import upcommingEvents,research_component
 
 urlpatterns = [
@@ -14,7 +14,6 @@ urlpatterns = [
 
     path('gallery/', gallery_view, name='gallery'),
 
-    path('announcement/', announcement, name='announcement'),
 
     path('institute/administration/newsletter/', newsletter, name='newsletter'),
 

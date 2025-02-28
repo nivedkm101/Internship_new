@@ -461,11 +461,6 @@ def contact(request):
     return render(request, 'core/contact.html') 
 def announcement_banner(request):
     return render(request, 'core/announcement_banner.html') 
-def announcement_banner(request):
-    return render(request, 'core/announcement_banner.html') 
-
-def announcement(request):
-    return render(request, 'core/announcement.html') 
 
 def newsletter(request):
     return render(request, 'newsletter.html')
