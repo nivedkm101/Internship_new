@@ -4,4 +4,5 @@ from . import views
 urlpatterns = [
     path('', views.hostel, name='hostel'),
     path('circular_hostel/', views.circular_hostel, name='circular_hostel'),
+    path('hostelRules/', views.hostelRules, name='hostelRules'),
 ]

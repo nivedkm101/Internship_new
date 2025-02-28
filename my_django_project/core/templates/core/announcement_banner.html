@@ -1,0 +1,114 @@
+<div class="announcement-banner">
+    <div class="container1">
+        <p class="announcements__text">Announcements</p>
+        <div class="marquee-container">
+            <div class="marquee__movecontent">
+                <div class="marquee__content" data-length="{{ announcements|length }}">
+                    {% for announcement in announcements %}
+                        <div class="announcements__list">
+                            {% if announcement.new %}
+                                <a id="item" href="{{ announcement.url }}" style="text-decoration: none">
+                                    {{ announcement.title }} 
+                                    <span class="badge badge-danger">NEW</span>
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+<style>.announcement-banner {
+  position: relative;
+  /* Enable positioning */
+  z-index: 1000;
+  /* Ensure it's above other content */
+  width: 100%;
+  /* Use full width of the page */
+}
+
+.container1 {
+  display: flex;
+  /* Use flexbox for layout */
+  align-items: center;
+  /* Center items vertically */
+  justify-content: space-between;
+  /* Distribute items evenly */
+  /* Add padding to create some space */
+  box-sizing: border-box;
+  /* Include padding in the width */
+  max-width: 100%;
+  /* Use maximum width */
+  margin: 0 auto;
+  background: linear-gradient(to right, #0c1d3e, #1b3a72);
+  color: #fff;
+  /* Center the container */
+}
+
+.announcement-heading {
+  flex: 1;
+  /* Expand to fill available space */
+  text-align: left;
+  /* Align text to the left */
+}
+
+.marquee-container {
+  flex: 1;
+  /* Expand to fill available space */
+  overflow: hidden;
+  white-space: nowrap;
+  background: linear-gradient(to right, #1b3a72, #0c1d3e);
+  margin: 0;
+  padding: 10px;
+  /* Prevent line breaks */
+}
+
+.marquee__movecontent {
+  animation: marqueeAnimation 20s linear infinite;
+}
+
+.announcements__text {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  padding-right: 15px;
+}
+
+.announcements__list {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+  display: inline;
+  /* Display links inline */
+}
+
+.announcements__list:hover {
+  color: #ffd700;
+  /* Change color on hover */
+}
+
+.announcements__list a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.announcements__list a:hover {
+  cursor: pointer;
+}
+
+.marquee__content {
+  display: inline-block;
+}
+
+@keyframes marqueeAnimation {
+  0% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+</style>

@@ -7,8 +7,9 @@
 <script src="{% static 'js/home.js' %}"></script>
 
 <div class="bg-light">
-  
+   
     <div id="instituteCarousel" class="swiper mySwiper">
+        {% include 'core/announcement_banner.html' %}
       <div class="swiper-wrapper">
         {% for slide in instituteCarouselSlides %}
           <div class="swiper-slide">
