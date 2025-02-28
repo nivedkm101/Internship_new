@@ -34,7 +34,7 @@ Ensure you have the following installed:
    ```bash
    pip install -r requirements.txt
    ```
-4. Configure the database in `settings.py`:
+4. Configure the database in `settings.py`:  for now we havent created any bd
    ```python
    DATABASES = {
        'default': {
@@ -64,21 +64,6 @@ Ensure you have the following installed:
    http://127.0.0.1:8000/
    ```
 
-## File Structure
-```
-college-website/
-│── core/                   # Main app for handling general pages
-│── academics/              # App for managing academic programs
-│── alumni/                 # App for alumni-related content
-│── faculty/                # App for faculty & staff directory
-│── research/               # App for research & consultancy content
-│── static/                 # Static files (CSS, JS, images)
-│── templates/              # HTML templates
-│── db.sqlite3              # Database (if using SQLite for testing)
-│── manage.py               # Django project manager
-│── requirements.txt        # Python dependencies
-│── README.md               # Project documentation
-```
 
 ## Contributing
 1. Fork the repository.
