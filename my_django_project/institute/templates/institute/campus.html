@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}
+<div id="root" class="container container-fluid my-4 py-2">
+  <div id="main_lbl">
+    <strong class="h2">Campus And Facilities</strong>
+  </div>
+  <br>
+  <div class="text-justify">
+    <p>NIT Puducherry new campus is spread over 256 acres of lush green land in the village Poovam and Thiruvettakudi of Karaikal. NIT Puducherry address is NH32, Karaikal, Puducherry 609609. The institute campus comprises of boys hostel, girls hostel, science block, guest house, director residence, staff residence and playground.<br>
+
+      NIT Puducherry offers a wide range of facilities to its students and faculty members. It has a well-equipped library with multiple books covering various sectors of Engineering and Technology. The campus has a grievance cell that works round the clock to interact, counsel and resolve the problems faced by the students. Along with these, the college has signed an MOU with Vinayaka Mission Medical College and Hospital, Karaikal who provides proper medical facilities to the students. NIT Puducherry hostel has separate hostel blocks for boys and girls. NIT Puducherry hostel facilities are available for both Undergraduate and postgraduate students. NIT Puducherry hostel fee structure is very minimal and has to be paid every year during admission. The campus also offers sports facilities to its students. The campus is entirely WI-FI enabled.<br>
+
+      There are several clubs and societies in NIT Puducherry. It has an innovation club set up, which provides facilities to organize various extracurricular activities. Other organizations include Central Stores, Cultural, Housekeeping, ID Cards, IPR Cell, Library, Literary, Media Committee, Medical Care Committee, NSS Officer, Purchase, RajBhasha Committee, SC / ST / OBC Cell, Security, Swachh Bharat, Training and Placement, Transport and Web Team. The Institute also organises different fests all over the year.</p>
+  </div>
+  
+  {% for item in content %}
+    <hr>
+    <div class="text-justify row">
+      <div class="col">
+        <h3 id="sub_lbl">{{ item.title }}</h3>
+        <p class="pb-2">{{ item.body }}</p>
+        {% if item.link %}
+          <a href="{% url item.link %}">Click for more info</a>
+        {% endif %}
+        {% if item.url %}
+          <a href="{{ item.url }}">Click for more info</a>
+        {% endif %}
+      </div>
+      <div class="col my-4">
+        <img src="{{ item.img }}" class="img-fluid p-2 m-2">
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+  
+{% endblock %}
