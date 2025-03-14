@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/convocation.css' %}">      
+<script src="{% static 'js/convocation.js' %}"></script>
+<div id="root">
+    <div id="lblHead" class="text-center">
+      <br>
+      <strong>CAMPUS CONNECT - NIT Puducherry Monthly Newsletter</strong>
+  <br>
+  <div class="container w-75 p-3 ">
+  <p>This internal newsletter is a record of all the recent exciting events conducted at the institute, in addition to Training and Placement Activities, Institute Research, Faculty Accomplishments, PhD Student Events and much more.</p>
+    </div>
+    <div id="docview" class="container w-50 p-3 ">
+  
+      <iframe
+        src="/static/docs/campusconnect/Campus_connect_jan2025_issue31.pdf" width="100%"
+        height="500px">
+      </iframe>
+      <br>
+      <br>
+      <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+        <div class="card">
+           <div class="card-header" role="tab" id="heading">
+            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse12" aria-expanded="true"
+            aria-controls="collapse12">
+             <h5 class="mb-0" style="text-align: center; color: aliceblue;">
+                NITPY Campus connect Previous Issues
+             </h5>
+            </a>
+            </div>
+            <div id="collapse12" class="collapse" role="tabpanel" aria-labelledby="heading"
+            data-parent="#accordionEx" style="border-style: solid;">
+             {% for index in  newsletter %}
+                <div class="panel-body border p-2">
+                    <a id="item" href="{{ index.url }}" style="text-decoration: none">
+                        {{ index.title }}&nbsp;
+                        {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    
+  </div>
+</div>
+
+  
+    </div>  
+    </div>
+         
+{% endblock%}

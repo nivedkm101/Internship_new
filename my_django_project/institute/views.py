@@ -252,3 +252,296 @@ def forms(request):
     return render(request, "institute/forms.html", {"faculty": faculty, "students": students, "phd": phd, "phd2024": phd2024,
                                                      "general": general, "stores": stores, "cpda": cpda,
                                                        "medical": medical, "academics": academics, "networks": networks,"research": research})
+
+def icc(request):
+    ICC = [
+
+    {
+      "title": "Penal Consequences",
+      'url': "/static/pdf/ICC/Penal_Consequences.pdf"
+    },{
+      'title': "Sexual Harssment at Workplace",
+      'url': "/static/pdf/ICC/Sexual Harssment at Workplace.pdf"
+    },
+    {
+      'title': "Steps for conducting inquiry in case of allegation of Sexual Harassment",
+      'url': "/static/pdf/ICC/Steps for conducting inquiry in case of allegation of Sexual Harassment.pdf"
+    },
+    {
+      'title': "SEXUAL HARASSMENT OF WOMEN AT WORKPLACE (Prevention, Prohibition and Redressal) Act, 2013",
+      'url': "/static/pdf/ICC/SEXUAL HARASSMENT OF WOMEN AT WORKPLACE (Prevention, Prohibition and Redressal) Act, 2013.pdf"
+    },
+    {
+      'title': "Handbook on Sexual Harassment of Women at Workplace",
+      'url': "/static/pdf/ICC/Handbook on Sexual Harassment of Women at Workplace.pdf"
+    },
+    {
+      'title': "Details of Members of the INTERNAL COMPLAINTS COMMITTEE (ICC)",
+      'url': "/static/pdf/ICC/Details of Members of the INTERNAL COMPLAINTS COMMITTEE (ICC).pdf"
+    },
+  ]
+    return render(request, "institute/icc.html", {"ICC": ICC})
+
+def newsletter(request):    
+    
+  newsletter=[
+
+    {
+      'title':'Volume No.5, Issue No.2, January 2022',
+      'url':'/static/docs/newsletter/January-2022.pdf'
+    },
+    {
+      'title':'Volume No.5, Issue No.1, August 2021',
+      'url':'/static/docs/newsletter/August-2021.pdf'
+    },
+    {
+      'title':'Volume No.4, Issue No.2, January 2021',
+      'url':'/static/docs/newsletter/January-2021.pdf'
+    },
+    {
+      'title':'Volume No.4, Issue No.1, August 2020',
+      'url':'/static/docs/newsletter/August-2020.pdf'
+    },
+    {
+      'title':'Volume No.3, Issue No.2, January 2020',
+      'url':'/static/docs/newsletter/January-2020.pdf'
+    },
+    {
+      'title':'Volume No.3, Issue No.1, August 2019',
+      'url':'/static/docs/newsletter/August-2019.pdf'
+    },{
+      'title':'Volume No.2, Issue No.2, January 2019',
+      'url':'/static/docs/newsletter/January-2019.pdf'
+    },
+    {
+      'title':'Volume No.2, Issue No.1, August 2018',
+      'url':'/static/docs/newsletter/August-2018.pdf'
+    },
+    {
+      'title':'Volume No.1, Issue No.1, July 2017',
+      'url':'/static/docs/newsletter/July-2017.pdf'
+    }
+  ]
+  return render(request, "institute/newsletter.html",{ "newsletter":newsletter})
+
+def campusconnect(request):
+   newsletter = [
+        {
+            "title": "Issue No.31, January 2025",
+            "url": "/static/docs/campusconnect/Campus_connect_jan2025_issue31.pdf"
+        },
+        {
+            "title": "Issue No.30, December 2024",
+            "url": "/static/docs/campusconnect/NITPY CAMPUSCONNECT DEC2024.pdf"
+        },
+        {
+            "title": "Issue No.29, November 2024",
+            "url": "/static/docs/campusconnect/NITPY campus connect issue  November 2024.pdf"
+        },
+        {
+            "title": "Issue No.28, October 2024",
+            "url": "/static/docs/campusconnect/NITPY campus connect issue  October 2024.pdf"
+        },
+        {
+            "title": "Issue No.27, September 2024",
+            "url": "/static/docs/campusconnect/NITPY campus connect issue September 2024.pdf"
+        },
+        {
+            "title": "Issue No.26, August 2024",
+            "url": "/static/docs/campusconnect/NITPY campus connect issue August 2024.pdf"
+        },
+        {
+            "title": "Issue No.25, July 2024",
+            "url": "/static/docs/campusconnect/NITPY Campus Connect July 2024.pdf"
+        },
+        {
+            "title": "Issue No.24, June 2024",
+            "url": "/static/docs/campusconnect/NITPY Campus Connect June 2024.pdf"
+        },
+        {
+            "title": "Issue No.23, May 2024",
+            "url": "/static/docs/campusconnect/NITPY campus connect May 2024.pdf"
+        },
+        {
+            "title": "Issue No.22, April 2024",
+            "url": "/static/docs/campusconnect/NITPY Campus Connect April 2024.pdf"
+        },
+        {
+            "title": "Issue No.21, March 2024",
+            "url": "/static/docs/campusconnect/NITPY Campus Connect March 2024.pdf"
+        },
+        {
+            "title": "Issue No.20, February 2024",
+            "url": "/static/docs/campusconnect/NITPY Campus Connect Feb 2024.pdf"
+        },
+        {
+            "title": "Issue No.19, January 2024",
+            "url": "/static/docs/campusconnect/NITPY Campus Connect Jan 2024.pdf"
+        },
+        {
+            "title": "Issue No.18, December 2023",
+            "url": "/static/docs/campusconnect/NITPY CAMPUSCONNECT DEC2023.pdf"
+        },
+        {
+            "title": "Issue No.17, November 2023",
+            "url": "/static/docs/campusconnect/NITPY Campus Connect November 2023.pdf"
+        },
+        {
+            "title": "Issue No.16, October 2023",
+            "url": "/static/docs/campusconnect/October Issue_CC 2023.pdf"
+        },
+        {
+            "title": "Issue No.15, September 2023",
+            "url": "/static/docs/campusconnect/NITPY Campus Connect SEP_2023.pdf"
+        },
+        {
+            "title": "Issue No.14, August 2023",
+            "url": "/static/docs/campusconnect/NITPY Campus Connect August 2023.pdf"
+        },
+        {
+            "title": "Issue No.13, July 2023",
+            "url": "/static/docs/campusconnect/NITPY Campus connect JULY ISSUE 2023.pdf"
+        },
+        {
+            "title": "Issue No.12, June 2023",
+            "url": "/static/docs/campusconnect/Campus_Connect_june2023.pdf"
+        },
+        {
+            "title": "Issue No.11, May 2023",
+            "url": "/static/docs/campusconnect/NITPY Campus connect May 2023.pdf"
+        },
+        {
+            "title": "Issue No.10, April 2023",
+            "url": "/static/docs/campusconnect/NITPY Campus connect April 2023.pdf"
+        },
+        {
+            "title": "Issue No.9, March 2023",
+            "url": "/static/docs/campusconnect/NITPY Campus connect march 2023.pdf"
+        },
+        {
+            "title": "Issue No.8, February 2023",
+            "url": "/static/docs/campusconnect/NITPY campus connect feb 2023.pdf"
+        },
+        {
+            "title": "Issue No.7, January 2023",
+            "url": "/static/docs/campusconnect/NITPY Campus Connect jan 2023.pdf"
+        },
+        {
+            "title": "Issue No.6, December 2022",
+            "url": "/static/docs/campusconnect/nitpy newletter dec 2022.pdf"
+        },
+        {
+            "title": "Issue No.5, November 2022",
+            "url": "/static/docs/campusconnect/NITPY campus connect november.pdf"
+        },
+        {
+            "title": "Issue No.4, October 2022",
+            "url": "/static/docs/campusconnect/FINAL OCT ISSUE 4.pdf"
+        },
+        {
+            "title": "Issue No.3, September 2022",
+            "url": "/static/docs/campusconnect/updated_Campus_connect_issue_3_sep22.pdf"
+        },
+        {
+            "title": "Issue No.2, August 2022",
+            "url": "/static/docs/campusconnect/NITPY campus connect august.pdf"
+        },
+        {
+            "title": "Issue No.1, July 2022",
+            "url": "/static/docs/campusconnect/NITPY campus connect july-1.pdf"
+        }
+    ]
+   return render(request, "institute/campusconnect.html", {"newsletter": newsletter})
+
+def bulletin(request):
+    newsletter = [
+        {
+            "title": "Issue No.22, January 2025",
+            "url": "/static/docs/bulletin/NITPY Bullentin JANUARY 2025.pdf"
+        },
+        {
+            "title": "Issue No.21, December 2024",
+            "url": "/static/docs/bulletin/NITPY_BULLETIN_DEC2024.pdf"
+        },
+        {
+            "title": "Issue No.20, September 2024",
+            "url": "/static/docs/bulletin/NITPY BULLETIN SEPTEMBER 2024.pdf"
+        },
+        {
+            "title": "Issue No.19, August 2024",
+            "url": "/static/docs/bulletin/NITPY BULLETIN August 2024.pdf"
+        },
+        {
+            "title": "Issue No.18, May 2024",
+            "url": "/static/docs/bulletin/NITPY bulletin May-2024.pdf"
+        },
+        {
+            "title": "Issue No.17, March 2024",
+            "url": "/static/docs/bulletin/NITPY bulletin March 2024.pdf"
+        },
+        {
+            "title": "Issue No.16, February 2024",
+            "url": "/static/docs/bulletin/NITPY BULLETIN Feb 2024.pdf"
+        },
+        {
+            "title": "Issue No.15, January 2024",
+            "url": "/static/docs/bulletin/NITPY Bullentin Jan24.pdf"
+        },
+        {
+            "title": "Issue No.14, December 2023",
+            "url": "/static/docs/bulletin/NITPY BULLENTIN DECEMBER 2023.pdf"
+        },
+        {
+            "title": "Issue No.13, October 2023",
+            "url": "/static/docs/bulletin/NITPY BULLETIN OCTOBER 2023.pdf"
+        },
+        {
+            "title": "Issue No.12, September 2023",
+            "url": "/static/docs/bulletin/NITPY Sep 2023 Bulletin.pdf"
+        },
+        {
+            "title": "Issue No.11, August 2023",
+            "url": "/static/docs/bulletin/NITPY AUGUST BULLETIN 2023.pdf"
+        },
+        {
+            "title": "Issue No.10, July 2023",
+            "url": "/static/docs/bulletin/NITPY BULLETIN JULY 2023.pdf"
+        },
+        {
+            "title": "Issue No.9, May 2023",
+            "url": "/static/docs/bulletin/NITPY BULLETIN MAY 2023.pdf"
+        },
+        {
+            "title": "Issue No.8, March 2023",
+            "url": "/static/docs/bulletin/NITPY BULLETIN MARCH 2023.pdf"
+        },
+        {
+            "title": "Issue No.7, February 2023",
+            "url": "/static/docs/bulletin/NITPY_BULLETIN_FEB_2023.pdf"
+        },
+        {
+            "title": "Issue No.6, January 2023",
+            "url": "/static/docs/bulletin/NITPY BULLETIN JANUARY 2023.pdf"
+        },
+        {
+            "title": "Issue No.5, December 2022",
+            "url": "/static/docs/bulletin/NITPY BULLETIN DECEMBER  2022.pdf"
+        },
+        {
+            "title": "Issue No.4, November 2022",
+            "url": "/static/docs/bulletin/NITPY BULLETIN NOVERMBER 2022.pdf"
+        },
+        {
+            "title": "Issue No.3, October 2022",
+            "url": "/static/docs/bulletin/NITPY BULLETIN OCTOBER 2022.pdf"
+        },
+        {
+            "title": "Issue No.2, September 2022",
+            "url": "/static/docs/bulletin/NITPY BULLETIN SEPTEMBER 2022.pdf"
+        },
+        {
+            "title": "Issue No.1, August 2022",
+            "url": "/static/docs/bulletin/NITPY BULLETIN AUGUST 2022.pdf"
+        }
+    ]
+    return render(request,"institute/bulletin.html", {"newsletter": newsletter})
