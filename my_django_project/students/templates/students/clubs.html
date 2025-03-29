@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/table.css' %}">
+<div id="root" class="container container-fluid my-4 py-2">
+    <div id="mainLabel" class="text-center">
+      <strong class="h1">Student Clubs</strong>
+    </div>
+    <br>
+    {% for category in clubCategories %}
+<div>
+  <h2>{{ category.category }}</h2>
+  <table class=" table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>S. No.</th>
+        <th>Club Name</th>
+        <th>Faculty In-charge(s)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for club in category.clubs %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ club.name }}</td>
+        <td>
+          {% for faculty in club.facultyInCharge %}
+            {{ faculty }}{% if not forloop.last %}<br>{% endif %}
+          {% endfor %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endfor %}
+
+  
+{%endblock%}

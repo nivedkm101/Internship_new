@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/table.css' %}">
+<div id="root" class="container container-fluid my-4 py-2">
+    <div id="mainLabel" class="text-center">
+      <strong class="h1">Department Student Associations for AY 2024-2025</strong>
+    </div>
+    <br>
+    <br>
+  
+    <table >
+      <thead>
+        <tr>
+          <th>Department</th>
+          <th>Name of the Department Student Association</th>
+          <th>Name of the Faculty in-charge for AY 2024-2025</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for association in associations %}
+        <tr>
+          <td>{{ association.department }}</td>
+          <td>{{ association.association_name }}</td>
+          <td>
+            {% for faculty in association.faculty_in_charge %}
+              {{ faculty }}
+              {% if not forloop.last %}
+                <br>
+              {% endif %}
+            {% endfor %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+    <br>  
+
+  
+{%endblock%}

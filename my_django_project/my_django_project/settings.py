@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "training_and_placement",
     "hostel",
     "announcements",
-    "institute"
+    "institute",
+    "students",
 ]
 
 MIDDLEWARE = [

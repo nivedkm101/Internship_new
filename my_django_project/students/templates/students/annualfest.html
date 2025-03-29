@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/convocation.css' %}">
+<script src="{% static 'js/convocation.js' %}"></script>
+
+<div id="root" class="container container-fluid my-4 py-2">
+    <div id="mainLabel" class="text-center">
+      <strong class="h4">Annual Fest</strong>
+    </div>
+    <br>
+   <p>NIT Puducherry’s cultural fest has been started as intra-institute fest with the name “Utkarsha” in the year 2016 and has been renamed as “Le Ciel” in the year 2017. The Le Ciel serves as a platform to encourage students to showcase their talents in the competitions and is attracting many participants in and around Karaikal every year attaining a grand success.<br><br>  Le Ciel Touch the Sky, Break the Limits<br><br>
+    Get ready to soar at Le Ciel, the electrifying cultural fest of NIT Puducherry, where creativity and expression take flight. As the name suggests, “Le Ciel” means “The Sky”—a place where dreams fly high, talents shine bright, and imaginations run wild.<br><br>
+    Expect the unexpected with an explosive mix of music, dance, art, drama, and tech. Whether you're grooving to beats, watching jaw-dropping performances, or tackling thrilling challenges, this is where you take center stage in a whirlwind of unforgettable experiences.<br><br>
+    Le Ciel is more than just a fest—it’s a celebration of limitless potential. Here, traditions meet modern trends, friendships are forged, and memories are made. Are you ready to rise? Because at Le Ciel, the sky is just the beginning.<br><br>
+    </p><br>
+  
+    <div id="rootWrapper">
+      <div id="root" class="container"><br>
+   <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+  
+     <div class="card">
+       <div class="card-header" role="tab" id="heading">
+         <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse7" aria-expanded="true"
+           aria-controls="collapse7">
+           <h5  class="mb-0" style="text-align: center; color: aliceblue;">
+            Leciel Report
+           </h5>
+         </a>
+       </div>
+       <div id="collapse7" class="collapse show" role="tabpanel" aria-labelledby="heading"
+         data-parent="#accordionEx" style="border-style: solid;">
+         
+        {% for index in leciel %}
+         <div class="card-body">
+           <a id="item" href="{{index.url}}" style="text-decoration: none">{{index.title}} <span class="badge badge-danger" *ngIf="index.new">NEW</span></a>
+         </div>
+        {% endfor %}
+       </div>
+     </div>
+     </div><br>
+  <a href="https://www.nitpy.ac.in/institute/gallery"><b style="text-align: center;">Photo Gallery</b></a>
+  
+   </div>
+  
+
+{% endblock%}

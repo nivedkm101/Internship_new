@@ -436,3 +436,108 @@ def nad(request):
     return render(request, "academics/nad.html")
 def scholarship(request):
     return render(request, "academics/scholarship.html")
+
+
+from django.shortcuts import render
+from django.http import JsonResponse
+
+# Initial values for form filters
+default_filters = {
+    "programme": "BTECH",
+    "year": "2017",
+    "dept": "CSE"
+}
+
+# Year Lists
+bTechYearsList = ["2017", "2019", "2022", "2024"]
+mTechYearsList = ["2017", "2018", "2022", "2023", "2024"]
+peYearsList = ["2021", "2022"]
+mscYearsList = ["2022", "2024"]
+bscYearsList = ["2023"]
+
+# Programme List
+programmeList = [
+    {"title": "B.Tech", "value": "BTECH"},
+    {"title": "B.Sc. B.Ed.", "value": "BSC"},
+    {"title": "M.Tech", "value": "MTECH"},
+    {"title": "M.Sc", "value": "MSC"},
+    {"title": "Physical Education", "value": "PE"},
+]
+
+# Initial department list
+deptList = ["CE", "CSE", "ECE", "EEE", "MECH", "PHY", "MAT", "CHE", "HS", "B.Sc. B.Ed."]
+
+def curriculum(request):
+    filtersFormVal = default_filters.copy()
+    
+    if request.method == "POST":
+        filtersFormVal["programme"] = request.POST.get("programme", "BTECH")
+        filtersFormVal["year"] = request.POST.get("year", "2017")
+        filtersFormVal["dept"] = request.POST.get("dept", "CSE")
+    
+    # Determine department and year based on selected programme
+    yearsList, deptList = get_year_and_dept(filtersFormVal)
+
+    # Generate PDF URL
+    fileaddr = (
+        f"/static/docs/academics/curriculum/{filtersFormVal['programme']}"
+        f"{filtersFormVal['year']}{filtersFormVal['dept']}.pdf"
+    )
+
+    context = {
+        "programmeList": programmeList,
+        "yearsList": yearsList,
+        "deptList": deptList,
+        "fileaddr": fileaddr,
+        "filtersFormVal": filtersFormVal,
+    }
+
+    return render(request, "academics/curriculum.html", context)
+
+def get_year_and_dept(filtersFormVal):
+    programme = filtersFormVal["programme"]
+    year = filtersFormVal["year"]
+
+    # Set years and departments based on selected programme
+    if programme == "BTECH":
+        yearsList = bTechYearsList
+        if year in ["2017", "2019"]:
+            deptList = ["CE", "CSE", "ECE", "EEE", "MECH"]
+        elif year == "2022":
+            deptList = ["CE", "CSE", "ECE", "EEE", "MECH", "PHY", "MAT", "CHE", "HS", "Arts and Culture"]
+        elif year == "2024":
+            deptList = ["EEE"]
+    
+    elif programme == "MTECH":
+        yearsList = mTechYearsList
+        if year == "2017":
+            deptList = ["CSE"]
+        elif year == "2018":
+            deptList = ["ECE", "EEE"]
+        elif year == "2022":
+            deptList = ["DRI"]
+        elif year == "2023":
+            deptList = ["DI", "CSE"]
+        elif year == "2024":
+            deptList = ["Structural Engineering - Resilience and Sustainability", "EEE", "Digital Manufacturing and Smart Factories"]
+
+    elif programme == "PE":
+        yearsList = peYearsList
+        if year in ["2021", "2022"]:
+            deptList = ["NCC"]
+
+    elif programme == "MSC":
+        yearsList = mscYearsList
+        if year in ["2022", "2024"]:
+            deptList = ["CHE", "MAT", "PHY"]
+
+    elif programme == "BSC":
+        yearsList = bscYearsList
+        if year == "2023":
+            deptList = ["B.Sc. B.Ed."]
+
+    else:
+        yearsList = bTechYearsList
+        deptList = ["CE", "CSE", "ECE", "EEE", "MECH"]
+
+    return yearsList, deptList

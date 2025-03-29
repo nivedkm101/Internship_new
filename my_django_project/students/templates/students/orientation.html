@@ -1,0 +1,218 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+th {
+  background-color: #ffe4b2;
+}
+.break {
+  background-color: #ffe4b2;
+  font-weight: bold;
+}
+.highlight {
+  background-color: #ffffcc;
+}
+
+</style>
+
+<link rel="stylesheet" href="{% static 'css/convocation.css' %}">
+<script src="{% static 'js/convocation.js' %}"></script>
+<div id="root" class="container container-fluid my-4 py-2">
+    <div id="mainLabel" class="text-center">
+      <strong class="h2">First Year UG / PG Orientation Programme 2024</strong>
+    </div>
+    <br>
+  <p>
+    The orientation programme for first year B.Tech* / M.Tech**., and M.Sc**., students is
+  scheduled on 13 th August 2024. The agenda of the orientation programme is given below:
+  </p>
+  <table>
+    <thead>
+        <tr>
+            <th>DATE</th>
+            <th>TIME</th>
+            <th>EVENT</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="12">13-08-2024</td>
+            <td>09.30am-10.00am</td>
+            <td>
+                <ul>
+                    <li>Lighting the Lamp</li>
+                    <li>Prayer Song</li>
+                    <li>Welcome Address by The Dean Students Welfare, NIT Puducherry</li>
+                    <li>Honouring of Dignitaries</li>
+                    <li>Felicitation by The Registrar, NIT Puducherry</li>
+                    <li>Presidential Address by The Director, NIT Puducherry</li>
+                    <li>Introduction of Chief Guest by Associate Dean, Students Welfare, NIT Puducherry</li>
+                    <li>Chief Guest Address by Dr. Kusa Kumar Shaha, Dean, JIPMER Karaikal</li>
+                    <li>Vote of Thanks by Associate Dean, Students Welfare, NIT Puducherry</li>
+                </ul>
+            </td>
+        </tr>
+        <tr class="break">
+            <td>10.00am-10.30am</td>
+            <td>Tea Break</td>
+        </tr>
+        <tr>
+            <td>10.30am-11.30am</td>
+            <td>
+                <ul>
+                    <li>Introductory Address by Deans</li>
+                    <li>Introductory Address by Head of the Departments</li>
+                    <li>Introductory Address by Chief Warden</li>
+                    <li>Introduction of Students</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>11.30am-12.30pm</td>
+            <td>Interaction with Parents in the presence of Director, Registrar, Deans, HoDs, Chief Warden and T&amp;P Officer</td>
+        </tr>
+        <tr class="break">
+            <td>12.30pm-02.00pm</td>
+            <td>Lunch Break</td>
+        </tr>
+        <tr>
+            <td>02.00pm-02.30pm</td>
+            <td>Dean Academics – Curriculum and Academic Rules</td>
+        </tr>
+        <tr>
+            <td>02.30pm-03.00pm</td>
+            <td>Dean Students Welfare – Students Rules/Conduct, &amp; Anti-Ragging Roster Information</td>
+        </tr>
+        <tr>
+            <td>03.00pm-03.30pm</td>
+            <td>Chief Warden – Hostel Regulations and Operational Procedure</td>
+        </tr>
+        <tr>
+            <td>03.30pm-04.00pm</td>
+            <td>Librarian – Library Facilities and Rules</td>
+        </tr>
+        <tr>
+            <td>04.00pm-05.00pm</td>
+            <td>
+                <ul>
+                    <li>SASO – Sports Facilities and Procedure</li>
+                    <li>NCC</li>
+                    <li>NSS</li>
+                </ul>
+            </td>
+        </tr>
+        <tr class="break">
+            <td>05.00pm-05.30pm</td>
+            <td>Tea Break</td>
+        </tr>
+        <tr>
+            <td>05.30pm-06.30pm</td>
+            <td>Cultural Events</td>
+        </tr>
+        <tr>
+            <td rowspan="9">14-08-2024</td>
+            <td>09.30am-10.30am</td>
+            <td class="highlight">Lecture 1: Motivational Speech by Dr. Sakthivel Shanmugasundaram, Senior Scientist, ARCI, Hyderabad</td>
+        </tr>
+  
+               <tr>
+                  <td>10.30am-11.00am</td>
+                  <td>Dr. Lalrinpuia Tlau on SC/ST/OBC Cell – Scholarship Schemes</td>
+              </tr>
+              <tr class="break">
+                  <td>11.00am-11.30am</td>
+                  <td>Tea Break</td>
+              </tr>
+              <tr>
+                  <td>11.30am-12.30pm</td>
+                  <td>
+                      <ul>
+                          <li>Dr. T. Vinopraba, Chairperson, Women’s Cell, NIT PY</li>
+                          <li>Dr. G. Lakshmi Sutha, Chairperson, Internal Complaint Committee, NIT PY</li>
+                      </ul>
+                  </td>
+              </tr>
+              <tr class="break">
+                  <td>12.30pm-02.00pm</td>
+                  <td>Lunch Break</td>
+              </tr>
+              <tr>
+                  <td>02.00pm-02.30pm</td>
+                  <td class="highlight">Lecture 2: Motivational Speech by Ms. Priyanka Rajeev, NITPY Alumni &amp; Pursuing Ph.D, IIT Kanpur</td>
+              </tr>
+              <tr>
+                  <td>02.30pm-03.00pm</td>
+                  <td class="highlight">Lecture 3: Motivational Speech by Dr. Pooja Devi, Principal Scientist, CSIR &amp; Associate Professor, AcSIR (Industry)</td>
+              </tr>
+              <tr class="break">
+                  <td>03.00pm-03.30pm</td>
+                  <td>Tea Break</td>
+              </tr>
+              <tr>
+                  <td>03.30pm-06.30pm</td>
+                  <td>
+                      <ul>
+                          <li>Student Body Council</li>
+                          <li>Student Clubs</li>
+                          <li>Student Associations</li>
+                      </ul>
+                  </td>
+              </tr>
+              <tr>
+                <td rowspan="5">16-08-2024</td>
+                <td>09.30am-11.00am</td>
+                <td class="highlight">Lecture 4: Music Therapy Experimental Session, Sri Balaji Vidyapeeth Team, Puducherry</td>
+            </tr>
+            <tr class="break">
+                <td>11.00am-11.30am</td>
+                <td>Tea Break</td>
+            </tr>
+            <tr>
+                <td>11.30am-12.30pm</td>
+                <td class="highlight">Lecture 5: Your DOST – Online Counseling &amp; Emotional Wellness Coach</td>
+            </tr>
+            <tr class="break">
+                <td>12.30pm-02.00pm</td>
+                <td>Lunch Break</td>
+            </tr>
+            <tr>
+                <td>02.00pm-05.00pm</td>
+                <td>Department Visits (Students will visit their respective Department)</td>
+            </tr>
+    </tbody>
+  </table>
+  
+  
+  <p>* B.Tech Regular classes will be commencing from 19-08-2024 Monday onwards.<br>
+    ** M.Tech and M.Sc., regular classes will be commencing from 14-08-2024 Wednesday onwards.
+    </p>
+    <!-- images -->
+    <div  class="gallery-container">
+        <!-- Swiper Carousel -->
+        <div class="swiper mySwiper" id="gallerybox">
+            <div class="swiper-wrapper">
+                {% for image in orientation  %}
+                    <div class="gallery-slide swiper-slide">
+                        <img  src="{% static image.pic %}" class="gallery-image" data-index="{{ forloop.counter0 }}">
+                        <p class="image-description">{{ image.name }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    </div>
+  
+{%endblock%}
