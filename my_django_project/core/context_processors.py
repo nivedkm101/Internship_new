@@ -64,7 +64,7 @@ def global_links(request):
                 {"title": "Student Clubs", "link": "/students/clubs"},
                 {"title": "Student Associations", "link": "/students/student_association"},
                 {"title": "Counselling Services", "link": "/students/councelling"},
-                {"title": "Medical Insurance", "link": "/students/medical-insurance"},
+                {"title": "Medical Insurance", "link": "/students/medical_insurance"},
                 {"title": "NCC", "link": "/students/studentActivities/NCC"},
                 {"title": "NSS", "link": "/students/studentActivities/NSS"},
                 {"title": "Physical Education & Sports", "link": "/academics/physicalEducation"},

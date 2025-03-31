@@ -1,0 +1,104 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/table.css' %}">
+
+<div id="root" class="container container-fluid my-4 py-2">
+    <div id="mainLabel" class="text-center">
+      <strong class="h1">Medical Insurance</strong>
+    </div>
+    <br>
+    <div id="txtContent" class="text-justify p-3">
+  <h4>Student Group Mediclaim Insurance</h4><br>
+  <p>Every student enrolled for an academic program ( UG/PG / Ph.D.) are
+    insured by cashless Group Mediclaim Policy and Students Safety Package
+    Insurance offered by New India Assurance Co. Ltd.</p>
+
+    <table class=" table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Policy Name</th>
+          <th>UIN</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>NEW INDIA FLEXI FLOATER GROUP MEDICLAIM POLICY</td>
+          <td>NIAHLGP21281V022021</td>
+        </tr>
+        <tr>
+          <td>STUDENTS SAFETY PACKAGE INSURANCE</td>
+          <td>IRDAN190P0004201314</td>
+        </tr>
+      </tbody>
+    </table><br>
+  <p>
+    The student seeking insurance claim has to contact below TPA
+  persons. They will guide according to the nature of the claim.<br><br>
+  
+  <li> Medi Assist Insurance TPA Pvt. Ltd.</li><ul>
+  <li>Mr. Maheswara Pandian, Mobile Number 7094496963</li>
+  <li> Ms. Gayathri, Mobile Number 6366884480</li></ul>
+  <li>Medi Assist Address :</li>
+  Medi Assist Insurance TPA ( Pvt) Ltd,
+  No 20/2 , 1 st Floor,
+  Ponmeni Narayan street,
+  SS Colony,
+  Madurai 626016.
+  <br><br><p>
+  The claim should be intimated immediately and the claim
+  papers should have been submitted within 15 days. If there is delay
+  in intimation, the claim could not be entertained.<br><br>
+  Whenever the students are going to be hospitalized, they need
+  to inform the Medi Assist team and the hospital authorities that they
+  are covered under the above mentioned policies.</p>
+  </div>
+  
+  <div class="row my-2 py-4">
+    {% for index in file %}
+    <div class="col text-center">
+        <a href="{{index.url}}">
+            <div id="doc-box">
+                <svg width="110px" height="170px" viewBox="0 0 16 16" class="bi bi-file-earmark-text" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
+                  <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z" />
+                  <path fill-rule="evenodd"
+                    d="M5 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                </svg>
+                <br>{{index.filename}}&nbsp;<span class="badge badge-danger" *ngIf="index.new">NEW</span>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+    </div>
+  <p>
+    <b>Documents required for Claim Process :</b><br><br>
+  
+  1. Original detailed discharge summary<br>
+  2. Original Consolidated main bill<br>
+  3. Original break up bill for main bill<br>
+  4. All lab original investigation reports<br>
+  5. Original Pharmacy bill<br>
+  6. Original cash paid receipt<br>
+  7. Original cancelled cheque leaf<br>
+  8. Original implant stickers ( If it is implant used surgery)<br>
+  9. Original Implant invoice( If it is implant used surgery)<br>
+  10. case sheet Xerox copy<br>
+  11. Policy holder&#39;s pan card xerox<br>
+  12. Patient&#39;s Aadhaar card xerox<br>
+  13. Duly Filled claim form<br>
+  14. FIR copy/AR copy ( if it is an accident claim)<br>
+  15. Alcohol intoxication certificate from treating doctor ( if it is an accident
+  claim)<br><br>
+  </p>
+  
+  <b>For further information, the student can contact Dr. V. Balakumar, Associate Dean - Students Welfare (E-mail: ad-stduentwf@nitpy.ac.in, Mobile Number : +91 97508 82942)
+  </b>
+  
+
+
+  
+{%endblock%}

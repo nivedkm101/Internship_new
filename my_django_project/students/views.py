@@ -165,6 +165,7 @@ def counselling_service(request):
     return render(request, 'students/counselling_services.html')
 def grievance_redressal(request):
     return render(request, 'students/grievance_redressal.html')
+
 def sw_announcements(request):
      announcement24_25=[
     {
@@ -173,3 +174,34 @@ def sw_announcements(request):
     }
   ]
      return render(request, 'students/sw_announcements.html',{'announcement24_25':announcement24_25})
+def medical_insurance(request):
+    file = [
+    
+    {
+      'filename':"Medi Assist - Reimbursement Claim Form",
+      'url':'/static/docs/studentwelfare/mediclaim/2024-2025/Medi Assist - Reimbursement Claim Form.pdf',
+
+    },
+    {
+      'filename':"Medi Assist - NOC format",
+      'url':'/static/docs/studentwelfare/mediclaim/2024-2025/Medi Assist - NOC format.PDF',
+
+    },
+    {
+      'filename':"Policy Schedule - Students Safety Package Insurance",
+      'url':'/static/docs/studentwelfare/mediclaim/2024-2025/Policy Schedule - Students Safety Package Insurance.pdf',
+
+    },
+    {
+      'filename':"Policy Schedule - Group Mediclaim Policy",
+      'url':'/static/docs/studentwelfare/mediclaim/2024-2025/Policy Schedule - Group Mediclaim Policy.pdf',
+
+    },
+    {
+      'filename':"Terms, Conditions and Procedures",
+      'url':'/static/docs/studentwelfare/mediclaim/2024-2025/Terms, Conditions and Procedures.pdf',
+
+    },
+
+    ]
+    return render(request, 'students/medical_insurance.html',{'file': file})
