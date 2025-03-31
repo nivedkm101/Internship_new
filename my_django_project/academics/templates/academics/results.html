@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/results.css' %}">
+<div id="mainTitle" class="text-center">
+    <h2><strong>Results</strong></h2>
+  </div>
+  <br>
+  <div id="txtContent" class="text-justify">
+    <!-- <p>NIT Puducherry has nine departments based on science and engineering. The curriculum features teaching of all
+      levels and research providing a wide base of knowledge to produce quality engineers and scientists.</p>
+    <p>Please choose one department to see more.</p> -->
+  </div>
+  <div class="container">
+    <div class="row">
+        {% for index in depts %}
+      <div class="col-xs-12 col-xl-4" >
+        <a href="{{index.url}}">
+          <div class="dept">
+            <img src="{{index.icon}}" class="img-fluid">
+            <div class="dept-name">
+              <p>{{index.title}}&nbsp;<span NEW class="badge badge-danger" >NEW</span></p>
+            </div>
+          </div>
+        </a>
+      </div>
+        {% endfor %}
+    </div>
+  
+
+{% endblock %}

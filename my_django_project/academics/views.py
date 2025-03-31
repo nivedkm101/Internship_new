@@ -494,6 +494,18 @@ def curriculum(request):
 
     return render(request, "academics/curriculum.html", context)
 
+def results(request):
+    depts =[
+    {
+      'icon':'/static/icons/Btech.svg',
+      'title': 'B.Tech. (III & IV year) examination held on November 2024',
+      'url': 'https://www.nitpy.ac.in/Rsults/'
+    },
+
+    ]
+    return render(request, 'academics/results.html', {"depts": depts})
+  
+
 def get_year_and_dept(filtersFormVal):
     programme = filtersFormVal["programme"]
     year = filtersFormVal["year"]

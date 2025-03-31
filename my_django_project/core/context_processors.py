@@ -32,7 +32,7 @@ def global_links(request):
                 {"title": "Departments", "link": "/academics/departments"},
                 {"title": "Academic Office", "link": "/academics/office"},
                 {"title": "Admission", "link": "/students/admission"},
-                {"title": "Exam Results", "link": "https://www.nitpy.ac.in/Rsults/"},
+                {"title": "Exam Results", "link": "/academics/results"},
                 {"title": "Academic Calendar", "link": "/academics/calendar"},
                 {"title": "Curriculum and Syllabi", "link": "/academics/curriculum"},
                 {"title": "Institute Fee Structure", "link": "/academics/fee-structure"},
@@ -84,7 +84,7 @@ def global_links(request):
                 {"title": "Code of Conduct", "link": "/static/docs/hostel/Updated code of conduct - Hostel.pdf"},
                 {"title": "Circular", "link": "/hostel/circular_hostel"},
                 {"title": "Contact Us", "link": "/hostel/hostelRules    "},
-                {"title": "Forms to Download", "link": "/forms/students"},
+                {"title": "Forms to Download", "link": "/institute/forms"},
             ],
         },
         {
@@ -100,7 +100,7 @@ def global_links(request):
                 {"title": "P&D Directory", "link": "/faculty/P&dDirectory"},
                 {"title": "Staff Directory", "link": "/faculty/staffDirectory"},
                 {"title": "Career", "link": "/Opportunities"},
-                {"title": "Forms to Download", "link": "/forms/faculty"},
+                {"title": "Forms to Download", "link": "/institute/forms"},
             ]
         },
         {
