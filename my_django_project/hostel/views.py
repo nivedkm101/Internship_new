@@ -32,3 +32,34 @@ def circular_hostel(request):
         },
     ]
     return render(request, "hostel/hostelCircular.html",{ "announcement24_25": announcement24_25, })
+
+
+def hostel_facilities(request):
+    Boys_Hostel1 = [
+        {"pic": "/static/images/hostel/img001.jpg"},
+        {"pic": "/static/images/hostel/img002.jpg"},
+        {"pic": "/static/images/hostel/img003.jpg"},
+        {"pic": "/static/images/hostel/img004.jpg"},
+        {"pic": "/static/images/hostel/img005.jpg"},
+        {"pic": "/static/images/hostel/img006.jpg"},
+    ]
+
+    Boys_Hostel2 = [
+        {"pic": "/static/images/hostel/img007.jpg"},
+        {"pic": "/static/images/hostel/img008.jpg"},
+        {"pic": "/static/images/hostel/img009.jpg"},
+    ]
+
+    Girls_Hostel = [
+        {"pic": "/static/images/hostel/img010.jpg"},
+        {"pic": "/static/images/hostel/img001.jpg"},
+        {"pic": "/static/images/hostel/img011.jpg"},
+        {"pic": "/static/images/hostel/img012.jpg"},
+        {"pic": "/static/images/hostel/img006.jpg"},
+    ]
+
+    return render(request, "hostel/hostel_facilities.html", {
+        "Boys_Hostel1": Boys_Hostel1,
+        "Boys_Hostel2": Boys_Hostel2,
+        "Girls_Hostel": Girls_Hostel,
+    })

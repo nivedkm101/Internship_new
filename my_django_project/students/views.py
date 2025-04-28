@@ -205,3 +205,6 @@ def medical_insurance(request):
 
     ]
     return render(request, 'students/medical_insurance.html',{'file': file})
+
+def studentActivities(request):
+    return render(request, 'students/studentActivities.html')

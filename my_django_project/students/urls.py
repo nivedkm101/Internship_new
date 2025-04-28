@@ -14,5 +14,6 @@ urlpatterns = [
     path('Grievance Redressal/',views.grievance_redressal, name='grievance_redressal'),
     path('sw-announcements/',views.sw_announcements, name='sw_announcements'),
     path('medical_insurance/',views.medical_insurance, name='medical_insurance'),
+    path('studentActivities/',views.studentActivities, name='studentActivities'),
 ]
 

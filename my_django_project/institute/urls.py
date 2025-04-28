@@ -9,5 +9,7 @@ urlpatterns = [
     path('icc/', views.icc, name='icc'),
     path('newsletter/', views.newsletter, name='newsletter'),
     path('campusconnect/', views.campusconnect, name='campusconnect'),
-    path('bulletin/',views.bulletin,name='bulletin')
+    path('bulletin/',views.bulletin,name='bulletin'),
+    path('rti/',views.rti,name='rti'),
+    path('nirf/',views.nirf,name='nirf'),
 ]

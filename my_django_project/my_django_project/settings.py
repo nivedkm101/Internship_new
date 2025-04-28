@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "announcements",
     "institute",
     "students",
+    "faculty"
 ]
 
 MIDDLEWARE = [

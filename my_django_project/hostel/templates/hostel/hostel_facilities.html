@@ -1,0 +1,86 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/convocation.css' %}">
+<script src="{% static 'js/convocation.js' %}"></script>
+<div id="root" class="container container-fluid my-4 py-2">
+    <div id="main_lbl" class="text-center">
+      <strong class="h1">Hostel Facilities</strong>
+    </div>
+  
+      <div  id="txtContent" class="text-justify">
+        <!-- <h4><strong>Hostel Facility</strong></h4><br> -->
+        <p>NIT Puducherry is a residential institute and provides accommodation to students in the hostels. NITPY has presently two boy’s hostel and one girl’s hostel
+          that provides comfortable accommodation and are located close to the academic area. Presently over 800 students are residing in the hostels.<br>
+          The first year UG students are accommodated in a 4/2-occupancy style accommodation. In subsequent year, double/triple occupancy are allotted depending on the strength of the hostel inmates. Each room comes equipped with requisite amount of lighting and electrical ports, a fan, a chair and table and a steel cot. Wi-fi facility is provided in the hostel premises. PG and Ph.D inmates are given double occupancy accommodation.<br>
+          Staying in the campus is particularly attractive because the hostels are located in peaceful, clean, aesthetic environment in campus. The hostels are guarded round the clock by able private security staffs. Patrolling is also done by state security personnel during night. There are also separate wardens for each and every hostel in order to maintain discipline. Cleanliness and hygiene are taken care of and maintained in every aspect.<br>
+          The Overall supervision and administration are looked after by the hostel administration and the Hostel Office. The dwelling places are as modern as they can be, and the hostels have impressive architecture. With activities like hostel day celebration, welcome parties and other festivals around the year, inmates will enjoy the pleasant stay in the hostel. This Hostel is home away from home and hostel life will play a huge role in transforming an individual in the journey of life. <br>
+        </p>
+  
+           <h4><strong> Barani Hostel (Boys Hostel -1)</strong></h4><br>
+           <p> This hostel has 5 floors consisting of 215 rooms (43 rooms in each floor) and has ten washroom areas (2 in each floor). The hostels also have 04 nos of common rooms. </p>
+           <div  class="gallery-container">
+            <!-- Swiper Carousel -->
+            <div class="swiper mySwiper" id="gallerybox">
+                <div class="swiper-wrapper">
+                    {% for image in Boys_Hostel1 %}
+                        <div class="gallery-slide swiper-slide">
+                            <img  src="{{ image.pic }}" class="gallery-image" data-index="{{ forloop.counter0 }}">
+                            <p class="image-description">{{ image.name }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+           
+           <h4><strong>Bhavani Hostel (Girls Hostel)</strong></h4><br>
+           <p>This hostel has 3 floors consisting of 129 rooms (43 rooms in each floor) and has six washroom areas (2 in each floor). The hostel also have a 02 nos of common room.</p>
+           <div  class="gallery-container">
+            <!-- Swiper Carousel -->
+            <div class="swiper mySwiper" id="gallerybox">
+                <div class="swiper-wrapper">
+                    {% for image in Girls_Hostel %}
+                        <div class="gallery-slide swiper-slide">
+                            <img  src="{{ image.pic }}" class="gallery-image" data-index="{{ forloop.counter0 }}">
+                            <p class="image-description">{{ image.name }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+           
+          <h4><strong>Moyar Hostel (Boys Hostel -2)</strong></h4><br>
+          <p>This hostel is designed for 04 occupancy type and it consists of 80 rooms in 10 blocks (08 rooms in each block) and each block has washroom areas. </p>
+          <div  class="gallery-container">
+            <!-- Swiper Carousel -->
+            <div class="swiper mySwiper" id="gallerybox">
+                <div class="swiper-wrapper">
+                    {% for image in Boys_Hostel2 %}
+                        <div class="gallery-slide swiper-slide">
+                            <img  src="{{ image.pic }}" class="gallery-image" data-index="{{ forloop.counter0 }}">
+                            <p class="image-description">{{ image.name }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+          
+           <h4><strong>Mess Facility</strong></h4><br>
+           <p>Hostels are provided with a central mess facility for breakfast, lunch and dinner. The mess is run by caterer(s) chosen through open tender. The mess is
+             equipped with modern facilities for cooking and serving the food in hygienic conditions. For all messes, the Institute is providing all infrastructural facilities, like space, water and electricity connections, cooking appliances, Water purifiers, etc.</p><br>
+  
+        </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+{%endblock%}

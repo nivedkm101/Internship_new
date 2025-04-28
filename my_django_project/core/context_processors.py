@@ -79,7 +79,7 @@ def global_links(request):
             "link": "/hostel", 
             "content": [
                 {"title": "Hostel Administration", "link": "/hostelAdministration"},
-                {"title": "Hostel Facilities", "link": "/hostel_facilities"},
+                {"title": "Hostel Facilities", "link": "/hostel/hostel_facilities"},
                 {"title": "Rules and Regulations", "link": "/static/docs/hostel/Hostel Rules.pdf"},
                 {"title": "Code of Conduct", "link": "/static/docs/hostel/Updated code of conduct - Hostel.pdf"},
                 {"title": "Circular", "link": "/hostel/circular_hostel"},
@@ -99,7 +99,7 @@ def global_links(request):
                 {"title": "Officer Directory", "link": "/faculty/OfficerDirectory"},
                 {"title": "P&D Directory", "link": "/faculty/P&dDirectory"},
                 {"title": "Staff Directory", "link": "/faculty/staffDirectory"},
-                {"title": "Career", "link": "/Opportunities"},
+                {"title": "Career", "link": "/faculty/  "},
                 {"title": "Forms to Download", "link": "/institute/forms"},
             ]
         },

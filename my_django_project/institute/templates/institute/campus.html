@@ -2,6 +2,25 @@
 
 {% load static %}
 {% block content %}
+<style>
+  
+.button1 {
+  padding: 10px;
+  color: black;
+  border: 2px solid #1b3a72;
+  border-radius: 5px;
+  font-weight: bolder;
+}
+
+.button1:hover {
+  color: white;
+  background-color: #1b3a72;
+  border: 2px solid #1b3a72;
+  text-decoration: none;
+  transition: 400ms;
+}
+
+</style>
 <div id="root" class="container container-fluid my-4 py-2">
   <div id="main_lbl">
     <strong class="h2">Campus And Facilities</strong>
@@ -21,11 +40,8 @@
       <div class="col">
         <h3 id="sub_lbl">{{ item.title }}</h3>
         <p class="pb-2">{{ item.body }}</p>
-        {% if item.link %}
-          <a href="{% url item.link %}">Click for more info</a>
-        {% endif %}
         {% if item.url %}
-          <a href="{{ item.url }}">Click for more info</a>
+          <a class="button1" href="{{ item.url }}">Click for more info</a>
         {% endif %}
       </div>
       <div class="col my-4">

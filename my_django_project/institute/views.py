@@ -3,7 +3,40 @@ from django.shortcuts import render
 def institute(request):
    return render(request, "institute/institute.html")
 def campus(request):
-   return render(request, "institute/campus.html")
+   content = [
+    {
+        "title": "Boys Hostel",
+        "body": "NIT Puducherry is a residential institute and provides accommodation to students in the hostels. NITPY has presently two boy’s hostel that provides comfortable accommodation and are located close to the academic area. Presently over 800 students are residing in the hostels. The first year UG students are accommodated in a 4/2-occupancy style accommodation. In subsequent year, double/triple occupancy are allotted depending on the strength of the hostel inmates. Each room comes equipped with requisite amount of lighting and electrical ports, a fan, a chair and table and a steel cot. Wi-fi facility is provided in the hostel premises. PG and Ph.D inmates are given double occupancy accommodation. Barani Hostel (Boys Hostel -1):This hostel has 5 floors consisting of 215 rooms (43 rooms in each floor) and has ten washroom areas(2 in each floor). The hostels also have 04 nos of common rooms. Moyar Hostel (Boys Hostel -2):This hostel is designed for 04 occupancy type and it consists of 80 rooms in 10 blocks (08 rooms in each block) and each block has washroom areas.",
+        "img": "/static/images/slideshow/img014.jpg",
+        "url": "/hostel/hostel_facilities"
+    },
+    {
+        "title": "Girls Hostel",
+        "body": "NIT Puducherry is a residential institute and provides accommodation to students in the hostels. NITPY has presently one girl’s hostel that provides comfortable accommodation and are located close to the academic area. Staying in the campus is particularly attractive because the hostels are located in peaceful, clean, aesthetic environment in campus. The hostels are guarded round the clock by able private security staffs. Patrolling is also done by state security personnel during night. There are also separate wardens for each and every hostel in order to maintain discipline. Cleanliness and hygiene are taken care of and maintained in every aspect. Bhavani Hostel (Girls Hostel):This hostel has 3 floors consisting of 129 rooms (43 rooms in each floor) and has six washroom areas (2 in each floor).  The hostel also have a 02 nos of common room.",
+        "img": "/static/images/slideshow/img015.jpg",
+        "url": "/hostel/hostel_facilities"
+    },
+    {
+        "title": "Library",
+        "body": "The Central Library NIT Puducherry started functioning in 2010, and at present provides an enjoyable learning experience with optimum ambience for study and learning on all working days. The library is growing rapidly with exponential increase in number and type of collection to serve the information needs of the Users. It has very good reading room facility with proper ventilation and natural lighting. The Central Library provides information/knowledge resource through a carefully developed and balanced collection of Books, Journals, Magazines, and Newspapers etc. The Library is enabled with Wi-Fi and LAN facility for unlimited high speed internet access. Sufficient copies of textbooks and reference books are procured for the courses offered. Other books of general interest to students, faculty and staff have also been acquired. It also has a collection of audio-visual materials such as CD/DVD- ROM etc. The users of Central Library of NIT Puducherry are also registered with the National Digital Library sponsored by MHRD and coordinated by IIT Kharagpur.",
+        "img": "/static/images/slideshow/img012.jpg",
+        "url": "/institute/library"
+    },
+    {
+        "title": "Medical Facilities",
+        "body": "The Institute Health Centre is located within the campus. The NITPY health centre registered Clinical establishment under section 15 of The Clinical Establishments (Registration and Regulation) Act, 2010. The NITPY health centre has one  Medical Officer, Two Nurses and Two ambulance drivers. We provide primary health care to all students, staffs and faculty members and their families. We have two bed facility for observation and providing 24 x 7 ambulance services for any medical emergencies and also, we have a facility for Covid – 19 Rapid Antigen Testing. The NITPY health centre following the rules of Bio-Medical Waste Management as per Ministry of Environment and Forest.",
+        "img": "/static/images/medical/img015.jpg",
+        "url": "/students/medical"
+    },
+    {
+        "title": "Sports Facilities",
+        "body": "Sports activities help the students to cast their personality through physical,emotional and social well-being. A true sportsman will have an ability to observe, analyze and take a decision in a spurt of moment. Sports and Games will thus inculcate interpersonal relationship,team work,and cooperative workmanship required for an engineer and to lead a high standards of social and professional life. Sport specialties : At present NIT Puducherry has basketball and indoor Badminton court. Apart from these, students can access fitness center with multi gym and modern fitness facilities. NIT Puducherry has identified and area of 68,083 m2 and initiated work of establishing modern sports and games facilities like tennis courts, football and hockey fields, handball ground and Kho-Kho and Kabaddi courts. Also, an athletic field with 400 sq.m synthetic track is also been planned. Indoor sports complex and stadium has been proposed in 3958 sq. area with wooden flooring, and dormitory facilities for players and the officials during the events.",
+        "img": "/static/images/slideshow/img13.jpg",
+        "url": "/students/studentActivities"
+    }
+]
+    
+   return render(request, "institute/campus.html", {"content": content})
 def rules(request):
     btech = [
         {"title": 2013, "url": "/static/docs/rules/B.tech/2013.pdf"},
@@ -545,3 +578,146 @@ def bulletin(request):
         }
     ]
     return render(request,"institute/bulletin.html", {"newsletter": newsletter})
+def rti(request):
+    file = [
+    {
+      'url': '/static/docs/RTI and Procedures/rtiact.pdf',
+      'filename': 'RTI Act',
+    },
+    {
+      'url': '/static/docs/RTI and Procedures/APPLICATION.pdf',
+      'filename': 'Application Form',
+    },
+    {
+      'url': '/static/docs/RTI and Procedures/procedure.pdf',
+      'filename': 'Procedure',
+    }
+  ]
+    return render(request, "institute/rti.html", {"file": file})
+
+def nirf(request):  
+    reports24 = [
+    {
+        "title": "Full Report (Engineering)",
+        "url": "/static/docs/academics/nirf/2024/Engineering.pdf"
+    },
+    {
+        "title": "Full Report (Innovation)",
+        "url": "/static/docs/academics/nirf/2024/Innovation.pdf"
+    },
+    {
+        "title": "Full Report (Overall)",
+        "url": "/static/docs/academics/nirf/2024/Overall.pdf"
+    },
+]
+
+    reports23 = [
+    {
+        "title": "Full Report (Overall)",
+        "url": "/static/docs/academics/nirf/2023/Full Report (Overall)_PhD.pdf"
+    },
+    {
+        "title": "Full Report (Engineering)",
+        "url": "/static/docs/academics/nirf/2023/Full Report (Engineering)_PhD.pdf"
+    },
+]
+
+    reports22 = [
+    {
+        "title": "Full Report (Overall)",
+        "url": "/static/docs/academics/nirf/2022/Engineering 2022.pdf"
+    },
+]
+
+    reports21 = [
+    {
+        "title": "Full Report (Overall)",
+        "url": "/static/docs/academics/nirf/2021/Overall  2021.pdf"
+    },
+    {
+        "title": "Full Report (Engineering)",
+        "url": "/static/docs/academics/nirf/2021/Engineering 2021.pdf"
+    },
+]
+
+    reports20 = [
+    {
+        "title": "Full Report (Overall)",
+        "url": "/static/docs/academics/nirf/2020/Engineering  2020.pdf"
+    },
+]
+
+    reports19 = [
+    {
+        "title": "Full Report (Overall)",
+        "url": "/static/docs/academics/nirf/2019/All_Report.pdf"
+    },
+    {
+        "title": "Financial Resources",
+        "url": "/static/docs/academics/nirf/2019/Financial_Resources.pdf"
+    },
+    {
+        "title": "PCS Facilities",
+        "url": "/static/docs/academics/nirf/2019/PCS.pdf"
+    },
+    {
+        "title": "Research Details",
+        "url": "/static/docs/academics/nirf/2019/Research_Details.pdf"
+    },
+    {
+        "title": "Faculty Details",
+        "url": "/static/docs/academics/nirf/2019/Faculty_Details.pdf"
+    },
+    {
+        "title": "Student Details",
+        "url": "/static/docs/academics/nirf/2019/Student_Details.pdf"
+    },
+]
+
+    reports18 = [
+    {
+        "title": "Full Report (Overall)",
+        "url": "/static/docs/academics/nirf/2018/NIRF_2018.pdf"
+    },
+]
+
+    reports17 = [
+    {
+        "title": "Consultany Projects",
+        "url": "/static/docs/academics/nirf/2017/ConsultancyProjectDetail_Registrar.pdf"
+    },
+    {
+        "title": "Entrepreneurship",
+        "url": "/static/docs/academics/nirf/2017/Enterpreneurship_AC.pdf"
+    },
+    {
+        "title": "Full time Executive Programs of One Year Duration",
+        "url": "/static/docs/academics/nirf/2017/ExecutiveDevelopmentProgram.pdf"
+    },
+    {
+        "title": "Students opting for higher studies",
+        "url": "/static/docs/academics/nirf/2017/HigherStudiesAC.pdf"
+    },
+    {
+        "title": "Sponsored Projects",
+        "url": "/static/docs/academics/nirf/2017/SponsoredResearchDetail.pdf"
+    },
+    {
+        "title": "Top University Details 3D",
+        "url": "/static/docs/academics/nirf/2017/TopUniversityDetails_3D_AC.pdf"
+    },
+    {
+        "title": "Top University DEtails 5D",
+        "url": "/static/docs/academics/nirf/2017/TopUniversityDetails_5D_AC.pdf"
+    },
+]
+    return render(request, "institute/nirf.html", {
+        "reports24": reports24,
+        "reports23": reports23,
+        "reports22": reports22,
+        "reports21": reports21,
+        "reports20": reports20,
+        "reports19": reports19,
+        "reports18": reports18,
+        "reports17": reports17,
+    })
