@@ -208,3 +208,114 @@ def medical_insurance(request):
 
 def studentActivities(request):
     return render(request, 'students/studentActivities.html')
+
+def aluminiRelations(request):
+    return render(request, "students/aluminiRelations.html")
+
+def internship(request):
+    
+    details = [
+    {
+        "dept": "CIVIL",
+        "internship": "A VBA-Based Application for Efficient Steel Structure Design",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "CIVIL",
+        "internship": "Assessment of Wind-Induced Damage to Critical Infrastructure",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "CIVIL",
+        "internship": "Machine Learning for Concrete Strength Prediction",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "CIVIL",
+        "internship": "Non-Linear Analysis of Prestressed Concrete Members",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "CIVIL",
+        "internship": "Movement of Microplastics in River Bed",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "CIVIL",
+        "internship": "Prediction of Coastline Erosion using AI",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "CSE",
+        "internship": "Computer Vision",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "CSE",
+        "internship": "Internet of Things",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "CSE",
+        "internship": "Cloud and Fog computing",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "Mathematics",
+        "internship": "Differential Equations and Their Applications",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "Mathematics",
+        "internship": "Mathematical Biology",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "Mechanical",
+        "internship": "Augmented Reality for Manufacturing applications",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "Mechanical",
+        "internship": "E-waste Management for Co2 release rate and Circular Economy",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "Mechanical",
+        "internship": "Human robot collaboration",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "Mechanical",
+        "internship": "Lattice Structures for specific energy absorption and blast resistance",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "Mechanical",
+        "internship": "Auxetic materials for biomedical applications",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "Mechanical",
+        "internship": "Damage Identification and localization based on vibration signals",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "Mechanical",
+        "internship": "Computer vision techniques to find vibration measurements from videos",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "Mechanical",
+        "internship": "Thermal Imaging",
+        "duration": "Summer Vacation (2 months)",
+    },
+    {
+        "dept": "Mechanical",
+        "internship": "Computational Fluid Dynamics",
+        "duration": "Summer Vacation (2 months)",
+    },
+]
+
+
+    return render(request, "students/internship.html", {"details": details})

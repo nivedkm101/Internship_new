@@ -1136,3 +1136,613 @@ def tenders(request):
                    "tender23": tender23,"tender22": tender22,
                     "tender21": tender21 , "tender20": tender20,
                       "tender19": tender19})
+
+def upcomingEvents(request):
+    Event2025=[
+    {
+      'title':'Gyanith- Technical Fest of NITPY on Feb 27-28, 2025',
+      'url': 'https://gyanith.org/',
+      'new':'true'
+    },
+    {
+      'title':'ICWEES 2025 - International Conference on Water, Environment, Energy & Society',
+      'url': 'https://icwees2025.com/',
+      'new':'true'
+    },
+  ]
+    
+    Event2024 = [
+    {
+        "title": "Harnessing AI for Medical Signal and Imaging Diagnostics organized by department of ECE in online mode (09.12.2024-14.12.2024)",
+        "url": "/static/pdf/Upcomming Events/2024/12/ATAL_FDP_Brochure_2024.pdf",
+    },
+    {
+        "title": "4th International Conference on Future Technologies in Manufacturing, Automation, Design & Energy (Hybrid Mode) on 11-13 DECEMBER 2024",
+        "url": "https://2024.icoftnitpy.com/",
+    },
+    {
+        "title": "Five days short-term course on \"Trends in Shaping Energy Transition” from 25/11/2024 to 29/11/2024 through hybrid mode.",
+        "url": "/static/pdf/Upcomming Events/2024/11/STC_TSET_NITPY_Brochure.pdf",
+    },
+    {
+        "title": "Decoding Chemistry Horizons: A Workshop for Aspiring Chemists (DCHWAC-2024)",
+        "url": "/static/pdf/Upcomming Events/2024/09/Decoding Chemistry Horizons A National Workshop for Aspiring Chemists (DCHWAC-2024).pdf",
+    },
+    {
+        "title": "Empowering Research and Academic Writing using Grammarly",
+        "url": "/static/pdf/Upcomming Events/2024/07/Central Library Flyer for NIT Puducherry.pdf",
+    },
+    {
+        "title": "IConSCEPT 2024 on 4 - 5 July, 2024 at NIT Puducherry",
+        "url": "/static/pdf/Upcomming Events/2024/04/IConscept -2024 brochure.pdf",
+    },
+    {
+        "title": "Artificial Intelligence Models for  Remote Sensing and its Applications (AIRS-2024)” to be held on 06th-12th June 2024 @ NIT Puducherry through Physical mode",
+        "url": "https://prabakarankannan.github.io/airs2024/",
+    },
+    {
+        "title": "One week high end workshop on Deep Learning for BioMedical Signal Processing",
+        "url": "https://sites.google.com/view/karyashala-2024/home",
+    },
+    {
+        "title": "A SERB-sponsored Seminar/Workshop on \"Explainable AI fo Medical Signal Analysis”",
+        "url": "/static/pdf/Upcomming Events/2024/04/Brochure_SYMPOSIA 24_28.03.2024.pdf",
+    },
+    {
+        "title": "ENHANCE YOUR CAREER WITH IEEE XPLORE DIGITAL LIBRARY",
+        "url": "/static/pdf/Upcomming Events/2024/04/IEEE Session NIT Puducherry.pdf",
+    },
+    {
+        "title": "World Intellectual Property Day on 26th April 2024, @ 3.00 PM",
+        "url": "/static/pdf/Upcomming Events/2024/04/Invitation for World Intellectual Property Day 26.04.2024.pdf",
+    },
+    {
+        "title": "One Week High-End Workshop (Karyashala) on \"Immersive Technologies And Wearable Devices For Industrial And Engineering Applications\"",
+        "url": "/static/pdf/Upcomming Events/2024/01/Karyashala.pdf",
+    },
+    {
+        "title": "One Week High-End Workshop (Karyashala) on \"Grid Connected Photovoltaic Inverter Design and MPPT Implementation\"",
+        "url": "/static/pdf/Upcomming Events/2024/03/Grid Connected Photovoltaic Inverter EEE.pdf",
+    },
+    {
+        "title": "A 5 Day Short-Term Course on Artificial Intelligence and Machine Learning Techniques for Engineering Applications-Theory and Practice",
+        "url": "https://sites.google.com/view/nitpymednlsc/home",
+    },
+    {
+        "title": "First National conference on EMERGING TRENDS IN ENGINEERING AND TECHNOLOGY",
+        "url": "https://sites.google.com/view/nitpymednlsc/home",
+    },
+    {
+        "title": "ADVANCED MODELLING AND SIMULATIONS FOR ENGINEERS (AMSE)",
+        "url": "https://sites.google.com/view/nitpy-med-fdp-dec-2023/our-sponsors?authuser=0",
+    },
+]
+    Event2023 = [
+    {
+        "title": "Mathematics Workshop for Undergraduate Students",
+        "url": "/static/pdf/Upcomming Events/2023/09/MWUS - 2023.pdf",
+    },
+    {
+        "title": '"கி. ரா ஒரு சகாப்தம்" as a tribute to celebrate his 101st birthday on 16 September at 10.00 AM',
+        "url": "/static/pdf/Upcomming Events/2023/09/Ki Raa 101 Birthday.pdf",
+    },
+    {
+        "title": "First International Conference on Communication Systems ICOCS-2023",
+        "url": "https://sites.google.com/view/icocs-2023/home?authuser=0",
+    },
+    {
+        "title": "International Conference on “Advances in Sensors, Controls and Safety Networks” (ASCSN-2023)",
+        "url": "https://sites.google.com/view/ascsn-2023",
+    },
+    {
+        "title": "Five Days National Workshop on “Career Guidance in Higher Studies @ CFTIs” (CGHS – 2023).",
+        "url": "/static/pdf/Upcomming Events/2023/07/CGHS-2023.pdf",
+    },
+    {
+        "title": "Five Days Skill Enhancement Workshop on “Electrical Drafting, Wiring, Automation &, Solar Integration for Buildings (EDWAS)” from 17-21 July 2023.",
+        "url": "/static/pdf/Upcomming Events/2023/06/EDWAS 2023.pdf",
+    },
+    {
+        "title": "One Week High End Workshop (KARYASHALA) on “RESEARCH CHALLENGES AND OPPORTUNITIES IN AI BASED SMART GRID SYSTEMS” from 24-07-2023 to 30-07-2023 sponsored by SERB under Accelerate-Vigyan scheme through In-campus mode.",
+        "url": "/static/pdf/Upcomming Events/2023/05/Workshop KARYASHALA BROUCHURE.pdf",
+    },
+    {
+        "title": "Five-day Workshop on ANSYS Multiphysics Event",
+        "url": "/static/pdf/Upcomming Events/2023/06/Ansys Brouchre.pdf",
+    },
+    {
+        "title": "Five days International Workshop on \"Disaster Resilient Infrastructure\" from May 22nd to May 26th 2023",
+        "url": "/static/pdf/Upcomming Events/2023/05/Disaster Resilient Infrastructure.pdf",
+    },
+    {
+        "title": "First International Conference on Signal Processing, Computation, Electronics, Power and Telecommunication IConSCEPT 2023 (Hybrid Mode)",
+        "url": "/static/pdf/Upcomming Events/2023/02/CFP-IConSCEPT 2023.pdf",
+    },
+    {
+        "title": "International Conference on Recent Trends and Innovation in Sustainable Electrical Energy System (RISEE) , March 30-31 2023",
+        "url": "https://nitpyrisee2k23.wixsite.com/home",
+    },
+    {
+        "title": "Five Days Faculty Development Programme on Recent Advances in Composite Materials (RACM-2023), March 27-31 2023",
+        "url": "/static/pdf/Upcomming Events/2023/02/RACM  Brochure with schedule.pdf",
+    },
+    {
+        "title": "International Conference on intelligent COMPUting TEchnologies and Research ICOMPUTER - 2023, 24-25th MAR 2023",
+        "url": "https://www.i-computer.in/",
+    },
+    {
+        "title": "Gyanith 2023",
+        "url": "https://gyanith.org/",
+    },
+    {
+        "title": "Five-Day National Workshop on Deep Learning and Its Applications in Aquaculture February 13 - 17, 2023, Last date for registration is 3rd Feb 2023.",
+        "url": "/static/pdf/Upcomming Events/2023/02/Aquaculture.pdf",
+    },
+    {
+        "title": "Three Days Virtual Mode International Interdisciplinary Conference on Energy, Nanotechnology and IoT (ENT 2022) from 02nd - 05th February 2023",
+        "url": "https://www.nitpy.ac.in/ENT2023/",
+    },
+    {
+        "title": "International Conference on Fractional Calculus: Theory, Applications and Numerics (Virtual Mode) on 27- 29 January, 2023",
+        "url": "https://sites.google.com/view/icfctan-2023",
+    },
+]
+    Event2022 = [
+    {
+        "title": "National Conference on Computational Mathematics’ from 22nd to 23rd December, 2022",
+        "url": "https://sites.google.com/view/nccm2022",
+    },
+    {
+        "title": "Five Days Faculty Development Programme (FDP) on “Advanced Materials Processing and Characterization Methods” is scheduled from 26.12.2022 to 30.12.2022 at NIT-PY by online mode",
+        "url": "/static/pdf/Upcomming Events/2022/11/fdp-18.pdf",
+    },
+    {
+        "title": "4th National Conference on Communication Systems-2022” (NCOCS-2022), on 23rd December, 2022.",
+        "url": "https://sites.google.com/view/ncocs-2022/home?authuser=0",
+    },
+    {
+        "title": "Third International Conference on Future Technologies in Manufacturing, Automation, Design & Energy",
+        "url": "https://www.icoft2022.com",
+    },
+    {
+        "title": "A Framework for Interoperable Blockchains to Streamline Supply Chain Communications",
+        "url": "/static/pdf/Upcomming Events/2022/11/BR16613242923_GIAN_Brochure__nitpy_24_08_2022.pdf",
+    },
+    {
+        "title": "Five Days Short Term Course on 'Recent Trends in Cybersecurity and Energy Management' (RTCEM)",
+        "url": "/static/pdf/Upcomming Events/2022/10/STC OCT5.pdf",
+    },
+    {
+        "title": "Mathematics Workshop for Undergraduate Students",
+        "url": "/static/pdf/Upcomming Events/2022/10/Mathematics-Workshop-NITPY Karaikal -brochure- 2022.pdf",
+    },
+    {
+        "title": "Two Days National Workshop on 'Career Guidance in Higher Studies @ CFTIs for Science Students'",
+        "url": "/static/pdf/Upcomming Events/2022/10/Pamphlet - Workshop3.pdf",
+    },
+    {
+        "title": "Department of Physics conducting MOTIVATIONAL WORKSHOP ON JOINT ADMISSION TEST FOR MASTERS on 30-9-2022",
+        "url": "/static/pdf/Upcomming Events/2022/09/M-JAM Workshop.pdf",
+    },
+    {
+        "title": "MeitY Sponsored Five Days Online STC on 'Wide Band Gap Devices Enabled Power Converters – Opportunities and Challenges' Under the Aegis of NaMPET Phase III from 21st to 25th September 2022",
+        "url": "/static/pdf/Upcomming Events/2022/09/Brochure_speaker_details_STC_WBG_NITPY.pdf",
+    },
+    {
+        "title": "SERB-DST sponsored Summer internship in the department of Physics- NIT Puudcherry- last date of online application",
+        "url": "/serbdst",
+    },
+    {
+        "title": "International Conference on Recent Advances in Industry 4.0 Technologies (ICRAIT-2022)  14th -16th September, 2022",
+        "url": "https://icrait2022.com/",
+    },
+    {
+        "title": "DST-SERB Sponsored One Week HighEnd (KARYASHALA) Workshop on Data Learning for Anomaly Detection in Social Networks (DLADSM 2022)",
+        "url": "/static/pdf/Upcomming Events/2022/08/DLAD_2022.pdf",
+    },
+    {
+        "title": "One Day Seminar on Intellectual Property Rights with Focus on Patent Filing, organized by IEEE Student Branch, NIT Puducherry on 25th July 2022",
+        "url": "/static/pdf/Upcomming Events/2022/07/Brochure for the Seminar on Intellectual Property Rights with Focus.pdf",
+    },
+    {
+        "title": "Five Days Faculty Development Programme on Recent Trends in Microelectronics & Communication for 5G and Beyond from 23rd to 27th May 2022 Deadline for Registration Extended Till 20/05/2022",
+        "url": "/static/pdf/Upcomming Events/2022/05/FDP ECE Brochure.pdf",
+    },
+    {
+        "title": "Summer school on Data Learning & Knowledge Earning (DLKE 2022) on 09th -13th May, 2022",
+        "url": "https://www.nitpy.ac.in/dlke2022/",
+    },
+    {
+        "title": "One day Workshop for Teachers of Higher Secondary Schools Combating the Teaching-Learning Challenges in the Post-Covid Classrooms",
+        "url": "/static/pdf/Upcomming Events/2022/04/Teacher Training- For circulation.pdf",
+    },
+    {
+        "title": "2 days international  conference on SPORTS INJURY PREVENTION and MANAGEMENT on 21st and 22nd April 2022",
+        "url": "/static/pdf/Upcomming Events/2022/04/sportscon brochure.pdf",
+    },
+    {
+        "title": "Five Days Short Term Course on Recent Techniques for Smart and Hybrid Electric Power Systems",
+        "url": "/static/pdf/Upcomming Events/2022/03/EEEbrouchure.pdf",
+    },
+    {
+        "title": "PROJECT EXPO 2022 A National Level Technology Exhibition Platform 11 March 2022",
+        "url": "/static/images/project/National Technology PRoject Expo 2022.pdf",
+    },
+    {
+        "title": "IE(I) Puducherry State Center is organizing a State Level Technical Symposium,AMBER 2022 on 4-5 March 2022",
+        "url": "https://sites.google.com/view/nitpy-amber2022",
+    },
+    {
+        "title": "Smart Energy Systems For Sustainble Smart Cities a Research Perspective Workshop for PhD and PG Scholars from 21.02.2022 through Online Mode",
+        "url": "/static/pdf/Upcomming Events/2022/02/SMART ENERGY SYSTEMS FOR SUSTAINABLE SMART CITIES.pdf",
+    },
+    {
+        "title": "Five-Day FDP Workshop on Recent Advancements in Industrial Internet of Things(IIoT)",
+        "url": "/static/pdf/Upcomming Events/2022/02/Workshop-Brochure.pdf",
+    },
+    {
+        "title": "Five Days Online FDP on Reflections on Current Trends in Language, Literature & Society from 17 to 21 January 2022",
+        "url": "/static/pdf/Upcomming Events/2022/01/FDP HSS.pdf",
+    },
+    {
+        "title": "National Conference on Numerical Analysis and Applications\" from 6th to 7th January 2022",
+        "url": "/static/pdf/Upcomming Events/2022/01/NCNAA2022_brochure.pdf",
+    },
+]
+    Event2021 = [
+    {
+        "title": "Second International Conference on Future Technologies (ICOFT 2021) in Manufacturing, Automation, Design and Energy - December 16 - 18, 2021 - Dept. of Mech. Engg",
+        "url": "https://www.nitpy.ac.in/Pastevents/icoft2021/"
+    },
+    {
+        "title": "National Conference on Communication Systems on 17-12-2021, organized by Dept. of ECE",
+        "url": "/static/pdf/Upcomming Events/2021/NCOCS-2021.pdf"
+    },
+    {
+        "title": "2 Days International Conference on Emerging Trends in Synthetic Organic Chemistry - 2021 (ICETSOC - 2021) from 6 - 7 December2021 organised by Dept of Chemistry",
+        "url": "/static/pdf/Upcomming Events/2021/Brouchure-IC-NITPY-10102021 final.pdf"
+    },
+    {
+        "title": "5 Days National Workshop On Road Map to Implement NEP 2020 in Higher Education Institutions-20 to 26 Oct 2021",
+        "url": "/static/pdf/Upcomming Events/2021/Circular for 5days workshop.pdf"
+    },
+    {
+        "title": "5 Days National Workshop On Road Map to Implement NEP 2020 in Higher Education Institutions- 20 to 26 Oct-2021",
+        "url": "/static/pdf/Upcomming Events/2021/Brochure-NEP2020.pdf"
+    },
+    {
+        "title": "Hindi Day Celebration- Competitions Song, Recitation and Essay",
+        "url": "/static/pdf/Upcomming Events/2021/Hindi_Diwas_Celebration2021.pdf"
+    },
+    {
+        "title": "ATAL Five day (FDP) on Industrial Robots for Future Factories 13.09.2021 to 17.09.2021.",
+        "url": "/static/pdf/Upcomming Events/2021/brochure final.pdf"
+    },
+    {
+        "title": "Five day National Workshop on Research Methodology and LaTeX by Dept. of ECE, NIT Puducherry in association with IE(I) Puducherry State Center during September 13 - 17, 2021.(Deadline for registration extended to 11/09/2021)",
+        "url": "/static/pdf/Upcomming Events/2021/RM Latex Workshop brochure updated.pdf"
+    },
+    {
+        "title": "Five Days Short Term Training Programme on Applications of Power Electronics in Smart Energy Systems (Virtual Mode) from 30-08-2021 to 03-09-2021 organised by Department of EEE, NIT-Puducherry in association with IEEE Student Branch - NITPY",
+        "url": "/static/pdf/Upcomming Events/2021/Brouchure_STTP_IEEE.pdf"
+    },
+    {
+        "title": "Results-State Level Essay Competition",
+        "url": "/static/pdf/Upcomming Events/2021/Results-State Level Essay Competition.pdf"
+    },
+    {
+        "title": "Results-State Level Drawing Competition",
+        "url": "/static/pdf/Upcomming Events/2021/Results-State Level Drawing Competition.pdf"
+    },
+    {
+        "title": "State Level essay writing competition for HSC and UG students-75th Anniversary of Independence day",
+        "url": "/static/pdf/Upcomming Events/2021/State level Essay writing competion for HSC and UG students.pdf"
+    },
+    {
+        "title": "State Level Drawing contest for the school children of UT of Puducherry- 75th Anniversary of Independance",
+        "url": "/static/pdf/Upcomming Events/2021/State level Drawing contest-NITPY.pdf"
+    },
+    {
+        "title": "AICTE Training and Learning (ATAL) Academy Sponsored Five Days National Workshop on Artificial Intelligence in Revolutionizing Healthcare from 19/07/21 to 23/07/21 organized by Dept. of ECE",
+        "url": "/static/pdf/Upcomming Events/2021/Atal_broucher_AI_HealthCare_05.07.2021_final.pdf"
+    },
+    {
+        "title": "Invitation for the Inaugural Ceremony of IEEE Student Branch at NIT Puducherry which is organized on 14th July 2021",
+        "url": "/static/pdf/Upcomming Events/2021/Invitation for IEEE Student Branch Inauguration.pdf"
+    },
+    {
+        "title": 'Five Days Faculty Development Programme on "Recent Research Trends in Civil Engineering" from 24th to 28th May, 2021.',
+        "url": "/static/pdf/Upcomming Events/2021/FDP Brochure.pdf"
+    },
+    {
+        "title": "NITPy 7th Convocation Video Link",
+        "url": "https://www.youtube.com/watch?v=VmBrHhRR3K8"
+    },
+    {
+        "title": "NITPy 7th Convocation_Invitation",
+        "url": "/static/pdf/Upcomming Events/2021/NITPy 7th Convocation_Invitation.jpg"
+    },
+    {
+        "title": "7th Convocation Scheduled on 19th Feb 2021, Friday, 5 pm",
+        "url": "/academics/convocation"
+    },
+]
+    Event2020 = [
+    {
+        "title": "Three days Virtual Mode “International Conference on Future Technologies 2020 (ICOFT 2020) in Manufacturing, Automation, Design and Energy” (MADE @ NITPY) from 28th -30th December 2020",
+        "url": "/static/pdf/Upcomming Events/2020/ICoFT 2020 Brochure - NIT Puducherry.pdf"
+    },
+    {
+        "title": "AICTE Training and Learning (ATAL) Academy Sponsored 5 days online FDP on DEVELOPMENT OF DECENTRALISED IOT SYSTEMS USING BLOCKCHAIN on 26-30 December 2020",
+        "url": "http://nitpy.ac.in/departments/computer-science-and-engineering/events/Blockchain/index.html"
+    },
+    {
+        "title": "Attention First B.Tech stduents- Schedule for the induction program- 2020",
+        "url": "/static/pdf/Upcomming Events/2020/Schedule for Induction program-2020.pdf"
+    },
+    {
+        "title": "5 Days FDP Program on Applied Science and Humanities from 14.12.2020 - 18.12.2020, organized by Dept. of S&H",
+        "url": "/static/pdf/Upcomming Events/2020/FDP-Dept of S&H.pdf"
+    },
+    {
+        "title": "National Conference on Mathematical Theory of Control from 10-12 December, 2020 Jointly Organizing by NIT-Puducherry and IIST-Trivandrum.",
+        "url": "/static/pdf/Upcomming Events/2020/NCMTC.pdf"
+    },
+    {
+        "title": "5 Day Workshop on Research Tools and Techniques- 23 - 27 Nov 2020. The last date for registration is 18-11-2020",
+        "url": "/static/pdf/Upcomming Events/2020/5 Day Workshop on Research Tools and Techniques.pdf"
+    },
+    {
+        "title": "2nd National Conference on Communication Systems (NCOCS-2020) on 21 November 2020, organized by ECE Department, NIT Puducherry in association with Indian Society for Technical Education,New Delhi & The Institution of Engineers (India)",
+        "url": "/static/pdf/Upcomming Events/2020/NCOCS-2020 Brochure (Extended Dates).pdf"
+    },
+    {
+        "title": "National Workshop on Water Quality Management for Aquaculture (Funded by DST - SEED) on November 16, 2020, Organized by ECE Department, NIT Puducherry",
+        "url": "/static/pdf/Upcomming Events/2020/Workshop Brochure.pdf"
+    },
+    {
+        "title": "5 Days FDP program on Revisiting the Role of Higher Education Institute in Mentoring the Students from 19th-23rd October 2020 The last date for registration is 15-10-2020",
+        "url": "/static/pdf/Upcomming Events/2020/5 day FDP-NITPy- On Mentorship.pdf"
+    },
+    {
+        "title": "AICTE Training and Learning (ATAL) Academy Sponsored Faculty Development Programme On Challenges and Opportunities in Electric Vehicle Technology -A Research Perspective from 05.10.2020 to 09.10.2020",
+        "url": "/static/pdf/Upcomming Events/2020/NITPy EV Brochure.pdf"
+    },
+    {
+        "title": "AICTE Training and Learning (ATAL) Academy Sponsored Five Day National Workshop On Advancements in Antenna Engineering using Artificial Intelligence from 21.09.2020 to 25.09.2020",
+        "url": "/static/pdf/Upcomming Events/2020/workshop_brochure.pdf"
+    },
+    {
+        "title": "Five Days online Faculty Development Programme on Recent Trends in Communication Engineering from 07/09/20 to 11/09/20 organized by Dept. of ECE in association with The Institution of Engineers (India)",
+        "url": "/static/pdf/Upcomming Events/2020/FDP brochure with extended deadline.pdf"
+    },
+    {
+        "title": "Five Days online Faculty Development Programme on Advanced Communication System Design and Simulations from 17/08/20 to 21/08/20 organized by Department of ECE",
+        "url": "/static/pdf/Upcomming Events/2020/FDP brochure  from ECE Department, NIT Puducherry.pdf"
+    },
+    {
+        "title": "6 th Convacation Video",
+        "url": "https://www.youtube.com/watch?v=FUQBcV2taQA"
+    },
+    {
+        "title": "N.S.Sai Srinivas,Research Scholar(ECE), has been selected for AWSAR Award 2019 by DST, Govt of India, for his popular science story",
+        "url": "https://www.awsar-dst.in/result2019"
+    },
+    {
+        "title": "GYANITH ‘20 - Technical Fest of NIT Puducherry",
+        "url": "https://www.gyanith.org/"
+    },
+    {
+        "title": 'ATAL Academy (AICTE) Sponsored Five day National Workshop on "Artificial Intelligence in Electrical Engineering Applications" from 06.01.2020 to 10.01.2020 organised by Department of EEE',
+        "url": "/static/pdf/Upcomming Events/2020/Brouchure_STTP_IEEE.pdf"
+    },
+]
+
+
+    return render(request, "announcements/upcomingEvents.html",
+                  {"Event2025": Event2025, "Event2024": Event2024,
+                   "Event2023": Event2023, "Event2022": Event2022,
+                   "Event2021": Event2021, "Event2020": Event2020})     
+
+def researchComponents(request):
+    Research24 = [
+    {
+        "title": "Impact of online teaching on virtual laboratory course analysis using machine learning technique",
+        "url": "https://pubs.aip.org/aip/acp/article-abstract/3217/1/020001/3327691/Impact-of-online-teaching-on-virtual-laboratory?redirectedFrom=fulltext"
+    },
+    {
+        "title": "Hot corrosion and high-temperature oxidation studies of hard-faced nickel alloy on stainless steel 321 (Chapter no 20)",
+        "url": "https://shop.elsevier.com/books/advances-in-sustainable-materials/kumar/978-0-443-13849-2"
+    },
+    {
+        "title": "Optimized static configuration for output power maximization of thermoelectric generator arrays with hardware validation",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0306261924019810"
+    },
+    {
+        "title": "Cost-effective one-time configuration for bridge-linked thermoelectric generator array using INFO optimizer",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0959652624022650"
+    },
+    {
+        "title": "A novel one-time unified configuration strategy with L-SHADE optimizer for enhanced power extraction in thermoelectric generator array",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S1359431124020441"
+    },
+    {
+        "title": "Effect of cold metal transfer process on hardfacing of Inconel 718 over stainless steel 304",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0167577X24011698"
+    },
+    {
+        "title": "Book of Abstracts - International conference on i-Computer 2023 ",
+        "url": "https://drive.google.com/file/d/1fVE_q0avKFvfmt4nUOIvAHmPKEf7eKds/view"
+    },
+    {
+        "title": "Phosphazene-Based Covalent Organic Framework as an Efficient Catalyst (COF-1) for the Dehydration of Fructose to 5‑HMF",
+        "url": "https://pubs.acs.org/doi/10.1021/acsomega.3c08763"
+    },
+    {
+        "title": "Experimental study on mechanical, damping and corrosion properties of Inconel 718 hard-faced stainless steel 304 using cold metal transfer",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S1350630723008257?via%3Dihub"
+    },
+    {
+        "title": "Optimizing electric vehicle charging in distribution networks: A dynamic pricing approach using internet of things and Bi-directional LSTM model",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0360544224005875"
+    },
+    {
+        "title": "Dynamic pricing for load shifting: Reducing electric vehicle charging impacts on the grid through machine learning-based demand response",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2210670724000854"
+    },
+]
+    Research23 = [
+    {
+        "title": "Profuse Channel Estimation and Signal Detection Techniques for Orthogonal Time Frequency Space in 6G Epoch: A Survey",
+        "url": "https://ieeexplore.ieee.org/document/10319451"
+    },
+    {
+        "title": "Mechanical and Tribology Behavior of Hard-faced Inconel 718 on Stainless Steel 321",
+        "url": "https://www.worldscientific.com/doi/10.1142/S0218625X24500252"
+    },
+    {
+        "title": "Effect of MIG Welding Process on Hardfacing of Inconel 718 Over Stainless Steel 347",
+        "url": "https://link.springer.com/chapter/10.1007/978-981-99-1288-9_14"
+    },
+    {
+        "title": "Importance of Shielding and Mechanical Characterization of GTAW on  Ti-6Al-4V Alloy Sheet",
+        "url": "https://www.tandfonline.com/doi/full/10.1080/09507116.2023.2224929"
+    },
+    {
+        "title": "A Personalized Video Synopsis Framework for Spherical Surveillance Video",
+        "url": "https://techscience.com/csse/v45n3/50772"
+    },
+    {
+        "title": "Simulation of three-point bending test on aluminium (Al 1100) sheets with parameters",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S2214785323026883?via%3Dihub"
+    },
+    {
+        "title": "Some studies on banana and sisal fibers-based hybrid composites",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S2214785323027499?via%3Dihub"
+    },
+    {
+        "title": "Outage Analysis of Sparse Vector Coding based Downlink Multicarrier NOMA for URLLC",
+        "url": "https://ieeexplore.ieee.org/abstract/document/10077341"
+    },
+    {
+        "title": "A comprehensive review on the electrochemical parameters and recent material development of electrochemical water splitting electrocatalysts",
+        "url": "https://pubs.rsc.org/en/content/articlehtml/2023/RA/D2RA07642J"
+    },
+    {
+        "title": "Forecasting COVID-19 Pandemic Using Prophet, ARIMA, and Hybrid Stacked LSTM-GRU Models in India",
+        "url": "https://www.hindawi.com/journals/cmmm/2022/1556025/"
+    },
+    {
+        "title": "Investigation on arrangement of thermoelectric modules based on exhaust gas flow direction to minimize mismatch power loss in TEG arrays",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S1359431122017835"
+    }
+]
+    Research22 = [
+    {
+        "title": "Optimizing Finger Spacing in Multiﬁnger Bipolar Transistors for Minimal Electrothermal Coupling",
+        "url": "https://ieeexplore.ieee.org/document/9932592"
+    },
+    {
+        "title": "BEOL Thermal Resistance Extraction in SiGe HBTs",
+        "url": "https://ieeexplore.ieee.org/document/9931331"
+    },
+    {
+        "title": "PanoSyn: immersive video synopsis for spherical surveillance video",
+        "url": "https://link.springer.com/article/10.1007/s12046-022-01937-9"
+    },
+    {
+        "title": "Dopant-Free Main Group Elements Supported Covalent Organic–Inorganic Hybrid Conducting Polymer for Sodium-Ion Battery Application",
+        "url": "https://pubs.acs.org/doi/abs/10.1021/acsaem.1c03063"
+    },
+    {
+        "title": "Won CDRI fellowship award for their research study on Seismic Vulnerability of Heritage Minarets of India",
+        "url": "https://www.youtube.com/watch?v=DD-DmAZ3kgg"
+    },
+    {
+        "title": "Water Quality Prediction for Aquaculture - Research",
+        "url": "https://www.youtube.com/watch?v=8fP5zf_l_Jc&t=1s"
+    },
+    {
+        "title": "How natural resources affect financial development development? Fresh evidence from top-10 natural resouce abundant countries",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0301420722000964"
+    },
+    {
+        "title": "Fractional optimal reachability problems with ψ-Hilfer fractional derivative",
+        "url": "https://onlinelibrary.wiley.com/doi/10.1002/mma.8168"
+    },
+    {
+        "title": "Nanohybrid Materials with Enhanced Antimicrobial Activity",
+        "url": "https://link.springer.com/article/10.1007/s12668-022-00942-w"
+    },
+    {
+        "title": "MXene Based Materials for Sensors",
+        "url": "https://www.espublisher.com/uploads/article_pdf/esee8c618.pdf"
+    },
+    {
+        "title": "Role of Nanotechnology in facing SARS-CoV-2 Pandemic",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2666351121000176#fig2"
+    },
+    {
+        "title": "A delayed plant disease model with Caputo fractional derivatives",
+        "url": "https://advancesindifferenceequations.springeropen.com/articles/10.1186/s13662-022-03684-x"
+    },
+    {
+        "title": "An optimal control problem for mosaic disease via Caputo fractional derivative",
+        "url": "https://www.sciencedirect.com/science/article/pii/S1110016822000679"
+    },
+    {
+        "title": "Fractional modeling of plankton-oxygen dynamics under climate change by the application of a recent numerical algorithm",
+        "url": "https://iopscience.iop.org/article/10.1088/1402-4896/ac2da7/meta"
+    },
+    {
+        "title": "A fractional mathematical modeling of protectant and curative fungicide application",
+        "url": "https://www.sciencedirect.com/science/article/pii/S259005442200001X"
+    },
+]
+    Research21 = [
+    {
+        "title": "Decomposing scale and technique effects of financial development and foreign direct investment on renewable energy consumption",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0360544221020065"
+    },
+    {
+        "title": "The effect of energy resources on economic growth and carbon emissions: A way forward to carbon neutrality in an emerging economy",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0301479721015103"
+    },
+    {
+        "title": "Energy poverty and economic development: evidence from BRICS economies",
+        "url": "https://link.springer.com/article/10.1007/s11356-021-16174-6"
+    },
+    {
+        "title": "Recency augmented hybrid collaborative movie recommendation system",
+        "url": "https://link.springer.com/article/10.1007/s41870-021-00769-w"
+    },
+    {
+        "title": "COVID-19 Epidemic Analysis Using Linear and Polynomial Regression Approach",
+        "url": "https://link.springer.com/chapter/10.1007/978-981-15-7317-0_13"
+    },
+    {
+        "title": "Micromechanical Effects of Loading Frequency on Fatigue Fracture in Concrete",
+        "url": "https://ascelibrary.org/doi/full/10.1061/%28ASCE%29EM.1943-7889.0002018"
+    },
+    {
+        "title": "System for storage reduction in cloud based video surveillance and method thereof"
+    },
+    {
+        "title": "Flat Receiver for Solar Parabolic Dish Concentrator System and Method Thereof"
+    },
+    {
+        "title": "Nanocomposite Modified Electrode based on PANI/PTA/TIO2 for Energy Applications"
+    },
+    {
+        "title": "Restricted access window based method for providing differential services to group of nodes in network",
+        "url": "https://ieeexplore.ieee.org/document/8666726"
+    },
+    {
+        "title": "Video Synopsis: A Systematic Review",
+        "url": "https://link.springer.com/chapter/10.1007/978-981-15-6844-2_8#:~:text=Video%20synopsis%20helps%20in%20efficient,dynamic%20effect%20of%20the%20video."
+    }
+]
+
+    return render(request, "announcements/researchComponents.html", 
+                  {"Research24": Research24, "Research23": Research23,
+                   "Research22": Research22, "Research21": Research21})

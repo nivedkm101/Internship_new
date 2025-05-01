@@ -69,7 +69,7 @@ def global_links(request):
                 {"title": "NSS", "link": "/students/studentActivities/NSS"},
                 {"title": "Physical Education & Sports", "link": "/academics/physicalEducation"},
                 {"title": "Forms to Download", "link": "/institute/forms"},
-                {"title": "Alumni Relations", "link": "/alumni/alumniRelations"},
+                {"title": "Alumni Relations", "link": "/students/alumniRelations"},
                 {"title": "Grievance Redressal", "link": "/students/Grievance Redressal"},
                 {"title": "Announcements", "link": "/students/sw-announcements"},
             ], 
@@ -99,7 +99,7 @@ def global_links(request):
                 {"title": "Officer Directory", "link": "/faculty/OfficerDirectory"},
                 {"title": "P&D Directory", "link": "/faculty/P&dDirectory"},
                 {"title": "Staff Directory", "link": "/faculty/staffDirectory"},
-                {"title": "Career", "link": "/faculty/  "},
+                {"title": "Career", "link": "/faculty/career "},
                 {"title": "Forms to Download", "link": "/institute/forms"},
             ]
         },

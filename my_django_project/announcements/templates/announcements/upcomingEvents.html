@@ -5,7 +5,8 @@
 
 <link rel="stylesheet" href="{% static 'css/convocation.css' %}">
 <script src="{% static 'js/convocation.js' %}"></script>
-<h1 style="text-align: center; padding-top: 15px;"><strong>Announcements</strong></h1>
+
+<h1 style="text-align: center; padding-top: 15px;"><strong>Upcoming Events</strong></h1>
  <div id="rootWrapper">
    <div id="root" class="container"><br>
 <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
@@ -15,13 +16,13 @@
           <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse7" aria-expanded="true"
             aria-controls="collapse7">
             <h5  class="mb-0" style="text-align: center; color: aliceblue;">
-              Announcements 2025
+              2025
             </h5>
           </a>
         </div>
         <div id="collapse7" class="collapse show" role="tabpanel" aria-labelledby="heading"
           data-parent="#accordionEx" style="border-style: solid;">
-          {% for index in announcement25 %}
+          {% for index in Event2025 %}
           <div class="card-body">
             <a id="item" href="{{ index.url }}" style="text-decoration: none">{{ index.title }} 
               {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
@@ -36,13 +37,13 @@
           <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse6" aria-expanded="true"
             aria-controls="collapse6">
             <h5  class="mb-0" style="text-align: center; color: aliceblue;">
-              Announcements 2024
+              2024
             </h5>
           </a>
         </div>
         <div id="collapse6" class="collapse " role="tabpanel" aria-labelledby="heading"
           data-parent="#accordionEx" style="border-style: solid;">
-          {% for index in announcement24 %}
+          {% for index in Event2024 %}
           <div class="card-body">
             <a id="item" href="{{ index.url }}" style="text-decoration: none">{{ index.title }} 
               {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
@@ -56,13 +57,13 @@
           <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse62" aria-expanded="true"
             aria-controls="collapse62">
             <h5  class="mb-0" style="text-align: center; color: aliceblue;">
-              Announcements 2023
+              2023
             </h5>
           </a>
         </div>
         <div id="collapse6" class="collapse " role="tabpanel" aria-labelledby="heading"
           data-parent="#accordionEx" style="border-style: solid;">
-          {% for index in announcement23 %}
+          {% for index in Event2023 %}
           <div class="card-body">
             <a id="item" href="{{ index.url }}" style="text-decoration: none">{{ index.title }} 
               {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
@@ -77,13 +78,13 @@
           <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse5" aria-expanded="true"
             aria-controls="collapse5">
             <h5  class="mb-0" style="text-align: center; color: aliceblue;">
-              Announcements 2022
+              2022
             </h5>
           </a>
         </div>
         <div id="collapse5" class="collapse" role="tabpanel" aria-labelledby="heading"
           data-parent="#accordionEx" style="border-style: solid;">
-          {% for index in announcement22 %}
+          {% for index in Event2022 %}
           <div class="card-body">
             <a id="item" href="{{ index.url }}" style="text-decoration: none">{{ index.title }} 
               {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
@@ -97,13 +98,13 @@
           <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapse4"
             aria-expanded="false" aria-controls="collapse4">
             <h5 class="mb-0"  style="text-align: center; color: aliceblue;">
-              Announcements 2021
+             2021
             </h5>
           </a>
         </div>
         <div id="collapse4" class="collapse" role="tabpanel" aria-labelledby="heading"
           data-parent="#accordionEx" style="border-style: solid;">
-          {% for index in announcement21 %}
+          {% for index in Event2021 %}
           <div class="card-body">
             <a id="item" href="{{ index.url }}" style="text-decoration: none">{{ index.title }} 
               {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
@@ -119,13 +120,13 @@
       <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapse3"
         aria-expanded="false" aria-controls="collapse3">
         <h5 class="mb-0"  style="text-align: center; color: aliceblue;">
-          Announcements 2020
+           2020
         </h5>
       </a>
     </div>
     <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading"
       data-parent="#accordionEx" style="border-style: solid;">
-      {% for index in announcement20 %}
+      {% for index in Event2020 %}
           <div class="card-body">
             <a id="item" href="{{ index.url }}" style="text-decoration: none">{{ index.title }} 
               {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
@@ -134,46 +135,6 @@
           {% endfor %}
         </div>
     </div><br>
-    <div class="card">
-        <div class="card-header" role="tab" id="heading">
-          <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapse2"
-            aria-expanded="false" aria-controls="collapse2">
-            <h5 class="mb-0"  style="text-align: center; color: aliceblue;">
-              Announcements 2019
-            </h5>
-          </a>
-        </div>
-        <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading"
-          data-parent="#accordionEx" style="border-style: solid;">
-          {% for index in announcement19 %}
-          <div class="card-body">
-            <a id="item" href="{{ index.url }}" style="text-decoration: none">{{ index.title }} 
-              {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
-            </a>
-          </div>
-          {% endfor %}
-        </div>
-    </div><br>
-    <div class="card">
-        <div class="card-header" role="tab" id="heading">
-          <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapse1"
-            aria-expanded="false" aria-controls="collapse1">
-            <h5 class="mb-0"  style="text-align: center; color: aliceblue;">
-              Announcements 2018
-            </h5>
-          </a>
-        </div>
-        <div id="collapse1" class="collapse" role="tabpanel" aria-labelledby="heading"
-          data-parent="#accordionEx" style="border-style: solid;">
-          {% for index in announcement18 %}
-          <div class="card-body">
-            <a id="item" href="{{ index.url }}" style="text-decoration: none">{{ index.title }} 
-              {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
-            </a>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
 
 </div><br><br>
 {% endblock%}

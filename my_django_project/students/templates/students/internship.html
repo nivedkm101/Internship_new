@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/table.css' %}">
+
+<div id="root" class="container container-fluid my-4 py-2">
+    <div id="main_lbl" class="text-center">
+      <strong class="h1">Internship Opportunities</strong>
+    </div>
+    <br>
+     <div id="table" class="p-3">
+      <table id="table-style" class="table table-bordered table-condensed">
+        <thead class="thead-dark">
+          <tr class="text-center">
+            <th class="text-center">Department</th>
+            <th class="text-center">Area of Internship</th>
+            <th class="text-center">Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for index in details %}
+          <tr>
+            <td class="text-left">{{ index.dept }}</td>
+            <td class="text-center">{{ index.internship }}</td>
+            <td class="text-left">{{ index.duration }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <br>
+      <p><strong>How to Apply : </strong>Send an Email with your resume to <b>placement@nitpy.ac.in</b> and respective department HOD Email Id</p>
+    </div>
+  </div>
+  
+  
+{% endblock %}
