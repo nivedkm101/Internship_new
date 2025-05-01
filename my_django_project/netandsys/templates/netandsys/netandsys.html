@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container container-fluid p-3"> 
+  <div class="row">
+    {% include "core/sidebar.html" %}
+    
+    <div id="content" class="col-sm-9">
+      {% block subcontent %}
+      {% endblock %}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'netandsys/netandsys.html' %}
+{% load static %}
+
+{% block subcontent %}
+<div id="root" class="container container-fluid my-4 py-2">
+    <div id="main_lbl" class="text-center">
+      <strong class="h3">AI server (NVidia DGX A100)</strong>
+    </div>
+  <br><br>
+    <h6 style="text-align: center;"><strong>NVidia A100 AI Server</strong> </h6>
+          <h6><strong>Configuration:</strong> </h6>
+          <p style="text-align: justify;">
+            <li>GPU’s: 8* Nvidia A100 Tensor Core GPUs</li>
+            <li>Graphics Memory: 320GB</li>
+            <li>NVidia NV switches: 6</li>
+            <li>CPU: Dual AMD Rome 7742 128 cores total,2.25 GHz (max boost)</li>
+            <li>System Memory :1TB</li>
+            <li>Storage OS :2* 1.92TB M.2 NVME drives</li>
+            <li>Internal storage: 15TB (4*3.84TB) U.2 NVME drives</li>
+             <li>Networking: 8* Single-port Mellanox ConnectX-6 VPI 200Gb/s HDR Infiniband1X Dual-port Mellanox ConnectCX-6 VPI 200Gb/s Ethernet</li>
+            </p>
+            <h6><strong>Number:</strong> &nbsp; 01</h6>
+          <h6><strong>Location: </strong>&nbsp;Admin Block - Network Room</h6>
+  
+          <h6 style="text-align: center;"><strong>Login server</strong> </h6>
+          <h6><strong>Configuration:</strong> </h6>
+          <p style="text-align: justify;">
+            <li>Intel Xeon E-2378 2.6Ghz UDIMM, 3200MT/s, ECC</li>
+              <li>RAM:128GB(4*32GB) UDIMM, 3200MT/s, ECC</li>
+              <li>Storage:4*480GB SSD SATA 3*600GB Hard Drive SAS</li>
+            </p>
+            <h6><strong>Number:</strong> &nbsp; 01</h6>
+          <h6><strong>Location: </strong>&nbsp;Admin Block - Network Room</h6>
+  
+  
+          <h6 style="text-align: center;"><strong>Smart Rack</strong> </h6>
+          <h6><strong>Configuration:</strong> </h6>
+          <p style="text-align: justify;">
+              <li>42U Biometric-Based Access Control</li>
+              <li>Cooling Unit: Air Conditioner of capacity</li>
+              <li>UPS: 10kva</li>
+              <li>Backup: 15 min</li>
+            </p>
+            <h6><strong>Number:</strong> &nbsp; 01</h6>
+          <h6><strong>Location: </strong>&nbsp;Admin Block - Network Room</h6>
+          <h6 style="text-align: center;"><strong>Powerswitch</strong> </h6>
+          <h6><strong>Configuration:</strong> </h6>
+          <p style="text-align: justify;"><li>1G 24-PORT NETWORK SWITCH-N1548l</li></p>
+            <h6><strong>Number:</strong> &nbsp; 01</h6>
+          <h6><strong>Location: </strong>&nbsp;Admin Block - Network Room</h6><br>
+
+{% endblock %}

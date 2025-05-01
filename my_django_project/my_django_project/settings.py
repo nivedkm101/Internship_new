@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     "announcements",
     "institute",
     "students",
-    "faculty"
+    "faculty",
+    "netandsys",
+    "physicalEducation",
 ]
 
 MIDDLEWARE = [

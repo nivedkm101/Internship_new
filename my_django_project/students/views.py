@@ -210,7 +210,28 @@ def studentActivities(request):
     return render(request, 'students/studentActivities.html')
 
 def aluminiRelations(request):
-    return render(request, "students/aluminiRelations.html")
+    main_link = {
+        'title': 'Administration',
+        'link': '/institute/administration'
+    }
+
+    links = [
+        {'title': 'Visitor', 'link': 'visitor'},
+        {'title': 'Chairman', 'link': 'chairman'},
+        {'title': 'Director', 'link': 'director'},
+        {'title': 'Board of Governors', 'link': 'board-of-governors'},
+        {'title': 'Senate', 'link': 'senate'},
+        {'title': 'Registrar', 'link': 'registrar'},
+        {'title': 'Vigilance Officer', 'link': 'vigilance-officer'},
+        {'title': 'Deans', 'link': 'deans'},
+        {'title': 'Associate Deans', 'link': 'associate-deans'},
+        {'title': 'Nodal Officers and Co-ordinators', 'link': 'nodal-officers'},
+        {'title': 'Heads of Departments', 'link': 'hods'},
+    ]
+    return render(request, "students/aluminiRelations.html", {
+        'mainLink': main_link,
+        'links': links
+    })
 
 def internship(request):
     
