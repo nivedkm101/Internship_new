@@ -89,16 +89,17 @@ def global_links(request):
         },
         {
             "title": "Faculty & Staff",
-            "link": "/people_nit",
+            "link": "/faculty",
             "content": [
                 {"title": "Administration Head Directory", "link": "/faculty/adminDirectory"},
                 {"title": "Dean Directory", "link": "/faculty/deanDirectory"},
                 {"title": "HOD Directory", "link": "/faculty/hodDirectory"},
                 {"title": "Faculty Directory", "link": "/faculty/facultyDirectory"},
                 {"title": "Faculty On Contract Directory", "link": "/faculty/focDirectory"},
-                {"title": "Officer Directory", "link": "/faculty/OfficerDirectory"},
-                {"title": "P&D Directory", "link": "/faculty/P&dDirectory"},
+                {"title": "Officer Directory", "link": "/faculty/officerDirectory"},
+                {"title": "P&D Directory", "link": "/faculty/pdDirectory"},
                 {"title": "Staff Directory", "link": "/faculty/staffDirectory"},
+                {"title": "Faculty Welfare Office", "link": "/faculty/faculty-welfare"},
                 {"title": "Career", "link": "/faculty/career "},
                 {"title": "Forms to Download", "link": "/institute/forms"},
             ]

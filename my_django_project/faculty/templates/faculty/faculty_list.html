@@ -1,0 +1,89 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Faculty Directory</h2>
+
+    <!-- Filter Form -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-4">
+                    <label for="department" class="form-label">Department</label>
+                    <select name="department" id="department" class="form-select">
+                        <option value="">All Departments</option>
+                        <option value="CSE">Computer Science & Engineering</option>
+                        <option value="ECE">Electronics & Communication Engineering</option>
+                        <option value="EEE">Electrical & Electronics Engineering</option>
+                        <option value="MECH">Mechanical Engineering</option>
+                        <option value="CIVIL">Civil Engineering</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="role" class="form-label">Role</label>
+                    <select name="role" id="role" class="form-select">
+                        <option value="">All Roles</option>
+                        <option value="HOD">HOD</option>
+                        <option value="Dean">Dean</option>
+                        <option value="Professor">Professor</option>
+                        <option value="Associate Professor">Associate Professor</option>
+                        <option value="Assistant Professor">Assistant Professor</option>
+                    </select>
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                    <a href="{% url 'faculty:faculty_list' %}" class="btn btn-secondary ms-2">Reset</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% if faculty_members %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for faculty in faculty_members %}
+        <div class="col">
+            <div class="card h-100">
+                {% if faculty.photo %}
+                <img src="{{ faculty.photo.url }}" class="card-img-top" alt="{{ faculty.name }}" style="height: 200px; object-fit: cover;">
+                {% else %}
+                <div class="text-center p-3 bg-light">
+                    <i class="bi bi-person-circle fa-5x text-secondary"></i>
+                </div>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ faculty.name }}</h5>
+                    <p class="card-text">
+                        <strong>Designation:</strong> {{ faculty.designation }}<br>
+                        <strong>Department:</strong> {{ faculty.department }}<br>
+                        {% if faculty.email %}
+                        <strong>Email:</strong> <a href="mailto:{{ faculty.email }}">{{ faculty.email }}</a><br>
+                        {% endif %}
+                        {% if faculty.phone %}
+                        <strong>Phone:</strong> <a href="tel:{{ faculty.phone }}">{{ faculty.phone }}</a><br>
+                        {% endif %}
+                    </p>
+                    {% with faculty_roles=faculty.role_set.all %}
+                    {% if faculty_roles %}
+                    <div class="mt-2">
+                        <strong>Roles:</strong>
+                        <ul class="list-unstyled">
+                        {% for role in faculty_roles %}
+                            <li>{{ role.role }}</li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        <i class="bi bi-info-circle me-2"></i>
+        No faculty members found matching the selected criteria.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

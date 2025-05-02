@@ -1,0 +1,53 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <form method="get" class="d-flex gap-2 justify-content-center mb-4">
+        <select name="department" class="form-select w-auto">
+            <option value="">Department</option>
+            {% for dept in departments %}
+                <option value="{{ dept }}" {% if dept == department %}selected{% endif %}>{{ dept }}</option>
+            {% endfor %}
+        </select>
+        <select name="designation" class="form-select w-auto">
+            <option value="">Designation</option>
+            {% for des in designations %}
+                <option value="{{ des }}" {% if des == designation %}selected{% endif %}>{{ des }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-primary">Filter</button>
+        <a href="{% url 'faculty:staff_directory' %}" class="btn btn-secondary">Reset</a>
+    </form>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Sl. No</th>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Section</th>
+                    <th>Mail</th>
+                    <th>Telephone Extension<br>(Prefix: 04368-265235)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for staff in staff_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ staff.name }}</td>
+                    <td>{{ staff.designation }}</td>
+                    <td>{{ staff.department }}</td>
+                    <td>{{ staff.mail|default:"" }}</td>
+                    <td>{{ staff.phone|default:"" }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center">No staff found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

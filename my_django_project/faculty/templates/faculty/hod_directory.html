@@ -1,0 +1,73 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div id="root" class="container">
+    <div id="title" class="container justify-content-center mt-3 p-2" style="display: flex;">
+        <strong class="h2 text-center">HOD Directory</strong>
+    </div>
+    <form method="get" class="d-flex gap-2 justify-content-center mb-4">
+        <select name="department" class="form-select w-auto">
+            <option value="">Department</option>
+            {% for dept in departments %}
+                <option value="{{ dept }}" {% if selected_dept == dept %}selected{% endif %}>{{ dept }}</option>
+            {% endfor %}
+        </select>
+        <select name="designation" class="form-select w-auto">
+            <option value="">Designation</option>
+            {% for des in designations %}
+                <option value="{{ des }}" {% if selected_des == des %}selected{% endif %}>{{ des }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-primary">Filter</button>
+        <a href="{% url 'faculty:hod_directory' %}" class="btn btn-secondary">Reset</a>
+    </form>
+    <div id="table">
+        <table id="table-style" class="table table-striped table-bordered">
+            <thead>
+                <tr class="custom-table-header">
+                    <th scope="col" class="text-center">Sl. No</th>
+                    <th scope="col" class="text-center">Name</th>
+                    <th scope="col" class="text-center">Designation</th>
+                    <th scope="col" class="text-center">Department</th>
+                    <th scope="col" class="text-center">Mail</th>
+                    <th scope="col" class="text-center">Telephone Extension (04368 - 265235)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for hod in hods %}
+                <tr>
+                    <td class="text-center">{{ forloop.counter }}</td>
+                    <td class="text-center">{{ hod.name }}</td>
+                    <td class="text-center">{{ hod.designation }}</td>
+                    <td class="text-center">{{ hod.department }}</td>
+                    <td class="text-center">{{ hod.mail }}</td>
+                    <td class="text-center">{{ hod.phone_extension }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center">No records found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .custom-table-header th {
+        background-color: #24355C !important; /* Deep blue as in your screenshot */
+        color: #fff !important;
+        vertical-align: middle;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+    .table {
+        background-color: white;
+    }
+    .container {
+        max-width: 1200px;
+        margin: auto;
+    }
+</style>
+{% endblock %}
