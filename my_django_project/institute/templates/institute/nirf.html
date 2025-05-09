@@ -3,10 +3,11 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/convocation.css' %}">      
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
 <script src="{% static 'js/convocation.js' %}"></script>
 <div class="container">
     <br>
-     <h6 style="text-align: center; padding-top: 15px;"><strong>Choose one of the Following Categories to search for your Form</strong></h6>
+     <h3 style="text-align: center; padding-top: 15px;"><strong>NIRF</strong></h3>
 
     <br>
     <div id="rootWrapper">
@@ -177,6 +178,37 @@
 
     </div>
   </div>
+  <div class="d-flex flex-column align-items-center gap-5">
+    {% for staff in staff_list %}
+    <div class="row w-100 justify-content-center align-items-center mb-4">
+        <div class="col-md-2 d-flex justify-content-center">
+            {% if staff.static_img %}
+                <img src="{% static staff.static_img %}" alt="{{ staff.name }}" class="oval-img">
+            {% else %}
+                <img src="{% static 'images/default-profile.png' %}" alt="No Image" class="oval-img">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <div style="font-size:1.15rem;">
+                <p><b>Name :</b> {{ staff.name }}</p>
+                <p><b>Designation :</b> {{ staff.designation }}</p>
+                <p><b>Role :</b> {{ staff.role_set.first.role }}</p>
+                <p><b>E-Mail :</b> 
+                    {% if staff.role_set.first.mail %}
+                        {{ staff.role_set.first.mail }}
+                    {% else %}
+                        {{ staff.email }}
+                    {% endif %}
+                </p>
+                <p><b>Phone :</b> {{ staff.role_set.first.phone|default:staff.phone }}</p>
+                {% if staff.mobile %}
+                    <p><b>Mobile :</b> {{ staff.mobile }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 </div>
 
 

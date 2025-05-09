@@ -1,0 +1,489 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<div class="container">
+  <div class="headdefine" style="display: block; text-align: center;">
+    <br>
+    <h1>
+      National Cadet Corps
+      <br>
+    </h1>
+  </div>
+  <br>
+
+  <br>
+  <div>
+    <b>The National Cadet Corps (NCC)</b> is the Indian military cadet corps with its head Quarters at New Delhi. It is open to school and college students on voluntary basis.The National Cadet Corps in India is a voluntary organization which recruits cadets from high schools, colleges and Universities all over India. The Cadets are given basic military training in small arms and parades. The officers and cadets have no liability for active military service once they complete their course but are given preference over normal candidates during selections based on the achievements in the corps.
+  </div>
+  <br>
+  <div>
+    <h4>
+      Motto of NCC
+    </h4>
+    <br>
+    <h5>Unity and Discipline (Ekta aur Anushasan)</h5>
+    <br>
+    <h4>
+      DG's four Cardinal Principals of Discipline
+    </h4>
+    <ol type="1">
+      <li>Obey with a smile</li>
+      <li>Be Punctual</li>
+      <li>Work hard and without fuss</li>
+      <li>Make no excuses and tell no lies</li>
+    </ol>
+    <h4>
+      Aims of NCC
+    </h4>
+    <ol type="1">
+      <li>
+        To develop qualities of character, courage, comradeship, discipline, leadership, secular outlook, spirit of adventure and sportsmanship and the ideals of selfless service among the youth to make them useful citizen.
+      </li>
+      <li>
+        To create a human resource of organised trained and motivated youth to provide leadership in all walks of life including the Armed Forces and be always available for the service of the nation.
+      </li>
+    </ol>
+  </div>
+  <div>
+    <h4>
+      Oath
+    </h4>
+    <br>
+    "I do hereby solemnly promise that I will serve my motherland most truly and loyally and that, I will abide by the rules and regulations of the National Cadet Crops. Further under the command and control of my commanding officer I will participate in every camp most sincerely and wholeheartedly".
+  </div>
+  <br>
+  <div>
+    <h4>
+      Pledge
+    </h4>
+    <br>
+    We the cadet of the national cadet corps, do solemnly pledge that we shall always uphold the unity of india.We resolve to be disciplined and responsible citizen of our nation.We shall undertake positive community service in the spirit of selflessness and concern for our fellow beings.
+  </div>
+  <hr>
+  <h4>
+    NCC History
+  </h4>
+  <div>
+    The NCC in India was formed with the National Cadet Corps Act of 1948. It was raised on 15 July 1948 The National Cadet Corps can be considered as a successor of the University Officers Training Corps (UOTC) which was established by the British in 1942. During World War II, the UOTC never came up to the expectations set by the British. This led to the idea that some better schemes should be formed, which could train more young men in a better way, even during peace times. A committee headed by <strong>Pandit H.N. Kunzru</strong> recommended a cadet organization to be established in schools and colleges at a national level. The National Cadet Corps Act was accepted by the Governor General and on 15 July 1948 the National Cadet Corps came into existence.
+    <br>
+    During the 1965 and 1971 wars with Pakistan, NCC cadets were the second line of defence. They organised camps to assist the ordinance factories, supplying arms and ammunition to the front, and also were used as patrol parties to capture the enemy paratroopers. The NCC cadets also worked hand in hand with the Civil Defence authorities and actively took part in rescue work and traffic control. After the 1965 and 1971 Indo-Pak wars the NCC syllabus was revised. Rather than just being the second line of defence, NCC syllabus laid a greater stress on developing qualities of leadership and Officer-like qualities. The military training which the NCC cadets received was reduced and greater importance was given to other areas like social service and youth-management.
+  </div>
+  <br>
+  <h4>
+      NCC at NIT Puducherry
+  </h4>
+  <br>
+  <div>
+    NCC Raising Day Celebration was organized on 26th October 2018 at NIT-Puducherry Karaikal, the function was presided by the <b>Director Prof.Dr. K. Sankaranarayanasamy</b> of NIT-Puducherry. Function begins with welcome address with lighting the lamp. NCC Rising Day Official address was given by the Director relating to the national integration, Subsequently the chief guest address given by <b>Colonel Sharma</b> commanding officer NCC Unit Karaikal. The chief guest and other NCC Officer honored by bouquet and mementos.  Finally, the <b>LT. Dr.S.Babu</b> delivered his vote of thanks to the Director in particular for her continuous encouragement, support to conduct the event and also he extended his heartfelt thanks to chief guest and NCC students faculty and staff members for conducting the function a great success at NIT-Puducherry.
+  </div>
+  <br>
+  <div style="text-align: center;">
+    <h4>
+      NCC Officer
+    </h4>
+  </div><div class="d-flex flex-column align-items-center gap-5">
+    {% for staff in staff_list %}
+    <div class="row w-100 justify-content-center align-items-center mb-4">
+        <div class="col-md-2 d-flex justify-content-center">
+            {% if staff.static_img %}
+                <img src="{% static staff.static_img %}" alt="{{ staff.name }}" class="oval-img">
+            {% else %}
+                <img src="{% static 'images/default-profile.png' %}" alt="No Image" class="oval-img">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <div style="font-size:1.15rem;">
+                <p><b>Name :</b> {{ staff.name }}</p>
+                <p><b>Designation :</b> {{ staff.designation }}</p>
+                <p><b>Role :</b> {{ staff.role_set.first.role }}</p>
+                <p><b>E-Mail :</b> 
+                    {% if staff.role_set.first.mail %}
+                        {{ staff.role_set.first.mail }}
+                    {% else %}
+                        {{ staff.email }}
+                    {% endif %}
+                </p>
+                <p><b>Phone :</b> {{ staff.role_set.first.phone|default:staff.phone }}</p>
+                {% if staff.mobile %}
+                    <p><b>Mobile :</b> {{ staff.mobile }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+  <br>
+  <h4>
+    NCC Organisation
+  </h4>
+  <br>
+  <div>
+    The National Cadet Corpos is headed by a Director General, an Army Officer of the rank of Lieutanant General, who is responsible for the functioning of the National Cadet Corps in the country through the National Cadet Corps Headquarters situated at Delhi. At the State Level, the country has been divided into 17 Directorates covering all States and Union Territories. Each of the State National Cadet Corps Directorate Headquarters controls two to fourteen Group Headquarters. While Directorates are commanded by Brigadiers or their equivalents, the Groups are commanded by Colonels or equivalents from the Air Force and the Navy, NCC Units are commanded by Major/Lieutenant Colonel or their equivalents.
+  </div>
+  <div class="image">
+    <img src="/static/images/NCC/NCCOrganisation.png" alt="image" class="broad-image" style="max-width: 100%;">
+  </div>
+  <br>
+
+  <div>
+    <h4>NCC Flag</h4>
+  </div>
+  <br>
+  <div class="image" style="display: block; text-align: center;">
+    <img src="/static/images/NCC/NCCflag.png" alt="NCC Flag">
+  </div>
+  <div>
+    NCC Flag Contains NCC Crest in gold in the middle, with the letters "NCC" encircled by a wreath of seventeen lotus with a background in Red, Blue and Light blue.Red depicts the Army, Deep Blue depicts the Navy and Light Blue depicts the Air Force. The seventeen lotuses represent the 17 State Directorates. "Unity of Discipline" (Ekta aur Anushasan) is written at the bottom of the NCC Flag.
+  </div>
+  <br>
+  <div>
+    <h4>NCC SONG</h4>
+  </div>
+  <br>
+  <div class="content-centre" style="text-align: center; word-wrap: break-word;">
+      <b>HUM SAB BHARTIYA HAI, HUM SAB BHARATIYA HAI</b>  <br>
+      <b>APNI MANZIL EK HAI,</b>  <br>
+      <b>HA HA HA EK HAI, HO HO HO EK HAI, </b> <br>
+
+      <b>HUM SAB BHARTIYA HAI </b>  <br>
+      <br>
+      <b>KASHMIR KI DHARTI RANI HAI, SARTAJ HIMALAY HAI</b> <br>
+      <b>SADIYON SE HAMNE ISKO APNE KHOON SE PALA HAI</b> <br>
+      <b>DESH KI RAKSHA KI KHATIR, HUM SHAMSHEER UTHA LENGE</b> <br>
+      <b>HUM SHAMSHEER UTHA LENGE</b> <br>
+      <br>
+      <b>BHIKRE BHIKRE TARE HAI HUM LEKIN JILMIL EK HAI</b> <br>
+      <b>HA HA HA HA EK HAI, HUM SAB BHARTIYA HAI</b> <br>
+      <b>MANDIR GURDWARE BHI HAI YAHAN, AUR MASZID BHI HAI YAHAN</b> <br>
+      <b>GIRJA KA GHADIYAL KAHIN MULLA KI KANKHI HAI AJHA</b> <br>
+      <b>EK HI APNA RAM HAI, EK HI ALLAH THALA HAI</b> <br>
+      <b>EK HI ALLAH THALA HAI</b> <br>
+      <br>
+      <b>RANG BIRANGE DEEPAK HAI HUM, LEKIN MAHAFIL EK HAI</b> <br>
+      <b>HA HA HA EK HAI, HO HO HO EK HA
+      </b> <br>
+      <br>
+      <b>HUM SAB BHARTIYA HAI, HUM SAB BHARTIYA HAI</b>
+  </div>
+  <br>
+  <div>
+    <h4>
+      Ranks in Senior Division NCC
+    </h4>
+  </div>
+
+  <div class="ranks">
+    <div class="rank-images">
+      <img src="/static/images/NCC/cadetsenior.png" alt="">
+      <div class="content-centre">
+        Cadet Senior Under Officer
+      </div>
+    </div>
+    <div class="rank-images">
+      <img src="/static/images/NCC/cadetunderofficer.png" alt="">
+      <div class="content-centre">
+        Cadet Under Officer
+      </div>
+    </div>
+    <div class="rank-images">
+      <img src="/static/images/NCC/MasterSergeant.png" alt="">
+      <div class="content-centre">
+        Company Quarter Master Sergeant
+      </div>
+    </div>
+  </div>
+  <div class="ranks">
+    <div class="rank-images">
+      <img src="/static/images/NCC/Sergeant.png" alt="">
+      <div class="content-centre">
+        Sergeant
+      </div>
+    </div>
+    <div class="rank-images">
+      <img src="/static/images/NCC/Corporal.png" alt="">
+      <div class="content-centre">
+        Corporal
+      </div>
+    </div>
+    <div class="rank-images">
+      <img src="/static/images/NCC/LanceCorporal.png" alt="">
+      <div class="content-centre">
+        Lance Corporal
+      </div>
+    </div>
+  </div>
+  <p>
+    All others who joined NCC are commonly called as Cadets.
+  </p>
+  <div>
+      <h4>Equivalent Ranks in Senior Division NCC </h4>
+    </div>
+    <br>
+    <br>
+    <div>
+      <table>
+        <tr>
+          <th>Army Wing</th>
+          <th>Naval Wing</th>
+          <th>Air Wing</th>
+        </tr>
+        <tr>
+          <td>Senior Under Officer</td>
+          <td>Senior Cadet Captain</td>
+          <td>Senior Under Officer</td>
+        </tr>
+        <tr>
+          <td>Cadet Under Officer</td>
+          <td>Junior Cadet Captain</td>
+          <td>Cadet Under Officer</td>
+        </tr>
+        <tr>
+          <td>Company Quarter Master sergeant</td>
+          <td>Petty Officer Sergeant Major</td>
+          <td>Warrant Officer</td>
+        </tr>
+        <tr>
+          <td>Sergeant</td>
+          <td>Leader Cadet</td>
+          <td>Sergeant</td>
+        </tr>
+        <tr>
+          <td>Corporal</td>
+          <td>Cadet Class I</td>
+          <td>Corporal</td>
+        </tr>
+        <tr>
+          <td>Lance Corporal</td>
+          <td>Cadet Class II</td>
+          <td>Leading Flight Cadet</td>
+        </tr>
+        <tr>
+          <td>Cadet</td>
+          <td>Cadet</td>
+          <td>Cadet</td>
+        </tr>
+      </table>
+    </div>
+  <br>
+  <div>
+    <h4>Centrally Organized Camps</h4>
+  </div>
+  <br>
+  <div>
+    <ol type="1">
+      <li>Leadership Camp</li>
+      <li>Vayu Sainik Camp</li>
+      <li>Nau Sainik Camp</li>
+      <li>Rock Climbing Camp</li>
+      <li>Trekking camp</li>
+      <li>National Integration Camp (NIC)</li>
+      <li>Thal Sainik Camp (TSC)</li>
+      <li>Army Attachment Camp (AAC)</li>
+      <li>Airforce Attachment Camp (AAC)</li>
+      <li>Republic Day Camp (RDC)</li>
+      <li>Annual training Camp(ATC)</li>
+    </ol>
+    <h4>Training</h4>
+  </div>
+  <br>
+  <div>
+    &nbsp;&nbsp; Drill, shooting, Physical fitness, map reading, First aid, Gliding/Flying, boat pulling, sailing and camp training covering basic of military training in Army, Navy and Air Force. <br><br>
+
+    &nbsp;&nbsp; This training is mostly carried out in schools and colleges by the cadets. In addition, depending upon the type of service, basic knowledge of that service is imparted to the cadets e.g gliding , powered flying for Air Wing cadets and boat pulling, sailing for Naval Wing cadets form part of institutional training. These activities comprise approximately 50% of the entire syllabus. <br><br>
+
+    &nbsp;&nbsp;This is the most imp aspect of NCC Trg and hence great emphasis on institutional trg to be given. State DDG's to issue comprehensive instrs on organising the Institutional Trg at Gp / Unit level. <br><br>
+
+    Following actions will be taken to improve the standard of trg.
+    <br>
+    <ol>
+      <li>Optimum utilization of PI Staff for Trg.</li>
+      <li>Greater involvement of Offrs, WTLO's and ANO's.</li>
+      <li>Deficiencies in trg aids will be made up expeditiously.</li>
+    </ol>
+  </div>
+  <div>
+    <h4>Basic Training</h4>
+  </div>
+  <br> <br>
+  <div>
+    <h4>1. Drill</h4>
+    <br>
+    Cadets must be made to understand the aim and purpose of teaching drill, so that they are suitably motivated and do not take it as "fatigue". Emphasis will be laid on correct bearing, marching, saluting and arms drill. Inter-squad competitions may be organized to create interest.
+    <br><br>
+    <h4>2. Weapon Training</h4>
+    <br>
+    Cadets generally take keen interest in wpn trg and firing. Units must liaise with nearby Service and Para-Military Units to ensure that all cdts get an opportunity to fire their authorized amn. Use of firing simulators may be made to optimize trg efforts where possible.
+    <br><br>
+    <h4>3. Adventure Training</h4>
+    <br>
+    Adventure activities have been incorporated in NCC training with the aim of inculcating and strengthening leadership traits amongst the cadets. These activities in NCC can be broadly divided into the following.
+    <br>
+    <ol>
+      <li>Land based   - Mountaineering,Rock Climbing,Trekking</li>
+      <li>Water based - Sailing Expedition,White Water Rafting,Scuba Diving,River </li>
+      <li>Air based - Parasailing.</li>
+    </ol>
+    <br>
+  </div>
+  <div>
+    <h4>Youth exchange programme</h4>
+  </div>
+  <div>
+    This is a very important activity. It is done to increase international understanding and bolster awareness. These exchanges are done with NCC community of 10 countries namely Australia, Bangladesh, Bhutan, Canada, Maldives, Nepal, Singapore, UK, Russia and Vietnam at international level.
+    <br><br>
+    <h4>Checks</h4>
+    <br>
+    All OC Units are keeping a check of Institutional trg regularly to ensure proper attendance. Attendance registers are marked before the commencement of the parade and NOT repeat NOT after the parade. <br><br>
+
+    All DDG's are putting an effective monitoring mechanism which is in place to check attendance and conduct of this trg.
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div>
+    <h4>NCC Social Service Activities</h4>
+  </div>
+  <br> <br>
+  <div>
+    NCC has adopted community development activities with the aim of imbibing amongst cadets selfless service to the community, dignity of labour importance of self help, need to protect the environment and to assist weaker sections of the society in their upliftment. This was envisaged through programmes involving <br>
+    <ul>
+      <li>Adult-education</li>
+      <li>Tree plantation</li>
+      <li>Blood donation</li>
+      <li>Anti Dowry Rally</li>
+      <li>Anti Female Infanticide Pledge</li>
+      <li>Anti Leprosy Drive</li>
+      <li>AIDS Awareness Rally</li>
+      <li>Visit to Old Age Homes</li>
+      <li>Slum clearance</li>
+      <li>Disaster Management & Relief</li>
+      <li>Village upliftment and various other social schemes</li>
+    </ul>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div>
+    <h4>Certification Programme</h4>
+  </div>
+  <div>
+    <br>
+    <h4>General</h4>
+    <br>
+    The eligibility conditions and the general procedure for the conduct of the Certificate Examination for Cadets of Senior and Junior Division/Wings NCC(All wings) have been issued by this HQ from time to time. The aim of this Directive is to consolidate all such instruction and revise these, where necessary. <br><br>
+    <h4>Type of Examination</h4>
+    <br>
+    The type of Certificate Examination and the unit in which these are held are given below <br>
+    <br>
+    <table>
+      <tr>
+        <th>Type of Certificate</th>
+        <th>NCC Unit</th>
+      </tr>
+      <tr>
+        <td>Certificate 'A'</td>
+        <td>Junior Division/Wing NCC</td>
+      </tr>
+      <tr>
+        <td>Certificate 'B'& 'C'</td>
+        <td>Senior Division/Wing NCC</td>
+      </tr>
+    </table>
+  </div>
+  <br>
+  <div>
+    <h4>Eligibilities for Certificate Examination</h4>
+  </div>
+  <br> <br>
+  <div>
+    <h4>For "A" Certificate Examination(Junior Division)</h4>
+    <ol>
+      <li>
+        Must be in Second year of NCC
+      </li>
+      <li>
+        Must have attended an Annual Training Camp
+      </li>
+      <li>
+        The candidate must have attended a minimum of 75% of total Training periods laid down in the syllabus for the first and second years of Junior Division/Wing NCC(All wings)
+      </li>
+      <li>
+        Break in the NCC Service of the cadet prior to his appearing. In the examination 'should not exceed more than 12 month at one time, to count his previous service. In case the break exceeds 12 months, the following procedure will be adopted <br>
+        "If he has been on the unit rolls for a minimum of two years before his discharge and had attended 75% of the total period during his NCC Service he will need another 45 periods of training to become eligible for certificate 'A' examination. In all other cases where above conditions are not fulfilled, the cadet must attend a minimum of 75% periods of the first and second year of training".
+      </li>
+    </ol>
+    <br>
+    <h4>For "B" Certificate Examination(Senior Division)</h4>
+    <br>
+    <ol>
+      <li>
+        The Cadet must be in second year of SD/SW NCC Training
+      </li>
+      <li>
+        Must have attended one Annual Training Camp/NIC/Attachment training with regular Army, Navy, Air Force Units.
+      </li>
+      <li>
+        Cadets possessing 'A' Certificate will be awarded 10 bonus marks.
+      </li>
+      <li>
+        The cadet must have attended a minimum of 75% of total training period laid down in the syllabus for the first and second years for Senior Division Wing NCC (All Wings). Break in the NCC service of the cadet SD/SE prior to appearing in the exam should not exceed more than 18 months at one time, after his discharge to count his service for Certificate 'B' Examination. In case the break exceed 18 months the following procedure will be adopted. <br>
+        "If he had been on the unit rolls for a minimum of two years before his discharge and had attended 75% of the total periods during his NCC service he will need another 45 periods of training to become eligible for certificate 'B' Examination. In all other cases where above conditions are not fulfilled, the cadet must attend a minimum 75% periods of the first and second years of training."
+      </li>
+      <li>
+        An Air Wing Cadet must do a minimum of 10 Glide launches.
+      </li>
+    </ol>
+    <br>
+    <h4>For "C" Certificate Examination(Senior Division)</h4>
+    <br>
+    <ol>
+      <li>
+        Cadet must have passsed 'B' certificate.
+      </li>
+      <li>
+        The Cadet must be in second/third year of SD/SW NCC Training
+      </li>
+      <li>
+        The Cadet must have attended a minimum of 75% of the periods of 3rd year syllabus during the academic session.
+      </li>
+      <li>
+        Break in the NCC Service of the SD/SW Cadet prior to appearing in the exam should not exceed more than 18 months at one time, after his discharge to count his previous service for Certificate 'C' examination. In case the break exceeds 18 months, the following procedure will be adopted <br>
+        "If he had been on the Unit rolls for a minimum of two years before his discharge and had attended 75% of the total period during his NCC service, he will need another 45 periods of training to become eligible for Certificate 'C' examination. In all other cases where above conditions are not fulfilled, the Cadet must attend a minimum of 75% periods of the first and second year of training."
+      </li>
+      <li>
+        Must have attended two Camp.
+      </li>
+    </ol>
+    <br>
+    <h4>Permission to Appear in Certificate Examination after Discharge</h4>
+    <br>
+    Cadets who ceased to be on rolls of NCC may be permitted to appear for certificate 'A' Examination for Junior Division/Wing and 'B' & "C" for Senior Division/Wing NCC at their own expenses within a period of 12 months of their discharge from the NCC, provided they were otherwise eligible at the time of their discharge. <br><br>
+
+    The ex-cadet so eligible can appear for the examination at any place in India by applying for the same, alongside with discharge certificate, to Local Unit Commander. The Group Commander is empowered to accept such requests from the ex-cadets.
+    <br> <br>
+    <h4>Re-Test for Improvement of Grading : 'C' Certificate</h4>
+    <br>
+    With a view to give Cadets a chance to apply for the NCC Special Entry Scheme, in case their grading improves, it has been ruled that <br>
+    <ol>
+      <li>
+        Cadets who have obtained a 'C' grading in NCC 'C' Certificate Exam and who wish to improve their grading will be allowed to appear for a retest. Only one retest will be allowed.
+      </li>
+      <li>
+        Cadets will have to re-appear in complete examination.
+      </li>
+      <li>
+        Retest will be held alongwith fresh cases nexe year. During the period, these Cadets may attend at least two weeks' Special Parade/Coaching classes to be organised by units after he academic session. Those Cadets who do not attend the Special Parade/Classes will also be eligible to appear in the re-test. No refreshment or other allowance will be admissible for these classes/parade/retest
+      </li>
+    </ol>
+
+</div>
+
+  
+  
+{% endblock %}

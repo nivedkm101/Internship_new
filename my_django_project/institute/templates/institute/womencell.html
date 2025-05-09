@@ -1,0 +1,64 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}    
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<div id="root" class="container container-fluid my-4 py-2">
+    <div id="main_lbl" class="text-center">
+      <strong class="h1">Women Cell</strong>
+    </div>
+    <br>
+    <div id="txtContent" class="text-justify">
+      <h5>The empowered in their capacities develop confidence!!</h5>
+      <p>The health and safety concerns of women are paramount for the well being of a country. The institute has established a Women Cell in the college campus to empower female students and staff members in order to develop confidence,
+        to enhance understanding of issues related to women and to make the college campus a safe place for female students and staffs.</p>
+        <h5>AIM</h5>
+        <p>To commemorate the achievements of women, to acknowledge the special status they deserve in society and to give protection for female gender.</p>
+        <h5>OBJECTIVES OF THE CELL</h5>
+      <p>
+        <li> To offer awareness programmes/ Guest Lectures and Workshop for female gender to
+          empower and advance their development as individuals in their own right.</li>
+  
+        <li>To create a conducive counseling environment for female gender to share their
+          problems.</li>
+  
+        <li>  Observing the law on Sexual Harassment</li>
+  
+  
+        <br>
+        <h5>MEMBERS OF THE COMMITTEE:-</h5>
+        <div class="d-flex flex-column align-items-center gap-5">
+            {% for staff in staff_list %}
+            <div class="row w-100 justify-content-center align-items-center mb-4">
+                <div class="col-md-2 d-flex justify-content-center">
+                    {% if staff.static_img %}
+                        <img src="{% static staff.static_img %}" alt="{{ staff.name }}" class="oval-img">
+                    {% else %}
+                        <img src="{% static 'images/default-profile.png' %}" alt="No Image" class="oval-img">
+                    {% endif %}
+                </div>
+                <div class="col-md-6">
+                    <div style="font-size:1.15rem;">
+                        <p><b>Name :</b> {{ staff.name }}</p>
+                        <p><b>Designation :</b> {{ staff.designation }}</p>
+                        <p><b>Role :</b> {{ staff.role_set.first.role }}</p>
+                        <p><b>E-Mail :</b> 
+                            {% if staff.role_set.first.mail %}
+                                {{ staff.role_set.first.mail }}
+                            {% else %}
+                                {{ staff.email }}
+                            {% endif %}
+                        </p>
+                        <p><b>Phone :</b> {{ staff.role_set.first.phone|default:staff.phone }}</p>
+                        {% if staff.mobile %}
+                            <p><b>Mobile :</b> {{ staff.mobile }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+           <a href="/static/docs/womencell/Women_Cell_Activities_2013-14.pdf"><strong >  Activities of the cell during the year 2013-2014</strong></a><br><br>
+           
+
+{% endblock%}

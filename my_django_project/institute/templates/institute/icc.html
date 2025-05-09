@@ -23,11 +23,11 @@
         {% for index in ICC %}
                 <div class="panel-body border p-2">
                     <a id="item" href="{{ index.url }}" style="text-decoration: none">
-                        {{ index.title }}&nbsp;
+                        {{ index.title }}
                         {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
                     </a>
                 </div>
-            <br>
+            
         {% endfor %}
     
     <br>

@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<div id="root" class="container container-fluid my-4 py-2">
+    
+  <div id="root" class="container container-fluid my-4 py-2">
+    <div id="main_lbl" class="text-center">
+      <strong class="h1">Public Grievances</strong>
+    </div>
+    <br>
+    <div id="txtContent" class="text-justify">
+      <p>
+        A Grievance Portal functions round the clock to interact, counsel, and resolve the problems faced by the students.
+           A highly dedicated team led by our Director ensures that the grievances of the students are addressed and resolved immediately.
+      </p>
+      <h5>For Lodging the Grievance, the user is required to register in the following link:</h5>
+  
+   <a href="https://pgportal.gov.in/" style="font-size: 20px;">Grievance Registration Form</a><br><br>
+   <br><h5>Public Grievances</h5>
+   
+   <div class="d-flex flex-column align-items-center gap-5">
+    {% for staff in staff_list %}
+    <div class="row w-100 justify-content-center align-items-center mb-4">
+        <div class="col-md-2 d-flex justify-content-center">
+            {% if staff.static_img %}
+                <img src="{% static staff.static_img %}" alt="{{ staff.name }}" class="oval-img">
+            {% else %}
+                <img src="{% static 'images/default-profile.png' %}" alt="No Image" class="oval-img">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <div style="font-size:1.15rem;">
+                <p><b>Name :</b> {{ staff.name }}</p>
+                <p><b>Designation :</b> {{ staff.designation }}</p>
+                <p><b>Role :</b> {{ staff.role_set.first.role }}</p>
+                <p><b>E-Mail :</b> 
+                    {% if staff.role_set.first.mail %}
+                        {{ staff.role_set.first.mail }}
+                    {% else %}
+                        {{ staff.email }}
+                    {% endif %}
+                </p>
+                <p><b>Phone :</b> {{ staff.role_set.first.phone|default:staff.phone }}</p>
+                {% if staff.mobile %}
+                    <p><b>Mobile :</b> {{ staff.mobile }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+    “If complainants fail to get redress to Grievances from NIT Puducherry, they can approach Directorate of Public Grievance (DPG) at<a href="https://dpg.gov.in/default.aspx "> https://dpg.gov.in/default.aspx </a> for redress of grievance.”
+   </p>
+  </div>
+  
+  
+</div>
+
+{%endblock%}

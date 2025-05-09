@@ -12,4 +12,9 @@ urlpatterns = [
     path('bulletin/',views.bulletin,name='bulletin'),
     path('rti/',views.rti,name='rti'),
     path('nirf/',views.nirf,name='nirf'),
+    path('womencell/',views.womencell,name='womencell'),
+    path('spicmacay/',views.spicmacay,name='spicmacay'),
+    path('iqac/',views.iqac,name='iqac'),
+    path('PublicGrievances/',views.PublicGrievances,name='PublicGrievances'),
+    path("contact/", views.contact, name="contact"),
 ]

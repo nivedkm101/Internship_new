@@ -1,6 +1,28 @@
 from django.shortcuts import render
+from .models import Role, Staff
 
-# Create your views here.
+
+def training_and_placement(request):
+
+    # Get staff with training and placement role
+    req_roles = Role.objects.filter(role__icontains="Training & Placement").select_related('id')
+    
+    # Get unique staff members from those roles
+    staff_ids = req_roles.values_list('id', flat=True).distinct()
+    staff_list = Staff.objects.filter(id__in=staff_ids)
+
+    # Get the relevant role for each staff (for display)
+    staff_roles = {role.id_id: role for role in req_roles}
+
+    context = {
+        'staff_list': staff_list,
+        'staff_roles': staff_roles,
+    }
+    return render(request, 'training_and_placement/training_and_placement.html',context)
+    
+    
+ 
+
 def infrastructure(request):
     Facilities = [
         {
@@ -173,3 +195,32 @@ def testimonial(request):
         {"pic": "/static/pdf/T&P/testimonial/19to23/varun.jpg"},
     ]
     return render(request, "training_and_placement/testimonial.html", {"placement23": placement23})
+
+
+from django.shortcuts import render
+from .models import Staff, Role
+
+def tnp_contact(request):
+    # Get staff IDs from roles with "Training & Placement"
+    role_staff_ids = Role.objects.filter(role__icontains="Training & Placement") \
+                                 .values_list('id', flat=True)
+
+    # Get staff with department "Office Attendant"
+    dept_staff_qs = Staff.objects.filter(designation__icontains="Office Attendant")
+
+    # Combine all relevant staff
+    staff_ids = set(role_staff_ids) | set(dept_staff_qs.values_list('id', flat=True))
+    staff_list = Staff.objects.filter(id__in=staff_ids).prefetch_related('role_set')
+
+    # Prepare role mapping (first role per staff, for display)
+    roles = Role.objects.filter(id__in=staff_ids)
+    staff_roles = {role.id_id: role for role in roles}
+
+    context = {
+        'staff_list': staff_list,
+        'staff_roles': staff_roles,
+    }
+    return render(request, 'training_and_placement/tnp_contact.html', context)
+
+
+

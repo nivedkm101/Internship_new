@@ -1,0 +1,78 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h2 class="font-weight-bold">Training and Placement</h2>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <p>
+                The NIT Puducherry has established a full-fledged Training and Placement cell, which monitors employment opportunities and arranges campus interviews for the pre-final year and final year students. Placement cell edifies all the managerial traits, which are required for the students and prepares the students according to the requirement of the industry.
+            </p>
+            <p>
+                The cell is headed by Faculty in charge of Training and Placement. Every year, student coordinators are elected from all departments of UG and PG of the final year. The committee works in close coordination with the companies/R&D for the smooth conduct of selection process.
+            </p>
+            <h5 class="mt-4"><b>Vision</b></h5>
+            <ul>
+                <li>
+                    The Training and Placement Cell's vision is to be the go-to resource for NIT Puducherry graduate students, companies, and R&D organizations looking to hire them. This means that the cell aims to build a good reputation with recruiters and create a lucrative environment for students to get offers from the companies of their choice.
+                </li>
+            </ul>
+            <h5 class="mt-4"><b>Mission</b></h5>
+            <ul>
+                <li>
+                    <b>Infrastructure and Academic Environment:</b> The cell strives to build a favorable infrastructure and academic environment that supports students in finding employment opportunities. This includes providing access to relevant resources, career advice, and mentoring to help students adapt their skills to the needs of the corporate sector.
+                </li>
+                <li>
+                    <b>Training and collaboration:</b> The cell strives to effectively educate students and ensure that they are well-prepared for the corporate sector. We work with leading organizations and companies to give students a platform to showcase their skills and strengths. Cell improves student exposure to real-world challenges and industry trends by facilitating partnerships with industry leaders. Overall, NIT Puducherry's Education and Career Department is committed to bridging the gap between academia and industry and helping students succeed in their chosen careers.
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <h4 class="fw-bold" style="text-align: left;">Contact:</h4>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column align-items-center gap-5">
+        {% for staff in staff_list %}
+        <div class="row w-100 justify-content-center align-items-center mb-4">
+            <div class="col-md-2 d-flex justify-content-center">
+                {% if staff.static_img %}
+                    <img src="{% static staff.static_img %}" alt="{{ staff.name }}" class="oval-img">
+                {% else %}
+                    <img src="{% static 'images/default-profile.png' %}" alt="No Image" class="oval-img">
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <div style="font-size:1.15rem;">
+                    <p><b>Name :</b> {{ staff.name }}</p>
+                    <p><b>Designation :</b> {{ staff.designation }}</p>
+                    <p><b>Role :</b> {{ staff.role_set.first.role }}</p>
+                    <p><b>E-Mail :</b> 
+                        {% if staff.role_set.first.mail %}
+                            {{ staff.role_set.first.mail }}
+                        {% else %}
+                            {{ staff.email }}
+                        {% endif %}
+                    </p>
+                    <p><b>Phone :</b> {{ staff.role_set.first.phone|default:staff.phone }}</p>
+                    {% if staff.mobile %}
+                        <p><b>Mobile :</b> {{ staff.mobile }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

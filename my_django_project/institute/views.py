@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Staff,Role
+
 def institute(request):
    return render(request, "institute/institute.html")
 def campus(request):
@@ -578,6 +580,8 @@ def bulletin(request):
         }
     ]
     return render(request,"institute/bulletin.html", {"newsletter": newsletter})
+
+
 def rti(request):
     file = [
     {
@@ -593,7 +597,24 @@ def rti(request):
       'filename': 'Procedure',
     }
   ]
-    return render(request, "institute/rti.html", {"file": file})
+    req1 = Role.objects.filter(role__icontains="FAA").select_related('id') 
+    req2 = Role.objects.filter(role__icontains="CPIO").select_related('id')
+    req_roles = req1 | req2  # Correct way to combine QuerySets
+
+    # Get unique staff members from those roles
+    staff_ids = req_roles.values_list('id', flat=True).distinct()
+    staff_list = Staff.objects.filter(id__in=staff_ids)
+
+    # Optionally, get the relevant role for each staff (for display)
+    staff_roles = {role.id_id: role for role in req_roles}
+
+    context = {
+        'file': file,
+        'staff_list': staff_list,
+        'staff_roles': staff_roles,  # Map staff.id to their welfare role
+    }
+    return render(request, 'institute/rti.html', context)
+
 
 def nirf(request):  
     reports24 = [
@@ -711,7 +732,16 @@ def nirf(request):
         "url": "/static/docs/academics/nirf/2017/TopUniversityDetails_5D_AC.pdf"
     },
 ]
-    return render(request, "institute/nirf.html", {
+    req_roles = Role.objects.filter(role__icontains="NO - NIRF").select_related('id') 
+
+    # Get unique staff members from those roles
+    staff_ids = req_roles.values_list('id', flat=True).distinct()
+    staff_list = Staff.objects.filter(id__in=staff_ids)
+
+    # Optionally, get the relevant role for each staff (for display)
+    staff_roles = {role.id_id: role for role in req_roles}
+
+    context = {
         "reports24": reports24,
         "reports23": reports23,
         "reports22": reports22,
@@ -720,4 +750,109 @@ def nirf(request):
         "reports19": reports19,
         "reports18": reports18,
         "reports17": reports17,
-    })
+        'staff_list': staff_list,
+        'staff_roles': staff_roles,  # Map staff.id to their welfare role
+    }
+    
+
+    return render(request, "institute/nirf.html", context)
+
+def womencell(request):
+    
+    req1 = Role.objects.filter(role__icontains="Chairman - Women Cell").select_related('id') 
+    req2 = Role.objects.filter(role__icontains="Member - Women Cell").select_related('id')
+    req_roles = req1 | req2  # Correct way to combine QuerySets
+
+    # Get unique staff members from those roles
+    staff_ids = req_roles.values_list('id', flat=True).distinct()
+    staff_list = Staff.objects.filter(id__in=staff_ids)
+
+    # Optionally, get the relevant role for each staff (for display)
+    staff_roles = {role.id_id: role for role in req_roles}
+
+    context = {
+        'staff_list': staff_list,
+        'staff_roles': staff_roles,  # Map staff.id to their welfare role
+    }
+    return render(request, 'institute/womencell.html', context)
+
+def spicmacay(request):
+    req1 = Role.objects.filter(role__icontains="Spicmacay").select_related('id') 
+    req_roles = req1 
+    # Get unique staff members from those roles
+    staff_ids = req1.values_list('id', flat=True).distinct()
+    staff_list = Staff.objects.filter(id__in=staff_ids)
+
+    # Optionally, get the relevant role for each staff (for display)
+    staff_roles = {role.id_id: role for role in req_roles}
+
+    context = {
+        'staff_list': staff_list,
+        'staff_roles': staff_roles,  # Map staff.id to their welfare role
+    }
+    return render(request, 'institute/spicmacay.html', context)
+
+def iqac(request):
+    req1 = Role.objects.filter(role__icontains="IQAC").select_related('id') 
+    req_roles = req1 
+    # Get unique staff members from those roles
+    staff_ids = req1.values_list('id', flat=True).distinct()
+    staff_list = Staff.objects.filter(id__in=staff_ids)
+
+    # Optionally, get the relevant role for each staff (for display)
+    staff_roles = {role.id_id: role for role in req_roles}
+
+    file = [
+    {
+      'url': '/static/docs/iqac/Departmental coordinator_2nd meet.pdf',
+      'filename': 'Minutes of the IInd Meeting of IQAC',
+    },
+    ]
+   
+    jul2022 = [
+    {
+        "title": "REPORT ON FEEDBACK FOR SYLLABUS",
+        "url": "/static/docs/iqac/Report on Syllabus Feedback_signed.pdf"
+    },
+    ]
+    context = {
+        'staff_list': staff_list,
+        'staff_roles': staff_roles,  # Map staff.id to their welfare role
+        'file': file,
+        'jul2022': jul2022,
+    }
+    return render(request, 'institute/iqac.html', context)
+
+def PublicGrievances(request):
+    req1 = Role.objects.filter(role__icontains="Chairperson - Public Grievance Cell").select_related('id') 
+    req_roles = req1 
+    # Get unique staff members from those roles
+    staff_ids = req1.values_list('id', flat=True).distinct()
+    staff_list = Staff.objects.filter(id__in=staff_ids)
+
+    # Optionally, get the relevant role for each staff (for display)
+    staff_roles = {role.id_id: role for role in req_roles}
+
+    context = {
+        'staff_list': staff_list,
+        'staff_roles': staff_roles,  # Map staff.id to their welfare role
+    }
+    return render(request, 'institute/publicGrievances.html', context)
+
+def contact(request):
+    
+    Director_roles = Role.objects.filter(role__icontains="Director").select_related('id')
+
+    Director_ids = Director_roles.values_list('id', flat=True).distinct()
+    Director_list = Staff.objects.filter(id__in=Director_ids)
+
+    # Get the relevant role for each staff (for display)
+    Director_roles = {role.id_id: role for role in Director_roles}
+
+    context = {
+        'Director_list': Director_list,
+        'Director_roles': Director_roles,
+
+
+    }
+    return render(request, 'institute/contact.html',context)

@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Staff, Role 
+
 
 def students(request):
     return render(request, 'students/students.html')
@@ -340,3 +342,105 @@ def internship(request):
 
 
     return render(request, "students/internship.html", {"details": details})
+
+def welfare(request):
+    # Get staff with training and placement role
+    welfare_roles = Role.objects.filter(role__icontains="Welfare")
+
+    associate_dean_roles = welfare_roles.filter(role__icontains="Associate Dean").select_related('id')
+
+    dean_roles = welfare_roles.filter(role__icontains="Dean").exclude(role__icontains="Associate Dean").select_related('id')
+    
+    # Get unique staff members from those roles
+    dean_ids = dean_roles.values_list('id', flat=True).distinct()
+    dean_list = Staff.objects.filter(id__in=dean_ids)
+    
+    associate_dean_ids = associate_dean_roles.values_list('id', flat=True).distinct()
+    associate_dean_list = Staff.objects.filter(id__in=associate_dean_ids)
+
+    # Get the relevant role for each staff (for display)
+    dean_roles = {role.id_id: role for role in dean_roles}
+    associate_dean_roles = {role.id_id: role for role in associate_dean_roles}
+
+    context = {
+        'dean_list': dean_list,
+        'dean_roles': dean_roles,
+        'associate_dean_list': associate_dean_list,
+        'associate_dean_roles': associate_dean_roles,
+    }
+    return render(request, 'students/welfare.html',context)
+
+def council(request):
+    # Table data for council members
+    council_data = [
+        {
+            "post": "President",
+            "name": "Asif Rijo",
+            "roll": "ME21B1030",
+            "mobile": "99955 76275"
+        },
+        {
+            "post": "Vice-President",
+            "name": "Mohana G",
+            "roll": "EE21B1030",
+            "mobile": "63741 18839"
+        },
+        {
+            "post": "General Secretary",
+            "name": "Thinnavalli Sree",
+            "roll": "CS22B1057",
+            "mobile": "90329 99819"
+        },
+        {
+            "post": "Joint Secretary - I",
+            "name": "Ramajayam D",
+            "roll": "ME21D1006",
+            "mobile": "97511 10694"
+        },
+        {
+            "post": "Joint Secretary - II",
+            "name": "Bitla Mukesh Chandra",
+            "roll": "EE23B1011",
+            "mobile": "85198 51921"
+        },
+        {
+            "post": "Joint Secretary - III",
+            "name": "Kowshik V",
+            "roll": "CH23M1006",
+            "mobile": "82486 06657"
+        },
+        {
+            "post": "Joint Secretary - IV",
+            "name": "G Hemasiva Sankari",
+            "roll": "ED23B1014",
+            "mobile": "70107 74835"
+        },
+    ]
+
+    welfare_roles = Role.objects.filter(role__icontains="Welfare").select_related('id')
+    
+    # Get unique staff members from those roles
+    staff_ids = welfare_roles.values_list('id', flat=True).distinct()
+    staff_list = Staff.objects.filter(id__in=staff_ids)
+
+    # Get the relevant role for each staff (for display)
+    staff_roles = {role.id_id: role for role in welfare_roles}
+
+    context = {
+        'staff_list': staff_list,
+        'staff_roles': staff_roles,
+        "council_data": council_data,
+    }
+    return render(request, 'students/council.html',context)
+
+
+def ncc(request):
+    staff_list = Staff.objects.filter(
+        designation__iexact="Senior SASO",
+        department__iexact="Physical Education"
+    ).prefetch_related('role_set')
+
+    context = {
+        'staff_list': staff_list,
+    }
+    return render(request, 'students/ncc.html', context)
