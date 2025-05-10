@@ -1,49 +1,122 @@
 {% extends 'core/base.html' %}
-
 {% load static %}
-
-
 {% block content %}
-<div id="root" class="container container-fluid my-4 py-2">
-    <div id="main_lbl" class="text-center">
-      <strong class="h1">Curriculum & Syllabus</strong>
-    </div>
-    <br />
-    <div>
-        <form method="POST" action="{% url 'curriculum' %}" id="filtersForm">
-            {% csrf_token %}          
-        <div class="form-row">
-          <div class="col">
-            <select class="form-control" name="programme" id="programme" onchange="formChange()">
-              {% for item in programmeList %}
-                <option value="{{ item.value }}">{{ item.title }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="col">
-            <select class="form-control" name="year" id="year" onchange="formChange()">
-              {% for item in yearsList %}
-                <option value="{{ item }}">{{ item }} onwards</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="col">
-            <select class="form-control" name="dept" id="dept" onchange="formChange()">
-              {% for item in deptList %}
-                <option value="{{ item }}">{{ item }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="col">
-            <button class="btn btn-primary" type="submit">Find</button>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="mt-4 shadow">
-      <iframe src="{{ fileaddr }}" width="100%" height="900px"></iframe>
-    </div>
+{% load static %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div class="container container-fluid my-4 py-2">
+  <div class="text-center">
+    <strong class="h1">Curriculum & Syllabus</strong>
   </div>
-  
+  <br />
+<form id="filtersForm" class="d-flex flex-wrap gap-2 align-items-center">
+  <select class="form-control w-auto" id="programme" name="programme">
+    {% for item in programme_list %}
+      <option value="{{ item.value }}">{{ item.title }}</option>
+    {% endfor %}
+  </select>
+
+  <select class="form-control w-auto" id="year" name="year"></select>
+
+  <select class="form-control w-auto" id="dept" name="dept"></select>
+
+  <button class="btn btn-primary" type="submit">Find</button>
+</form>
+
+
+  <div class="mt-4 shadow">
+    <iframe id="pdfFrame" src="" width="100%" height="900px"></iframe>
+  </div>
+</div>
+
+
+<script>
+  const programmeYears = {
+    'BTECH': ['2017', '2019', '2022', '2024'],
+    'MTECH': ['2017', '2018', '2022', '2023', '2024'],
+    'PE': ['2021', '2022'],
+    'MSC': ['2022', '2024'],
+    'BSC': ['2023'],
+  };
+
+  const yearDepts = {
+    'BTECH': {
+      '2017': ['CE', 'CSE', 'ECE', 'EEE', 'MECH'],
+      '2019': ['CE', 'CSE', 'ECE', 'EEE', 'MECH'],
+      '2022': ['CE', 'CSE', 'ECE', 'EEE', 'MECH','PHY','MAT','CHE','HS','Arts and Culture'],
+      '2024': ['EEE'],
+    },
+    'MTECH': {
+      '2017': ['CSE'],
+      '2018': ['ECE', 'EEE'],
+      '2022': ['DRI'],
+      '2023': ['DI', 'CSE'],
+      '2024': ['Structural Engineering - Resilience and Sustainability', 'EEE', 'Digital Manufacturing and Smart Factories'],
+    },
+    'PE': {
+      '2021': ['NCC'],
+      '2022': ['NCC'],
+    },
+    'MSC': {
+      '2022': ['CHE', 'MAT', 'PHY'],
+      '2024': ['MAT', 'CHE', 'PHY'],
+    },
+    'BSC': {
+      '2023': ['B.Sc. B.Ed.'],
+    },
+  };
+
+  function updateYears(programme) {
+    const years = programmeYears[programme] || [];
+    $('#year').html('');
+    years.forEach(year => {
+      $('#year').append(`<option value="${year}">${year} onwards</option>`);
+    });
+    updateDepts(programme, years[0]);
+  }
+
+  function updateDepts(programme, year) {
+    const depts = (yearDepts[programme] || {})[year] || [];
+    $('#dept').html('');
+    depts.forEach(dept => {
+      $('#dept').append(`<option value="${dept}">${dept}</option>`);
+    });
+  }
+
+  $(document).ready(function() {
+    const defaultProgramme = 'BTECH';
+    updateYears(defaultProgramme);
+
+    $('#programme').change(function() {
+      const prog = $(this).val();
+      updateYears(prog);
+    });
+
+    $('#year').change(function() {
+      const prog = $('#programme').val();
+      const year = $(this).val();
+      updateDepts(prog, year);
+    });
+
+    $('#filtersForm').submit(function(e) {
+      e.preventDefault();
+      const prog = $('#programme').val();
+      const year = $('#year').val();
+      const dept = $('#dept').val();
+      const fileUrl = `/static/docs/academics/curriculum/${prog}${year}${dept}.pdf`;
+      $('#pdfFrame').attr('src', fileUrl);
+    });
+  });
+</script>
+
+<style>
+  #filtersForm select {
+  min-width: 180px;
+}
+
+#filtersForm button {
+  white-space: nowrap;
+}
+</style>
 
 {% endblock %}

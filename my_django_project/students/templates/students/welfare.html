@@ -99,6 +99,33 @@
         </div>
         {% endfor %}
     </div>
+    <table border="1" style="width: 100%; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th style="background-color: rgb(41, 41, 41); color: white;">Associate Dean - Student Welfare</th>
+      <th style="background-color: rgb(41, 41, 41); color: white;">Responsibilities</th>
+    </tr>
+  </thead>
+  <tbody  >
+    {% for dean in associate_deans %}
+    <tr>
+      <td>
+        <strong>{{ dean.name }}</strong><br/>
+      </td>
+      <td>
+        <ul>
+          {% for responsibility in dean.responsibilities %}
+          <li>{{ responsibility }}</li>
+          {% endfor %}
+        </ul><hr>
+      </td>
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+  
+</table>
+
 </div>
 
 {% endblock %}

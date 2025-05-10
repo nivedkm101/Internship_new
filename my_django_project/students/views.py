@@ -344,6 +344,40 @@ def internship(request):
     return render(request, "students/internship.html", {"details": details})
 
 def welfare(request):
+    associate_deans = [
+        {
+            'name': 'Dr. Balakumar V',
+            'responsibilities': [
+                'Student Council elections',
+                'Annual Fests',
+                'Orientation',
+                'Student Clubs',
+                'Student Associations',
+                'Medical Insurance',
+                'NCC',
+                'Sports',
+                'Alumni relations',
+                'Grievance Redressal',
+                'Institute Discipline'
+            ]
+        },
+        {
+            'name': 'Dr. Vani V',
+            'responsibilities': [
+                'Anti-ragging',
+                'Student Council elections',
+                'Annual Fests',
+                'Orientation',
+                'Student Clubs',
+                'Student Association',
+                'Counselling Services',
+                'NSS',
+                'Grievance Redressal',
+                'Campus Connect',
+                'Girls mentoring'
+            ]
+        }
+    ]
     # Get staff with training and placement role
     welfare_roles = Role.objects.filter(role__icontains="Welfare")
 
@@ -367,6 +401,7 @@ def welfare(request):
         'dean_roles': dean_roles,
         'associate_dean_list': associate_dean_list,
         'associate_dean_roles': associate_dean_roles,
+        'associate_deans': associate_deans
     }
     return render(request, 'students/welfare.html',context)
 
@@ -444,3 +479,213 @@ def ncc(request):
         'staff_list': staff_list,
     }
     return render(request, 'students/ncc.html', context)
+
+
+def nss(request):  
+    nss2025 = [
+        {
+            'title': '1. Mera Vote Campaign Report',
+            'url': '/static/docs/NSS Report/NSS Report/2024-2025/1. Mera-Vote-Campaign-Report-NITPY.pdf'
+        },
+        {
+            'title': '2. International Consumer Day Report',
+            'url': '/static/docs/NSS Report/NSS Report/2024-2025/2. International-Consumer-Day-Report.pdf'
+        },
+        {
+            'title': '3. Red Run Report 09-08-2024',
+            'url': '/static/docs/NSS Report/NSS Report/2024-2025/3. Red Run Report 09-08-2024.pdf'
+        },
+        {
+            'title': '4. HIV awareness program report 19-09-24',
+            'url': '/static/docs/NSS Report/NSS Report/2024-2025/4. HIV awareness program report 19-09-24.pdf'
+        },
+        {
+            'title': '5. Coastal clean up report 21-09-24',
+            'url': '/static/docs/NSS Report/NSS Report/2024-2025/5. Coastal clean up report 21-09-24.pdf'
+        },
+        {
+            'title': '6. Cleanliness Drive Report 17-09-2024',
+            'url': '/static/docs/NSS Report/NSS Report/2024-2025/6. Cleanliness Drive Report 17-09-2024 to 02-10-2024.pdf'
+        },
+        {
+            'title': '7. Drawing and speech competition on tobacco awareness 15-10-2024',
+            'url': '/static/docs/NSS Report/NSS Report/2024-2025/7. Drawing and speech competition on tobacco awareness 15-10-2024.pdf'
+        },
+        {
+            'title': '8. Tobacco awareness Report 16-10-2024',
+            'url': '/static/docs/NSS Report/NSS Report/2024-2025/8. Tobacco awareness Report 16-10-2024.pdf'
+        },
+        {
+            'title': '9. Cleanliness program under special campaign 4.0 to improve institute swachhata',
+            'url': '/static/docs/NSS Report/NSS Report/2024-2025/9. Cleanliness program under special campaign 4.0 to improve institute swachhata.pdf'
+        },
+        {
+            'title': '10. Awareness Programme on Drug Abuse – Report',
+            'url': '/static/docs/NSS Report/NSS Report/2024-2025/10. Awareness Programme on Drug Abuse – Report.pdf'
+        },
+        {
+            'title': '11. Constitution Day Celebration',
+            'url': '/static/docs/NSS Report/NSS Report/2024-2025/11. Constitution Day Celebration.pdf'
+        },
+        {
+            'title': "12.Celebration of National Voter's Day",
+            'url': "/static/docs/NSS Report/NSS Report/2024-2025/12.Celebration of National Voter's Day.pdf"
+        },
+        {
+            'title': "13.Good Governance Week Report",
+            'url': "/static/docs/NSS Report/NSS Report/2024-2025/13.Good governance week_report.pdf"
+        },
+    ]
+
+    nss2024 = [
+        {
+            'title': 'Chandrayaan-3 Maha Quiz',
+            'url': '/static/docs/NSS Report/NSS Report/2024/Chandrayaan-3 Maha Quiz.pdf'
+        },
+        {
+            'title': 'National Unity Day Report',
+            'url': '/static/docs/NSS Report/NSS Report/2024/National Unity Day Report.pdf'
+        },
+        {
+            'title': 'Drama-Skit Competition Report',
+            'url': '/static/docs/NSS Report/NSS Report/2024/Drama-Skit Competition Report.pdf'
+        },
+        {
+            'title': 'Swachhata Hi Seva Report',
+            'url': '/static/docs/NSS Report/NSS Report/2024/Swachhata hi seva report.pdf'
+        },
+        {
+            'title': 'LEAP (Learn Educate And Prosper) Inaguration Report',
+            'url': '/static/docs/NSS Report/NSS Report/2024/LEAP inaguration report.pdf'
+        },
+        {
+            'title': 'Coastal Cleanup Report',
+            'url': '/static/docs/NSS Report/NSS Report/2024/Coastal Cleanup Report.pdf'
+        },
+        {
+            'title': 'Painting Competition Report',
+            'url': '/static/docs/NSS Report/NSS Report/2024/Painting Competition Report.pdf'
+        },
+        {
+            'title': 'Red Run Competition',
+            'url': '/static/docs/NSS Report/NSS Report/2024/Report of Red Run Competition 2023.pdf'
+        },
+        {
+            'title': 'Distribution of National Flag',
+            'url': '/static/docs/NSS Report/NSS Report/2024/Distribution of National Flag.pdf'
+        },
+        {
+            'title': 'Indian Organ Donation Day',
+            'url': '/static/docs/NSS Report/NSS Report/2024/NIT Puducherry - Indian Organ Donation Day - Pledge - Report.pdf'
+        },
+    ]
+    nss2023 = [
+        {'title': '1-Participation in National Voters Day Competition', 'url': '/static/docs/NSS Report/NSS Report/2023/1-Participation in National Voters Day Competition.pdf'},
+        {'title': '2-Pledge-National Voters Day', 'url': '/static/docs/NSS Report/NSS Report/2023/2-Pledge-National Voters Day.pdf'},
+        {'title': '3-Blood Donation Camp at GH', 'url': '/static/docs/NSS Report/NSS Report/2023/3-Blood Donation Camp at GH.pdf'},
+        {'title': '4-Training on Basic Life Support', 'url': '/static/docs/NSS Report/NSS Report/2023/4-Training on Basic Life Support.pdf'},
+        {'title': '5-Tree Plantation Drive', 'url': '/static/docs/NSS Report/NSS Report/2023/5-Tree Plantation Drive.pdf'},
+        {'title': '6-Pledge against Drug Abuse', 'url': '/static/docs/NSS Report/NSS Report/2023/6-Pledge against Drug Abuse.pdf'},
+        {'title': '7-Service at Institute Vaccine Camp', 'url': '/static/docs/NSS Report/NSS Report/2023/7-Service at Institute Vaccine Camp.pdf'},
+        {'title': '8-Pledge-Clean Coast Safe Sea', 'url': '/static/docs/NSS Report/NSS Report/2023/8-Pledge-Clean Coast Safe Sea.pdf'},
+        {'title': '9-Seminar on Potential of Millets', 'url': '/static/docs/NSS Report/NSS Report/2023/9-Seminar on Potential of Millets.pdf'},
+        {'title': '10-Regional Pollution Response Exercise', 'url': '/static/docs/NSS Report/NSS Report/2023/10-Regional Pollution Response Exercise.pdf'},
+        {'title': '11-Rally and Sapling Plantation', 'url': '/static/docs/NSS Report/NSS Report/2023/11-Rally and Sapling Plantation.pdf'},
+        {'title': '12-Single use Plastic Awareness and Cleaning Activity', 'url': '/static/docs/NSS Report/NSS Report/2023/12-Single use Plastic Awareness and Cleaning Activity.pdf'},
+        {'title': '13-NIFTEM Visit', 'url': '/static/docs/NSS Report/NSS Report/2023/13-NIFTEM Visit.pdf'},
+        {'title': '14-Coastal Clean-up event at Mandapathur Village', 'url': '/static/docs/NSS Report/NSS Report/2023/14-Coastal Clean-up event at Mandapathur Village.pdf'},
+        {'title': '15-International Sign Language Day', 'url': '/static/docs/NSS Report/NSS Report/2023/15-International Sign Language Day.pdf'},
+        {'title': '16-LEAP Inauguration', 'url': '/static/docs/NSS Report/NSS Report/2023/16-LEAP Inauguration.pdf'},
+        {'title': '17-New Voter Registration  Drive', 'url': '/static/docs/NSS Report/NSS Report/2023/17-New Voter Registration  Drive.pdf'},
+        {'title': '18-Clean Campus Activities', 'url': '/static/docs/NSS Report/NSS Report/2023/18-Clean Campus Activities.pdf'},
+        {'title': '19-Pledge-Life Style for Environment', 'url': '/static/docs/NSS Report/NSS Report/2023/19-Pledge-Life Style for Environment.pdf'},
+        {'title': '20-Pledge on Drug Abuse and Illicit Trafficking', 'url': '/static/docs/NSS Report/NSS Report/2023/20-Pledge on Drug Abuse and Illicit Trafficking.pdf'},
+    ]
+
+    nss2022 = [
+        {'title': 'NSS unit of National Institute of Technology Puducherry, Blood Donation camp', 'url': '/static/docs/NSS Report/NSS Report/2022/Blood donation Report 2022.pdf'},
+    ]
+
+    nss2021 = [
+        {'title': 'Campus Cleaning and Seeds Sowing', 'url': '/static/docs/NSS Report/NSS Report/26 - Campus Cleaning and Seeds Sowing.pdf'},
+        {'title': 'Awareness Campaigns on HIV & TB', 'url': '/static/docs/NSS Report/NSS Report/25 - Awareness Campaigns on HIV & TB.pdf'},
+        {'title': 'Gandhi Jayanti 2021', 'url': '/static/docs/NSS Report/NSS Report/24 - Gandhi Jayanti 2021.pdf'},
+    ]
+
+    nss2020 = [
+        {'title': 'Awareness Rally on AIDS Awareness Day', 'url': '/static/docs/NSS Report/NSS Report/23 - Awareness Rally on AIDS Awareness Day.pdf'},
+        {'title': 'SWACCHATA PAKHWADA 2020', 'url': '/static/docs/NSS Report/NSS Report/22 - SWACCHATA PAKHWADA 2020.pdf'},
+    ]
+    nss2019 = [
+        {
+            'title': 'Vigilance Awareness Week-2019',
+            'url': '/static/docs/NSS Report/NSS Report/21 - Vigilance Awareness Week-2019.pdf'
+        },
+        {
+            'title': 'Swacchata Pakhwade - 2019',
+            'url': '/static/docs/NSS Report/NSS Report/20 - Swacchata Pakhwade - 2019.pdf'
+        },
+        {
+            'title': 'Swacchata Hi Seva - 2019',
+            'url': '/static/docs/NSS Report/NSS Report/19 - Swacchata Hi Seva - 2019.pdf'
+        },
+        {
+            'title': 'Rally on the Awareness on Eye Donation',
+            'url': '/static/docs/NSS Report/NSS Report/18 - Rally on the Awareness on Eye Donation.pdf'
+        },
+        {
+            'title': 'LEAP Sep; 2019 - Entrance Exam',
+            'url': '/static/docs/NSS Report/NSS Report/17 - LEAP Sep; 2019 - Entrance Exam.pdf'
+        },
+        {
+            'title': 'NIT-PY donates Blood@GH',
+            'url': '/static/docs/NSS Report/NSS Report/16 - NIT-PY donates Blood@GH.pdf'
+        },
+        {
+            'title': ' Campus Cleaning',
+            'url': '/static/docs/NSS Report/NSS Report/15 - Campus Cleaning.pdf'
+        },
+        {
+            'title': 'Visit to Karaikal Port',
+            'url': '/static/docs/NSS Report/NSS Report/14 - Visit to Karaikal Port.pdf'
+        },
+        {
+            'title': 'Friends of Police',
+            'url': '/static/docs/NSS Report/NSS Report/13-Friends of Police.pdf'
+        },
+        {
+            'title': 'Report-2019',
+            'url': '/static/docs/NSS Report/NSS Report/12-SBSI2019REPORT.pdf'
+        },
+        {
+            'title': 'Road Safety Week 2019',
+            'url': '/static/docs/NSS Report/NSS Report/11 - Road Safety Week 2019.pdf'
+        },
+        {
+            'title': 'NIT Puducherry donates Blood',
+            'url': '/static/docs/NSS Report/NSS Report/10 -NIT Puducherry donates Blood.pdf'
+        },
+    ]
+    req_roles = Role.objects.filter(role__icontains="NSS").select_related('id') 
+
+    # Get unique staff members from those roles
+    staff_ids = req_roles.values_list('id', flat=True).distinct()
+    staff_list = Staff.objects.filter(id__in=staff_ids)
+
+    # Optionally, get the relevant role for each staff (for display)
+    staff_roles = {role.id_id: role for role in req_roles}
+
+    context = {
+        'nss2025': nss2025, 
+        'nss2024': nss2024,
+        'nss2023': nss2023,
+        'nss2022': nss2022,
+        'nss2021': nss2021,
+        'nss2020': nss2020,
+        'nss2019': nss2019,
+        'staff_list': staff_list,
+        'staff_roles': staff_roles,  # Map staff.id to their welfare role
+    }
+    
+
+    return render(request, "students/nss.html", context)

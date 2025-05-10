@@ -1,0 +1,60 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h2 class="font-weight-bold">NEP 2020 Taskforce</h2>
+    </div>
+
+    <div class="d-flex flex-column align-items-center gap-5">
+        {% for staff in staff_list %}
+        <div class="row w-100 justify-content-center align-items-center mb-4">
+            <div class="col-md-2 d-flex justify-content-center">
+                {% if staff.static_img %}
+                    <img src="{% static staff.static_img %}" alt="{{ staff.name }}" class="oval-img">
+                {% else %}
+                    <img src="{% static 'images/default-profile.png' %}" alt="No Image" class="oval-img">
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <div style="font-size:1.15rem;">
+                    <p><b>Name :</b> {{ staff.name }}</p>
+                    <p><b>Designation :</b> {{ staff.designation }}</p>
+                    <p><b>Role :</b> {{ staff.role_set.first.role }}</p>
+                    <p><b>E-Mail :</b> 
+                        {% if staff.role_set.first.mail %}
+                            {{ staff.role_set.first.mail }}
+                        {% else %}
+                            {{ staff.email }}
+                        {% endif %}
+                    </p>
+                    <p><b>Phone :</b> {{ staff.role_set.first.phone|default:staff.phone }}</p>
+                    {% if staff.mobile %}
+                        <p><b>Mobile :</b> {{ staff.mobile }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-12">
+            <a href="{% static 'docs/NEP/NITPY_Road Map for NEP 2020_latest.pdf' %}"  style="font-size: larger;">
+                Roadmap Document to implement NEP2020 with effect from the academic Year 2022-23
+            </a>
+            <p class="mt-3">
+                The above Roadmap document is an outcome of a 5 Day National Workshop and a disquisition (for about 3 months) 
+                made by Faculty and staff members of NIT Puducherry, chaired by the director Dr. K. Sankaranarayanasamy. 
+                The curricula and Syllabus of various programs offered at NIT Puducherry have been modified as per the 
+                document such that NEP-2020 will be effective from the upcoming academic year 2022-23.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

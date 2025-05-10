@@ -20,6 +20,7 @@ urlpatterns = [
     path('internship/', views.internship, name='internship'),
     path('council/',views.council, name='council'),
     path('ncc/',views.ncc, name='ncc'),
+    path('nss/',views.nss, name='nss'),
 
 ]
 

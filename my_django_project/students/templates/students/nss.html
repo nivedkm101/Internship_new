@@ -1,0 +1,195 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/convocation.css' %}">      
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<script src="{% static 'js/convocation.js' %}"></script>
+<div class="container">
+    <br>
+     <h3 style="text-align: center; padding-top: 15px;"><strong>NSS</strong></h3>
+
+    <br>
+    <div id="rootWrapper">
+        <div id="root" class="container"><br>
+          <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+        <div class="card">
+            <div class="card-header" role="tab" id="heading">
+             <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse7" aria-expanded="true"
+             aria-controls="collapse7">
+              <h5 class="mb-0" style="text-align: center; color: aliceblue;">
+                2024 - 2025</h5>
+             </a>
+             </div>
+             <div id="collapse7" class="collapse " role="tabpanel" aria-labelledby="heading"
+             data-parent="#accordionEx" style="border-style: solid;">
+              {% for index in nss2025 %}
+                 <div class="panel-body border p-2">
+                     <a id="item" href="{{ index.url }}" style="text-decoration: none">
+                         {{ index.title }}&nbsp;
+                         {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
+                     </a>
+                 </div>
+                 {% endfor %}
+             </div>
+         </div><div class="card">
+            <div class="card-header" role="tab" id="heading">
+             <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse6" aria-expanded="true"
+             aria-controls="collapse6">
+              <h5 class="mb-0" style="text-align: center; color: aliceblue;">
+                2023 - 2024
+              </h5>
+             </a>
+             </div>
+             <div id="collapse6" class="collapse " role="tabpanel" aria-labelledby="heading"
+             data-parent="#accordionEx" style="border-style: solid;">
+              {% for index in nss2024 %}
+                 <div class="panel-body border p-2">
+                     <a id="item" href="{{ index.url }}" style="text-decoration: none">
+                         {{ index.title }}&nbsp;
+                         {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
+                     </a>
+                 </div>
+                 {% endfor %}
+             </div>
+         </div><div class="card">
+            <div class="card-header" role="tab" id="heading">
+             <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse5" aria-expanded="true"
+             aria-controls="collapse5">
+              <h5 class="mb-0" style="text-align: center; color: aliceblue;">
+                2022 - 2023
+              </h5>
+             </a>
+             </div>
+             <div id="collapse5" class="collapse " role="tabpanel" aria-labelledby="heading"
+             data-parent="#accordionEx" style="border-style: solid;">
+              {% for index in nss2023 %}
+                 <div class="panel-body border p-2">
+                     <a id="item" href="{{ index.url }}" style="text-decoration: none">
+                         {{ index.title }}&nbsp;
+                         {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
+                     </a>
+                 </div>
+                 {% endfor %}
+             </div>
+         </div><div class="card">
+            <div class="card-header" role="tab" id="heading">
+             <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse4" aria-expanded="true"
+             aria-controls="collapse4">
+              <h5 class="mb-0" style="text-align: center; color: aliceblue;">
+                2022 - 2021
+              </h5>
+             </a>
+             </div>
+             <div id="collapse4" class="collapse " role="tabpanel" aria-labelledby="heading"
+             data-parent="#accordionEx" style="border-style: solid;">
+              {% for index in nss2022 %}
+                 <div class="panel-body border p-2">
+                     <a id="item" href="{{ index.url }}" style="text-decoration: none">
+                         {{ index.title }}&nbsp;
+                         {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
+                     </a>
+                 </div>
+                 {% endfor %}
+             </div>
+         </div><div class="card">
+            <div class="card-header" role="tab" id="heading">
+             <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse3" aria-expanded="true"
+             aria-controls="collapse3">
+              <h5 class="mb-0" style="text-align: center; color: aliceblue;">
+                2021 - 2020
+              </h5>
+             </a>
+             </div>
+             <div id="collapse3" class="collapse " role="tabpanel" aria-labelledby="heading"
+             data-parent="#accordionEx" style="border-style: solid;">
+              {% for index in nss2021 %}
+                 <div class="panel-body border p-2">
+                     <a id="item" href="{{ index.url }}" style="text-decoration: none">
+                         {{ index.title }}&nbsp;
+                         {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
+                     </a>
+                 </div>
+                 {% endfor %}
+             </div>
+         </div><div class="card">
+            <div class="card-header" role="tab" id="heading">
+             <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse2" aria-expanded="true"
+             aria-controls="collapse2">
+              <h5 class="mb-0" style="text-align: center; color: aliceblue;">
+                2020 - 2019
+              </h5>
+             </a>
+             </div>
+             <div id="collapse2" class="collapse " role="tabpanel" aria-labelledby="heading"
+             data-parent="#accordionEx" style="border-style: solid;">
+              {% for index in nss2020   %}
+                 <div class="panel-body border p-2">
+                     <a id="item" href="{{ index.url }}" style="text-decoration: none">
+                         {{ index.title }}&nbsp;
+                         {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
+                     </a>
+                 </div>
+                 {% endfor %}
+             </div>
+         </div><div class="card">
+            <div class="card-header" role="tab" id="heading">
+             <a data-toggle="collapse" data-parent="#accordionEx" href="#collapse1" aria-expanded="true"
+             aria-controls="collapse1">
+              <h5 class="mb-0" style="text-align: center; color: aliceblue;">
+                2019 - 2018
+              </h5>
+             </a>
+             </div>
+             <div id="collapse1" class="collapse " role="tabpanel" aria-labelledby="heading"
+             data-parent="#accordionEx" style="border-style: solid;">
+              {% for index in nss2019  %}
+                 <div class="panel-body border p-2">
+                     <a id="item" href="{{ index.url }}" style="text-decoration: none">
+                         {{ index.title }}&nbsp;
+                         {% if index.new %}<span class="badge badge-danger">NEW</span>{% endif %}
+                     </a>
+                 </div>
+                 {% endfor %}
+             </div>
+         </div>
+         
+        <br>
+
+    </div>
+  </div><br><br>
+  <div class="d-flex flex-column align-items-center gap-5">
+    {% for staff in staff_list %}
+    <div class="row w-100 justify-content-center align-items-center mb-4">
+        <div class="col-md-2 d-flex justify-content-center">
+            {% if staff.static_img %}
+                <img src="{% static staff.static_img %}" alt="{{ staff.name }}" class="oval-img">
+            {% else %}
+                <img src="{% static 'images/default-profile.png' %}" alt="No Image" class="oval-img">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <div style="font-size:1.15rem;">
+                <p><b>Name :</b> {{ staff.name }}</p>
+                <p><b>Designation :</b> {{ staff.designation }}</p>
+                <p><b>Role :</b> {{ staff.role_set.first.role }}</p>
+                <p><b>E-Mail :</b> 
+                    {% if staff.role_set.first.mail %}
+                        {{ staff.role_set.first.mail }}
+                    {% else %}
+                        {{ staff.email }}
+                    {% endif %}
+                </p>
+                <p><b>Phone :</b> {{ staff.role_set.first.phone|default:staff.phone }}</p>
+                {% if staff.mobile %}
+                    <p><b>Mobile :</b> {{ staff.mobile }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+
+{% endblock%}
