@@ -689,3 +689,48 @@ def nss(request):
     
 
     return render(request, "students/nss.html", context)
+
+def medical(request):
+    Medical = [
+        {"pic": "/static/images/medical/img001.jpg", "name": "ECG Machine (Electrocardiogram)"},
+        {"pic": "/static/images/medical/img002.jpg", "name": "AED (Automated External Defibrillator)"},
+        {"pic": "/static/images/medical/img003.jpg", "name": "Oxygen Cylinder with Trolley"},
+        {"pic": "/static/images/medical/img004.jpg", "name": "Nebulizer Machine"},
+        {"pic": "/static/images/medical/img005.jpg", "name": "Physical Examination Tray"},
+        {"pic": "/static/images/medical/img006.jpg", "name": "Dressing and suturing Tray"},
+        {"pic": "/static/images/medical/img007.jpg", "name": "Urinary Catheterization Tray"},
+        {"pic": "/static/images/medical/img008.jpg", "name": "Intravenous Catheterization Tray"},
+        {"pic": "/static/images/medical/img009.jpg", "name": "Emergency equipment"},
+        {"pic": "/static/images/medical/img010.jpg", "name": "Glucometer"},
+        {"pic": "/static/images/medical/img011.jpg", "name": "Portable Hemoglobin meter"},
+        {"pic": "/static/images/medical/img012.jpg", "name": "Waiting area"},
+        {"pic": "/static/images/medical/img013.jpg", "name": "Nurses Station"},
+        {"pic": "/static/images/medical/img014.jpg", "name": "Observation Room"},
+        {"pic": "/static/images/medical/img015.jpg", "name": "Consulting Room"},
+        {"pic": "/static/images/medical/img016.jpg", "name": ""},
+    ]
+    req1 = Role.objects.filter(role__icontains="Chairman - Medical Care Committee").select_related('id') 
+    req2 = Role.objects.filter(role__icontains="Member-Medical Care Committee").select_related('id')
+    req_roles = req1 | req2  # Correct way to combine QuerySets
+
+    # Get unique staff members from those roles
+    staff_ids = req_roles.values_list('id', flat=True).distinct()
+    staff_list = Staff.objects.filter(id__in=staff_ids)
+
+    # Optionally, get the relevant role for each staff (for display)
+    staff_roles = {role.id_id: role for role in req_roles}
+
+    dept_staff_qs = Staff.objects.filter(department__icontains="Health Centre")
+    staff_ids1 =  set(dept_staff_qs.values_list('id', flat=True))
+    staff_list1 = Staff.objects.filter(id__in=staff_ids1).prefetch_related('role_set')
+    roles1 = Role.objects.filter(id__in=staff_ids1)
+    staff_roles1 = {role.id_id: role for role in roles1}
+    context = {
+        'staff_list': staff_list,
+        'staff_roles': staff_roles,  # Map staff.id to their welfare role
+        'Medical': Medical,
+        'staff_list1': staff_list1,
+        'staff_roles1': staff_roles1,  # Map staff.id to their welfare role
+    }
+    return render(request, "students/medical.html", context)
+

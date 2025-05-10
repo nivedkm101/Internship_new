@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<div id="root" class="container container-fluid my-4 py-2">
+  <div id="main_lbl" class="text-center">
+    <strong class="h1">Guest House</strong>
+  </div>
+  <br>
+  <div id="txtContent" class="text-justify">
+
+ <h5>Forms related to Guest House:</h5><br>
+
+<p><strong>For booking, please fill the guest house booking form</strong><br>
+  <li><a href="/static/docs/Guesthouse/GUEST HOUSE BOOKING FORM for Scholars and Students.pdf"> Guest House Booking Form - Students and Full time Research Scholars</a><br>
+   </li>
+   <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdJfAFrwnBgyn-kWUJJ3J9WeLTaAdXtg-kAqJKKo5IqWclrIQ/viewform"> Guest House Booking Form - Faculty/Staff/Outsiders </a><br>
+   </li>
+  <li> <a href="/static/docs/Guesthouse/Guest House Regulations - NITPY_ 04 Nov 2024.pdf"> General Guidelines for usage of Guest house Room at NIT Puducherry </a></li>
+</p><br>
+
+<b>Contact mail id: guesthouse[at]nitpy[dot]ac[dot]in</b><br>
+
+<h5><strong> CONTACT:</strong></h5>
+
+<div class="d-flex flex-column align-items-center gap-5">
+        {% for staff in staff_list %}
+        <div class="row w-100 justify-content-center align-items-center mb-4">
+            <div class="col-md-2 d-flex justify-content-center">
+                {% if staff.static_img %}
+                    <img src="{% static staff.static_img %}" alt="{{ staff.name }}" class="oval-img">
+                {% else %}
+                    <img src="{% static 'images/default-profile.png' %}" alt="No Image" class="oval-img">
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <div style="font-size:1.15rem;">
+                    <p><b>Name :</b> {{ staff.name }}</p>
+                    <p><b>Designation :</b> {{ staff.designation }}</p>
+                    <p><b>Role :</b> {{ staff.role_set.first.role }}</p>
+                    <p><b>E-Mail :</b> 
+                        {% if staff.role_set.first.mail %}
+                            {{ staff.role_set.first.mail }}
+                        {% else %}
+                            {{ staff.email }}
+                        {% endif %}
+                    </p>
+                    <p><b>Phone :</b> {{ staff.role_set.first.phone|default:staff.phone }}</p>
+                    {% if staff.mobile %}
+                        <p><b>Mobile :</b> {{ staff.mobile }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

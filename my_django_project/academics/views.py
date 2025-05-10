@@ -487,3 +487,40 @@ def results(request):
     ]
     return render(request, 'academics/results.html', {"depts": depts})
   
+def id_card(request):
+    return render(request, 'academics/idcard.html')
+
+
+def guest_house(request):
+    staff_roles = Role.objects.filter(role__icontains="Guest House").exclude(role__icontains="Accociate").select_related('id')
+    
+    # Get unique staff members from those roles
+    staff_ids = staff_roles.values_list('id', flat=True).distinct()
+    staff_list = Staff.objects.filter(id__in=staff_ids)
+
+    # Get the relevant role for each staff (for display)
+    staff_roles = {role.id_id: role for role in staff_roles}
+
+    context = {
+        'staff_list': staff_list,
+        'staff_roles': staff_roles,
+    }
+    return render(request, 'academics/guestHouse.html',context)
+
+def scstobc_cell(request):
+    req1 = Role.objects.filter(role__icontains="Nodal Officer (SC/ST/OBC Cell)").select_related('id') 
+    req2 = Role.objects.filter(role__icontains="Member(SC/ST&OBC Cell)").select_related('id')
+    req_roles = req1 | req2  # Correct way to combine QuerySets
+
+    # Get unique staff members from those roles
+    staff_ids = req_roles.values_list('id', flat=True).distinct()
+    staff_list = Staff.objects.filter(id__in=staff_ids)
+
+    # Optionally, get the relevant role for each staff (for display)
+    staff_roles = {role.id_id: role for role in req_roles}
+
+    context = {
+        'staff_list': staff_list,
+        'staff_roles': staff_roles,  # Map staff.id to their welfare role
+    }
+    return render(request, 'academics/sc-st-obc-cell.html', context)

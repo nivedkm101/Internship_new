@@ -1,26 +1,85 @@
 # College Website (Django-based)
 
-## Overview
-This project is a Django-based web application that serves as the official website for a college. It provides information about faculty, research, academic programs, alumni, and various other sections. The project is a migration from an AngularJS-based website to Django while maintaining the original structure and design.
+## About the Project
+This project is a Django-based web application developed as part of an internship program. It serves as the official website for a college, providing information about faculty, research, academic programs, alumni, and other institutional details. The project is a migration from an AngularJS-based website to Django while maintaining the original structure and design.
 
-I have ignored static folder while uploading to github cuz it contain big files like pdfs , jpg.. 
- My css and js is also presenet in the static folder so it may not visible here.
+The website is designed to be dynamic, responsive, and user-friendly, allowing administrators to manage content efficiently while providing students and visitors with easy access to information.
+
+### Key Features
+- **Dynamic Content Management:** Easily update and manage website content.
+- **Responsive Design:** Optimized for both desktop and mobile devices.
+- **Role-Based Access Control:** Secure login system for administrators and staff.
+- **Multilingual Support:** Includes translations for various languages.
+- **Database Integration:** Efficient data storage and retrieval using a relational database.
+- **Scalable Architecture:** Designed to accommodate future enhancements.
+
+---
+
+## Project Structure
+The project follows a modular structure for better maintainability and scalability. Below is the folder structure:
+
+
+W:\PTU WORKS\Internship\NIT Py\Internship_new\website
+├── manage.py                 # Django management script
+├── db.sqlite3                # SQLite database file (if used)
+├── my_django_project/        # Main Django project folder
+│   ├── __init__.py           # Marks the directory as a Python package
+│   ├── asgi.py               # ASGI configuration for asynchronous support
+│   ├── settings.py           # Project settings
+│   ├── urls.py               # URL routing for the project
+│   ├── wsgi.py               # WSGI configuration for deployment
+├── apps/                     # Folder for Django apps
+│   ├── core/                 # Core app for common functionality
+│   │   ├── __init__.py       # Marks the directory as a Python package
+│   │   ├── admin.py          # Admin interface configuration
+│   │   ├── apps.py           # App configuration
+│   │   ├── models.py         # Database models
+│   │   ├── tests.py          # Unit tests
+│   │   ├── views.py          # Views for handling requests
+│   │   └── migrations/       # Database migrations
+│   │       ├── __init__.py   # Marks the directory as a Python package
+│   └── other_apps/           # Additional apps (e.g., announcements, institute)
+├── templates/                # HTML templates for the project
+│   ├── base.html             # Base template for the website
+│   └── other_templates/      # Additional templates for specific pages
+├── static/                   # Static files (CSS, JavaScript, images)
+│   ├── css/                  # CSS files
+│   ├── js/                   # JavaScript files
+│   └── images/               # Image files
+└── requirements.txt          # Python dependencies
+
+
+
+---
+
 ## Technologies Used
 - **Frontend:** HTML, CSS, JavaScript (Migrated from AngularJS)
 - **Backend:** Django (Python)
-<!-- - **Database:** MySQL / PostgreSQL (as per requirements) -->
 - **Templates:** Django Template Engine
-<!-- - **Authentication:** Django Authentication System (for role-based access control) -->
+- **Database:** MySQL/PostgreSQL (configurable)
+- **Environment:** Virtual Environment for dependency management
 
-## Installation & Setup
+---
+
+## Installation and Setup
+
 ### Prerequisites
 Ensure you have the following installed:
 - Python (>= 3.8)
 - Django (>= 4.0)
 - MySQL/PostgreSQL
+- Git (for version control)
 - Virtual Environment (optional but recommended)
 
+### Steps to Run the Project
+1. **Clone the Repository:**
+   Navigate to the desired directory and clone the project repository:
+   ```bash
+   git clone <repository-url>
 
-## Contact
-For any queries, reach out to **Nived K M** at **nivedkm101@gmail.com**.
+   cd Internship_new
+   cd website\my_django_project
 
+
+2. **Run the Development Server: Start the Django development server:
+    python manage.py runserver

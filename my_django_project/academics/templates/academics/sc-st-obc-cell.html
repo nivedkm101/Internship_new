@@ -1,0 +1,71 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<div id="root" class="container container-fluid my-4 py-2">
+  <div id="main_lbl" class="text-center">
+    <strong class="h1">SC/ST/OBC Cell</strong>
+  </div>
+  <br>
+  <div id="txtContent" class="text-justify">
+    <p>The SC/ST/OBC Cell, a statutory body has been constituted by the Ministry of Human Resource Development (MHRD),
+       Government of India (GOI) in National Institute of Technology Puducherry
+      to safeguard the interests of the SC/ST & OBC students and employees of the Institute as per the instructions of MHRD, GOI from time to time. </p>
+      <h5>CELL FUNCTION:</h5>
+    <p>
+      <li>It functions to promote higher education among the SC/ST, OBC or weaker communities that are suffering from economic, social and educational deprivations.</li>
+
+      <li> As a Grievances Redressal Cell for the grievances of SC/ST & OBC students and renders them necessary help in solving their academic as well as administrative problems.</li>
+
+      <li>  It continuously monitors and evaluates the reservation policies and other programs intended for SC/ST & OBC by the GOI for their effective implementation at NIT Puducherry.</li>
+
+      <li> It suggests the follow-up measures to the administration of the Institute for achieving the objectives and targets laid down by MHRD, GOI for the empowerment of SC/ST/OBC.</li></p>
+    <h5>COMPLAINTS OF CASTE BASED DISCRIMINATION:</h5>
+      <p>In case of any caste based discrimination of SC/ST/OBC Students / Staff, you can lodge your complaints from your email ID, with communication details, to <b>liaisonoffr@nitpy.ac.in</b></p>
+   <h5>CELL ACTIVITIES:</h5>
+      <p> <li>Cell Meeting with SC/ST Students.</li>
+
+        <li>SC/ST/OBC Cell Email-id: <b>liaisonoffr@nitpy.ac.in</b><br></li>
+     </p>
+ <h5>CONTACT DETAILS:</h5>
+ 
+<div class="d-flex flex-column align-items-center gap-5">
+        {% for staff in staff_list %}
+        <div class="row w-100 justify-content-center align-items-center mb-4">
+            <div class="col-md-2 d-flex justify-content-center">
+                {% if staff.static_img %}
+                    <img src="{% static staff.static_img %}" alt="{{ staff.name }}" class="oval-img">
+                {% else %}
+                    <img src="{% static 'images/default-profile.png' %}" alt="No Image" class="oval-img">
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <div style="font-size:1.15rem;">
+                    <p><b>Name :</b> {{ staff.name }}</p>
+                    <p><b>Designation :</b> {{ staff.designation }}</p>
+                    <p><b>Role :</b> {{ staff.role_set.first.role }}</p>
+                    <p><b>E-Mail :</b> 
+                        {% if staff.role_set.first.mail %}
+                            {{ staff.role_set.first.mail }}
+                        {% else %}
+                            {{ staff.email }}
+                        {% endif %}
+                    </p>
+                    <p><b>Phone :</b> {{ staff.role_set.first.phone|default:staff.phone }}</p>
+                    {% if staff.mobile %}
+                        <p><b>Mobile :</b> {{ staff.mobile }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

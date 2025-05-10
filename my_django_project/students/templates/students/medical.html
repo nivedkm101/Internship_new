@@ -1,0 +1,105 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/convocation.css' %}">
+<script src="{% static 'js/convocation.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<div id="root" class="container container-fluid my-4 py-2">
+  <div id="mainLabel" class="text-center"> <strong class="h1">Medical Facilities</strong></div><br>
+    <h3><strong>About Health Centre:</strong></h3><br>
+        <p style="text-align: justify;">The Institute Health Centre is located within the campus. The NITPY health centre registered Clinical establishment under section 15 of The Clinical Establishments (Registration and Regulation) Act, 2010. The NITPY health centre has one  Medical Officer, Two Nurses and Two ambulance drivers. We provide primary health care to all students, staffs and faculty members and their families. We have two bed facility for observation and providing 24 x 7 ambulance services for any medical emergencies and also, we have a facility for Covid – 19 Rapid Antigen Testing. The NITPY health centre following the rules of Bio-Medical Waste Management as per Ministry of Environment and Forest.
+        </p><br>
+        
+
+<div class="d-flex flex-column align-items-center gap-5">
+        {% for staff in staff_list1 %}
+        <div class="row w-100 justify-content-center align-items-center mb-4">
+            <div class="col-md-2 d-flex justify-content-center">
+                {% if staff.static_img %}
+                    <img src="{% static staff.static_img %}" alt="{{ staff.name }}" class="oval-img">
+                {% else %}
+                    <img src="{% static 'images/default-profile.png' %}" alt="No Image" class="oval-img">
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <div style="font-size:1.15rem;">
+                    <p><b>Name :</b> {{ staff.name }}</p>
+                    <p><b>Designation :</b> {{ staff.designation }}</p>
+                    <p><b>Role :</b> {{ staff.role_set.first.role }}</p>
+                    <p><b>E-Mail :</b> 
+                        {% if staff.role_set.first.mail %}
+                            {{ staff.role_set.first.mail }}
+                        {% else %}
+                            {{ staff.email }}
+                        {% endif %}
+                    </p>
+                    <p><b>Phone :</b> {{ staff.role_set.first.phone|default:staff.phone }}</p>
+                    {% if staff.mobile %}
+                        <p><b>Mobile :</b> {{ staff.mobile }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h3><strong>Medical Equipment’s available in our Institute health centre: </strong></h3>
+       <p style="color: rgb(117, 117, 117);">*Electrocardiogram, Automated External Defibrillator, Oxygen cylinder with Mask, Pulse Oximeter, Nebulizer Machine, Glucometer, Haemoglobin testing meter and other Essential Emergency medical equipment’s.*</p><br>
+        
+       <div  class="gallery-container">
+            <!-- Swiper Carousel -->
+            <div class="swiper mySwiper" id="gallerybox">
+                <div class="swiper-wrapper">
+                    {% for image in Medical %}
+                        <div class="gallery-slide swiper-slide">
+                            <img  src="{{ image.pic }}" class="gallery-image" data-index="{{ forloop.counter0 }}">
+                            <p class="image-description">{{ image.name }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    <h3><strong>Details of Medical Care Committee:</strong></h3>
+ 
+<div class="d-flex flex-column align-items-center gap-5">
+        {% for staff in staff_list %}
+        <div class="row w-100 justify-content-center align-items-center mb-4">
+            <div class="col-md-2 d-flex justify-content-center">
+                {% if staff.static_img %}
+                    <img src="{% static staff.static_img %}" alt="{{ staff.name }}" class="oval-img">
+                {% else %}
+                    <img src="{% static 'images/default-profile.png' %}" alt="No Image" class="oval-img">
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <div style="font-size:1.15rem;">
+                    <p><b>Name :</b> {{ staff.name }}</p>
+                    <p><b>Designation :</b> {{ staff.designation }}</p>
+                    <p><b>Role :</b> {{ staff.role_set.first.role }}</p>
+                    <p><b>E-Mail :</b> 
+                        {% if staff.role_set.first.mail %}
+                            {{ staff.role_set.first.mail }}
+                        {% else %}
+                            {{ staff.email }}
+                        {% endif %}
+                    </p>
+                    <p><b>Phone :</b> {{ staff.role_set.first.phone|default:staff.phone }}</p>
+                    {% if staff.mobile %}
+                        <p><b>Mobile :</b> {{ staff.mobile }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

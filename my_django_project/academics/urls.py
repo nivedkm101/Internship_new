@@ -12,4 +12,7 @@ urlpatterns = [
     path('results/', views.results, name='results'),
     path('nad/', views.nad, name='nad'),
     path('nep/', views.nep, name='nep'),
+    path("idcard/", views.id_card, name="id_card"),
+    path('GuestHouse/', views.guest_house, name='guest_house'),
+    path('scstobc_cell/', views.scstobc_cell, name='scstobc_cell'),
 ]
