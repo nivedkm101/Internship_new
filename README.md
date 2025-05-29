@@ -15,6 +15,15 @@ The website is designed to be dynamic, responsive, and user-friendly, allowing a
 
 ---
 
+![Screenshot 2025-05-14 020140](https://github.com/user-attachments/assets/6fa2e2ec-2f02-46e5-a1fa-13b36aa3d96a)
+![Screenshot 2025-05-14 020304](https://github.com/user-attachments/assets/2f478277-fa94-4cda-a43d-44cd66c85ce6)
+![Screenshot 2025-05-14 020746](https://github.com/user-attachments/assets/78b5c7af-630e-4a45-ad00-faaa5f0d9430)
+![Screenshot 2025-05-14 020948](https://github.com/user-attachments/assets/ab2f0784-989b-4b80-8f89-93544bc9670d)
+![Screenshot 2025-05-14 021520](https://github.com/user-attachments/assets/25db047e-617f-40bf-aa39-639203f25728)
+![Screenshot 2025-05-14 021906](https://github.com/user-attachments/assets/a8b481c8-aa3e-467a-8aff-ad7f6be14442)
+
+
+
 ## Project Structure
 The project follows a modular structure for better maintainability and scalability. Below is the folder structure:
 
