@@ -57,3 +57,10 @@ Ensure you have the following installed:
 
 2. **Run the Development Server: Start the Django development server:
     python manage.py runserver
+
+    
+## 👤 Author
+**Nived K M**  
+📧 Email: nivedkm101@gmail.com  
+🔗 GitHub: [github.com/nivedkm101](https://github.com/nivedkm101)  
+💼 LinkedIn: [linkedin.com/in/nivedkm101](https://linkedin.com/in/nivedkm101)
